@@ -68,6 +68,14 @@ SLAMTEC LIDAR Tutorial: <https://github.com/robopeak/rplidar_ros/wiki>
    colcon build --symlink-install
    ```
 
+   For building the package seperately from other packages th following command istead of the previous line:
+
+   ```bash
+   cd ~/ros2_ws/
+   source /opt/ros/<rosdistro>/setup.bash
+   colcon build --packages-select sllidar_ros2 --symlink-install
+   ```
+
    if you find output like "colcon:command not found",you need separate [install colcon](https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#install-colcon) build tools.
 
 3. Package environment setup
