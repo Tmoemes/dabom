@@ -68,7 +68,7 @@ SLAMTEC LIDAR Tutorial: <https://github.com/robopeak/rplidar_ros/wiki>
    colcon build --symlink-install
    ```
 
-   For building the package seperately from other packages th following command istead of the previous line:
+   For building the package seperately from other packages use the following command istead of the previous line:
 
    ```bash
    cd ~/ros2_ws/
