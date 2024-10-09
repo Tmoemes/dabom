@@ -1,0 +1,7 @@
+global_params:
+  ros__parameters:
+    domain_id: 1          # Global Domain ID
+    robot_namespace: 'dabom'  # Global Namespace
+    lx: 0.3                # x-axis distance between wheel centers (robot-specific)
+    ly: 0.3                # y-axis distance between wheel centers (robot-specific)
+    wheel_radius: 0.04     # wheel radius (robot-specific)

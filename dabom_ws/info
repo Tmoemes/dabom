@@ -1,0 +1,30 @@
+Launch RViz:
+ros2 launch dabomb_description display.launch.py
+
+Launch Gazebo (with GUI):
+ros2 launch dabomb_description gazebo.launch.py gui:=True
+
+Launch Robot State:
+ros2 launch dabomb_description robot_state.launch.py
+
+
+ROS2 SLAM Launch
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/config/mapper_params_online_async.yaml 
+
+ROS2 SLAM Launch for SIM
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/config/mapper_params_online_async.yaml use_sim_time:=true
+
+Save Map ##old style## for exteralish ##
+Serialize Map ## to save map for use later with SLAM ##
+
+In mapper_params_online_async.yaml
+	mode: mapping ##for mapping##
+	      localization ##Needs maps
+	      
+	      
+
+To run nav2
+	launch slam toolbox
+	ros2 launch nav2_bringup navigation_launch.py
+
+color scheme: costmapcp
