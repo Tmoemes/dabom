@@ -150,7 +150,7 @@ void sendEncoder(){
   long count3 = motors[3].readEncoder();
 
   char message[32];
-  snprintf(message, sizeof(message), "%li,%li,%li,%li", count, count1, count2, count3);
+  snprintf(message, sizeof(message), "%li,%li,%li,%li\n", count, count1, count2, count3);
   Serial2.println(message);
 }
 
