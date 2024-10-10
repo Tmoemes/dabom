@@ -45,7 +45,8 @@ class Serial_Talker(Node):
     def arduino_vel_callback(self):
         serial_read = None
         try:
-            serial_read = self.serial_port.read_until('\n').strip()
+            self.serial_port.flush()
+            serial_read = self.serial_port.read_until('\n').strip().decode()
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
             # self.serial = serial.Serial(
@@ -84,6 +85,7 @@ class Serial_Talker(Node):
     def send_serial_data(self, data):
         if self.serial_port.is_open:
             try:
+                self.serial_port.flush()
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
