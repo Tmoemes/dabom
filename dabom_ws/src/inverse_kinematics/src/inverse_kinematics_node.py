@@ -82,7 +82,8 @@ class MecanumKinematicsNode(Node):
     @staticmethod
     def wrap_angle(angle):
         """Wrap the given angle to the range [-pi, pi]."""
-        return (angle + np.pi) % (2 * np.pi) - np.pi
+        # return (angle + np.pi) % (2 * np.pi) - np.pi
+        return np.mod(angle, 2*np.pi)
 
 def main(args=None):
     rclpy.init(args=args)
