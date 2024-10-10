@@ -71,11 +71,11 @@ void loop()
 void processSerialInput(HardwareSerial &thisserial) {
   if (thisserial.available()) {
     char input[32];
-    thisserial.readBytesUntil('\n', input, 31);
+    thisserial.readBytesUntil(']', input, 31);
     Serial.println(input);
     input[31] = '\0'; // Ensure null-terminated string
     char* command = strtok(input, " "); //tokenise input on spaces
-    if (command != nullptr && strcmp(command, "m") == 0) {
+    if (command != nullptr && strcmp(command, "[m") == 0) {
       char* motorStr = strtok(NULL, " ");
       char* speedStr = strtok(NULL, " ");
       if (motorStr != nullptr && speedStr != nullptr) {
@@ -150,7 +150,7 @@ void sendEncoder(){
   long count3 = motors[3].readEncoder();
 
   char message[32];
-  snprintf(message, sizeof(message), "%li,%li,%li,%li", count, count1, count2, count3);
+  snprintf(message, sizeof(message), "(%li,%li,%li,%li)", count, count1, count2, count3);
   Serial2.println(message);
 }
 
