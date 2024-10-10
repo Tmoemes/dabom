@@ -64,6 +64,7 @@ class Serial_Talker(Node):
                     encoder_values[i] = float(encoder_values[i])
             except ValueError:
                 self.get_logger().error('Error parsing serial data')
+                self.get_logger().error(serial_read)
                 return
             calculated_velocities = self.calculate_velocities(encoder_values)
             msg = TwistStamped()
