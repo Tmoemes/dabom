@@ -10,7 +10,7 @@ class Serial_Talker(Node):
         super().__init__('Serial_Talker')
         # Declare parameters
         self.declare_parameter('timer_period', 1.0)
-        self.declare_parameter('port', '/dev/ttyUSB0')
+        self.declare_parameter('port', '/dev/ttyS0')
         self.declare_parameter('baudrate', 115200)
         self.declare_parameter('timeout', 0.01)
         self.declare_parameter('pulses_per_rev', 1440)
@@ -23,7 +23,7 @@ class Serial_Talker(Node):
         timer_period = self.get_parameter('timer_period').get_parameter_value().double_value
         self.timer = self.create_timer(timer_period, self.arduino_vel_callback)
 
-        self.port = self.get_parameter('port').get_parameter_value().string_value
+        self.port = self.get_parameter('port').get_parameter_value().string_value   
         self.baudrate = self.get_parameter('baudrate').get_parameter_value().integer_value
         self.timeout = self.get_parameter('timeout').get_parameter_value().double_value
 
@@ -34,13 +34,7 @@ class Serial_Talker(Node):
             baudrate=self.baudrate,
             timeout=self.timeout,
             write_timeout=self.timeout,
-            xonxoff=False,
-            rtscts=False,
-            dsrdtr=False
         )
-        
-        # self.serial_port.write(b'\x1b[12h')  # Disable echo
-        # self.serial_port.flush()
 
         #velocities calculation
         self.last_time = self.get_clock().now()
@@ -91,7 +85,8 @@ class Serial_Talker(Node):
     def send_serial_data(self, data):
         if self.serial_port.is_open:
             try:
-                self.serial_port.reset_output_buffer()
+                # self.serial_port.reset_output_buffer()
+                self.get_logger().info('sending: "%s"' % data.encode())
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
