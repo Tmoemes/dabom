@@ -11,10 +11,10 @@ class Serial_Talker(Node):
         # Declare parameters
         self.declare_parameter('timer_period', 1.0)
         self.declare_parameter('port', '/dev/ttyUSB0')
-        self.declare_parameter('baudrate', 9600)
+        self.declare_parameter('baudrate', 115200)
         self.declare_parameter('timeout', 1.0)
-        self.declare_parameter('pulses_per_rev', 20)
-        self.declare_parameter('wheel_radius', 0.1)
+        self.declare_parameter('pulses_per_rev', 1440)
+        self.declare_parameter('wheel_radius', 0.08)
 
         # self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
         self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 10)
