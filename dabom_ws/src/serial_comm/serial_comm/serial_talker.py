@@ -12,7 +12,7 @@ class Serial_Talker(Node):
         self.declare_parameter('timer_period', 1.0)
         self.declare_parameter('port', '/dev/ttyUSB0')
         self.declare_parameter('baudrate', 115200)
-        self.declare_parameter('timeout', 1.0)
+        self.declare_parameter('timeout', 0.01)
         self.declare_parameter('pulses_per_rev', 1440)
         self.declare_parameter('wheel_radius', 0.08)
 
@@ -56,7 +56,7 @@ class Serial_Talker(Node):
         if serial_read:
             try:
                 encoder_values = serial_read.split(',')
-                for i in range(4):
+                for i in range(len(encoder_values)):
                     encoder_values[i] = float(encoder_values[i])
             except ValueError:
                 self.get_logger().error('Error parsing serial data')
