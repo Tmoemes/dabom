@@ -35,6 +35,8 @@ class Serial_Talker(Node):
             timeout=self.timeout,
             write_timeout=self.timeout
         )
+        self.serial_port.write(b'\x1b[12h')  # Disable echo
+        self.serial_port.flush()
 
         #velocities calculation
         self.last_time = self.get_clock().now()
