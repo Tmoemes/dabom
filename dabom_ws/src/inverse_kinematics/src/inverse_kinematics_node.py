@@ -101,7 +101,8 @@ class MecanumKinematicsNode(Node):
         Returns:
             float: The angle wrapped to the range [-pi, pi].
         """
-        return (angle + np.pi) % (2 * np.pi) - np.pi
+        # return (angle + np.pi) % (2 * np.pi) - np.pi
+        return np.mod(angle, 2*np.pi)
 
 
 def main(args=None):
