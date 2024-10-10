@@ -4,16 +4,22 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist, TwistStamped
-from builtin_interfaces.msg import Time
 
 class MecanumKinematicsNode(Node):
+    """Node for calculating inverse kinematics for a Mecanum-wheeled robot.
+
+    Subscribes to a `cmd_vel` topic to receive desired robot velocities and 
+    computes the corresponding wheel velocities using inverse kinematics. 
+    Publishes the wheel velocities as a `TwistStamped` message.
+    """
+
     def __init__(self):
         super().__init__('mecanum_kinematics_node')
 
         # Declare ROS2 parameters for robot configuration
-        self.declare_parameter('lx', 0.3)  # Half of the wheelbase
-        self.declare_parameter('ly', 0.3)  # Half of the track width
-        self.declare_parameter('wheel_radius', 0.04)  # Wheel radius (40 mm)
+        self.declare_parameter('lx', 0.3)  # Half of the wheelbase (meters)
+        self.declare_parameter('ly', 0.3)  # Half of the track width (meters)
+        self.declare_parameter('wheel_radius', 0.04)  # Wheel radius (meters)
         self.declare_parameter('cmd_vel_topic', '/cmd_vel')
         self.declare_parameter('motor_vel_topic', '/motor_velocities')
         self.declare_parameter('frame_id', 'base_link')
@@ -26,10 +32,10 @@ class MecanumKinematicsNode(Node):
         self.motor_vel_topic = self.get_parameter('motor_vel_topic').get_parameter_value().string_value
         self.frame_id = self.get_parameter('frame_id').get_parameter_value().string_value
 
-        # Log the parameters for debugging
+        # Log the parameters once at startup
         self.get_logger().info(f'Parameters: lx={self.lx}, ly={self.ly}, wheel_radius={self.wheel_radius}')
 
-        # Subscription to the desired velocity (geometry_msgs/Twist)
+        # Subscribe to the desired velocity (geometry_msgs/Twist)
         self.subscription = self.create_subscription(
             Twist,
             self.cmd_vel_topic,
@@ -40,22 +46,27 @@ class MecanumKinematicsNode(Node):
         # Publisher for individual wheel velocities (TwistStamped) with timestamp
         self.publisher = self.create_publisher(TwistStamped, self.motor_vel_topic, 10)
 
-        # Transformation matrix for inverse kinematics
+        # Transformation matrix for inverse kinematics (precomputed at initialization)
         self.T = (1 / self.wheel_radius) * np.array([
-            [1, -1, -(self.lx + self.ly)],
-            [1, 1, (self.lx + self.ly)],
-            [1, 1, -(self.lx + self.ly)],
-            [1, -1, (self.lx + self.ly)]
+            [1, -1, -(self.lx + self.ly)],  # Wheel 1 (Front-Left)
+            [1, 1, (self.lx + self.ly)],    # Wheel 2 (Front-Right)
+            [1, 1, -(self.lx + self.ly)],   # Wheel 3 (Rear-Left)
+            [1, -1, (self.lx + self.ly)]    # Wheel 4 (Rear-Right)
         ])
 
     def cmd_vel_callback(self, msg: Twist):
+        """Callback function to process incoming velocity commands and compute wheel velocities.
+
+        Args:
+            msg (Twist): The incoming desired linear and angular velocity for the robot.
+        """
         try:
             # Extract desired linear and angular velocities
             vx = msg.linear.x
             vy = msg.linear.y
             omega = self.wrap_angle(msg.angular.z)
 
-            # Create velocity vector
+            # Create velocity vector for the robot
             velocities = np.array([vx, vy, omega])
 
             # Calculate wheel velocities using inverse kinematics
@@ -64,7 +75,7 @@ class MecanumKinematicsNode(Node):
             # Prepare and publish the motor velocity message with timestamp
             stamped_msg = TwistStamped()
             stamped_msg.header.stamp = self.get_clock().now().to_msg()  # Add the current timestamp
-            stamped_msg.header.frame_id = self.frame_id  # Use parameterized frame
+            stamped_msg.header.frame_id = self.frame_id  # Use parameterized frame ID
 
             # Set calculated wheel velocities
             stamped_msg.twist.linear.x = wheel_velocities[0]  # Wheel 1 velocity
@@ -72,30 +83,39 @@ class MecanumKinematicsNode(Node):
             stamped_msg.twist.linear.z = wheel_velocities[2]  # Wheel 3 velocity
             stamped_msg.twist.angular.x = wheel_velocities[3]  # Wheel 4 velocity
 
-            # Publish the message
+            # Publish the message with calculated wheel velocities
             self.publisher.publish(stamped_msg)
 
-            self.get_logger().info(f'Published wheel velocities: {wheel_velocities}')
+            # Log wheel velocities only at the debug level to avoid spamming logs
+            self.get_logger().debug(f'Published wheel velocities: {wheel_velocities}')
         except Exception as e:
             self.get_logger().error(f'Error in cmd_vel_callback: {str(e)}')
 
     @staticmethod
     def wrap_angle(angle):
-        """Wrap the given angle to the range [-pi, pi]."""
-        # return (angle + np.pi) % (2 * np.pi) - np.pi
-        return np.mod(angle, 2*np.pi)
+        """Wrap the given angle to the range [-pi, pi].
+
+        Args:
+            angle (float): The input angle in radians.
+
+        Returns:
+            float: The angle wrapped to the range [-pi, pi].
+        """
+        return (angle + np.pi) % (2 * np.pi) - np.pi
+
 
 def main(args=None):
     rclpy.init(args=args)
-    mecanum_kinematics_node = MecanumKinematicsNode()
+    node = MecanumKinematicsNode()
 
     try:
-        rclpy.spin(mecanum_kinematics_node)
+        rclpy.spin(node)
     except KeyboardInterrupt:
         pass
 
-    mecanum_kinematics_node.destroy_node()
+    node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
