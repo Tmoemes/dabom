@@ -8,6 +8,7 @@
         "/home/c/dabom/install/inverse_kinematics/lib/python3.10/site-packages",
         "/home/c/dabom/build/dabomb_description",
         "/home/c/dabom/install/dabomb_description/lib/python3.10/site-packages",
+        "/home/c/dabom_ws/install/inverse_kinematics/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
@@ -20,6 +21,7 @@
         "/home/c/dabom/install/inverse_kinematics/lib/python3.10/site-packages",
         "/home/c/dabom/build/dabomb_description",
         "/home/c/dabom/install/dabomb_description/lib/python3.10/site-packages",
+        "/home/c/dabom_ws/install/inverse_kinematics/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ]

@@ -1,19 +1,24 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>xbox_controller</name>
+  <!-- Package Information -->
+  <name>inverse_kinematics</name>
   <version>0.0.1</version>
-  <description>ROS2 package for Xbox controller node that publishes cmd_vel messages.</description>
+  <description>Inverse kinematics for the dabom holonomic robot project.</description>
+
+  <!-- Maintainer and License Information -->
   <maintainer email="christopher@karg.ca">Christopher Karg</maintainer>
   <license>Apache-2.0</license>
 
-  <!-- Build tool dependencies -->
+  <!-- Build Tool Dependencies -->
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
 
-  <!-- Runtime dependencies -->
+  <!-- Runtime Dependencies -->
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
+  <depend>builtin_interfaces</depend>
 
+  <!-- Export Information -->
   <export>
     <build_type>ament_cmake</build_type>
   </export>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>unique_joint_state_publisher</name>
+  <version>0.0.1</version>
+  <description>Node that publishes JointState messages based on motor velocities.</description>
+  <maintainer email="christopher@karg.ca">Christopher Karg</maintainer>
+  <license>MIT</license>
+
+  <!-- Buildtool dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <depend>rclpy</depend> 
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <!-- Export dependencies -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
