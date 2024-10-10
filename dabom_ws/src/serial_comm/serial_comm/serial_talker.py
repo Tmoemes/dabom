@@ -8,16 +8,25 @@ class Serial_Talker(Node):
 
     def __init__(self):
         super().__init__('Serial_Talker')
+        # Declare parameters
+        self.declare_parameter('timer_period', 1.0)
+        self.declare_parameter('port', '/dev/ttyUSB0')
+        self.declare_parameter('baudrate', 9600)
+        self.declare_parameter('timeout', 1.0)
+        self.declare_parameter('pulses_per_rev', 20)
+        self.declare_parameter('wheel_radius', 0.1)
+
         # self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
         self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 10)
         self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 10)
-        timer_period = 0.5  # seconds
+        
+        timer_period = self.get_parameter('timer_period').get_parameter_value().double_value
         self.timer = self.create_timer(timer_period, self.arduino_vel_callback)
 
-        # port='/dev/serial0',  # Raspberry Pi 4 built-in serial port
-        self.port='/dev/ttyUSB0'  # ch340 seral usb port
-        self.baudrate=115200
-        self.timeout = 0.01
+        self.port = self.get_parameter('port').get_parameter_value().string_value
+        self.baudrate = self.get_parameter('baudrate').get_parameter_value().integer_value
+        self.timeout = self.get_parameter('timeout').get_parameter_value().double_value
+
 
         # Initialize serial communication
         self.serial_port = serial.Serial(
@@ -29,8 +38,8 @@ class Serial_Talker(Node):
 
         #velocities calculation
         self.last_time = self.get_clock().now()
-        self.pulses_per_rev = 1440
-        self.wheel_radius = 0.08
+        self.pulses_per_rev = self.get_parameter('pulses_per_rev').get_parameter_value().integer_value
+        self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
         self.last_encoder_values = [0, 0, 0, 0]
 
     def arduino_vel_callback(self):
