@@ -51,7 +51,7 @@ class Serial_Talker(Node):
     def arduino_vel_callback(self):
         serial_read = None
         try:
-            serial_read = self.serial_port.read_until(')').removeprefix('(').removesuffix(')')
+            serial_read = self.serial_port.read_until(')').decode().removeprefix('(').removesuffix(')')
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
             self.serial = serial.Serial(
