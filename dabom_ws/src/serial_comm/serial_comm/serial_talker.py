@@ -51,7 +51,6 @@ class Serial_Talker(Node):
     def arduino_vel_callback(self):
         serial_read = None
         try:
-            self.serial_port.flush()
             serial_read = self.serial_port.readline().strip().decode()
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
@@ -77,6 +76,7 @@ class Serial_Talker(Node):
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
+            self.serial_port.reset_input_buffer()
 
     def calculate_velocities(self, encoder_values):
         current_time = self.get_clock().now()
@@ -92,7 +92,7 @@ class Serial_Talker(Node):
     def send_serial_data(self, data):
         if self.serial_port.is_open:
             try:
-                self.serial_port.flush()
+                self.serial_port.reset_output_buffer()
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
@@ -104,7 +104,7 @@ class Serial_Talker(Node):
                 )
 
     def motor_vel_callback(self, msg):
-        self.get_logger().info('Received: "%s"' % msg)
+        # self.get_logger().info('Received: "%s"' % msg)
         motor_vels = [msg.twist.linear.x, msg.twist.linear.y,msg.twist.linear.z, msg.twist.angular.x]
         # Send the message over the serial port
         for i in range(4):
