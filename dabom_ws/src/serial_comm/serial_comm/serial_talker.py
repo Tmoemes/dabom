@@ -72,6 +72,8 @@ class Serial_Talker(Node):
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
+            self.get_logger().info('receiving: "%s"' % calculated_velocities)
+            
 
     def calculate_velocities(self, encoder_values):
         current_time = self.get_clock().now()

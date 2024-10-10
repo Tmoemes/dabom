@@ -44,11 +44,11 @@ void loop()
 { 
   currentTime = millis();
 
-  // if(currentTime - d_previousTime >= 1000){
-  //     printSpeeds();
-  //     printEncoders();
-  //     d_previousTime = currentTime;
-  // }
+  if(currentTime - d_previousTime >= 1000){
+      printSpeeds();
+      printEncoders();
+      d_previousTime = currentTime;
+  }
 
   if(currentTime - lastReceivedTime >= 300){
     // Serial.println("No command received");
@@ -75,7 +75,7 @@ void processSerialInput(HardwareSerial &thisserial) {
   if (thisserial.available()) {
     char input[32] = {0};
     thisserial.readBytesUntil('\n', input, 31);
-    Serial.println(input);
+    // Serial.println(input);
     input[31] = '\0'; // Ensure null-terminated string
     char* command = strtok(input, " "); //tokenise input on spaces
     if (command != nullptr && strcmp(command, "m") == 0) {
