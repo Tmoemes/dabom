@@ -75,7 +75,7 @@ void processSerialInput(HardwareSerial &thisserial) {
   if (thisserial.available()) {
     char input[32] = {0};
     thisserial.readBytesUntil('\n', input, 31);
-    // Serial.println(input);
+    Serial.println(input);
     input[31] = '\0'; // Ensure null-terminated string
     char* command = strtok(input, " "); //tokenise input on spaces
     if (command != nullptr && strcmp(command, "m") == 0) {
@@ -106,10 +106,10 @@ void processSerialInput(HardwareSerial &thisserial) {
           motors[motor].stop();
         }
         lastReceivedTime = currentTime;
-        Serial.print("Motor: ");
-        Serial.print(motor);
-        Serial.print(", Speed: ");
-        Serial.println(targetSpeed);
+        // Serial.print("Motor: ");
+        // Serial.print(motor);
+        // Serial.print(", Speed: ");
+        // Serial.println(targetSpeed);
         
       } else {
         Serial.println("Invalid input format");
