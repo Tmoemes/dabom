@@ -90,10 +90,10 @@ class OdomNode(Node):
             ])
 
             # Convert angular velocities to linear velocities at the wheel circumference
-            wheel_velocities = wheel_angular_velocities * self.wheel_radius
+            #wheel_velocities = wheel_angular_velocities * self.wheel_radius
 
             # Compute robot velocities (vx, vy, omega) using forward kinematics
-            robot_velocities = self.T_fwd @ wheel_velocities
+            robot_velocities = self.T_fwd @ wheel_angular_velocities 
             vx, vy, omega = robot_velocities
 
             # Update robot's pose based on velocities and time delta
@@ -179,8 +179,11 @@ class OdomNode(Node):
 
     @staticmethod
     def wrap_angle(angle):
-        """Wrap the angle to [-pi, pi]."""
-        return (angle + math.pi) % (2 * math.pi) - math.pi
+        """Wrap the angle to [0, 2*pi]."""
+        # return (angle + math.pi) % (2 * math.pi) - math.pi
+        return np.mod(angle, 2*np.pi)
+
+
 
 
 def main(args=None):
