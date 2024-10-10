@@ -59,9 +59,6 @@ class Serial_Talker(Node):
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
-        
-            # Send the message over the serial port
-            # self.send_serial_data(msg.data)
 
     def calculate_velocities(self, encoder_values):
         current_time = self.get_clock().now()
@@ -74,7 +71,6 @@ class Serial_Talker(Node):
         self.last_encoder_values = encoder_values
         return angular_velocities
         
-
     def send_serial_data(self, data):
         if self.serial_port.is_open:
             try:
@@ -93,11 +89,9 @@ class Serial_Talker(Node):
         motor_vels = [msg.twist.linear.x, msg.twist.linear.y,msg.twist.linear.z, msg.twist.angular.x]
         # Send the message over the serial port
         for i in range(4):
-            serial_message = F'm {i} {str(motor_vels[i])}\n'
+            serial_message = F'm {i} {str(round(motor_vels[i],3))}\n'
             self.send_serial_data(serial_message)
         
-
-
 def main(args=None):
     rclpy.init(args=args)
 
@@ -105,9 +99,6 @@ def main(args=None):
 
     rclpy.spin(serial_talker)
 
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
     serial_talker.destroy_node()
     rclpy.shutdown()
 
