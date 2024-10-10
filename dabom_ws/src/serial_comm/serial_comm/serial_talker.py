@@ -8,8 +8,8 @@ class Serial_Talker(Node):
 
     def __init__(self):
         super().__init__('Serial_Talker')
-        self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
-        # self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 10)
+        # self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
+        self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 10)
         self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 10)
         timer_period = 0.5  # seconds
         self.timer = self.create_timer(timer_period, self.arduino_vel_callback)
@@ -26,6 +26,12 @@ class Serial_Talker(Node):
             timeout=self.timeout,
             write_timeout=self.timeout
         )
+
+        #velocities calculation
+        self.last_time = self.get_clock().now()
+        self.pulses_per_rev = 1440
+        self.wheel_radius = 0.08
+        self.last_encoder_values = [0, 0, 0, 0]
 
     def arduino_vel_callback(self):
         serial_read = None
@@ -46,15 +52,28 @@ class Serial_Talker(Node):
             except ValueError:
                 self.get_logger().error('Error parsing serial data')
                 return
+            calculated_velocities = self.calculate_velocities(encoder_values)
             msg = TwistStamped()
-            msg.twist.linear.x = encoder_values[0]
-            msg.twist.linear.y = encoder_values[1]
-            msg.twist.linear.z = encoder_values[2]
-            msg.twist.angular.x = encoder_values[3]
+            msg.twist.linear.x = calculated_velocities[0]
+            msg.twist.linear.y = calculated_velocities[1]
+            msg.twist.linear.z = calculated_velocities[2]
+            msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
         
             # Send the message over the serial port
             # self.send_serial_data(msg.data)
+
+    def calculate_velocities(self, encoder_values):
+        current_time = self.get_clock().now()
+        delta_time = (current_time - self.last_time).nanoseconds / 1e9
+        self.last_time = current_time
+        angular_velocities = [0, 0, 0, 0]
+        for i in range(4):
+            encoder_diff = encoder_values[i] - self.last_encoder_values[i]
+            angular_velocities[i] = (encoder_diff / self.pulses_per_rev) * 2 * 3.14159 / delta_time
+        self.last_encoder_values = encoder_values
+        return angular_velocities
+        
 
     def send_serial_data(self, data):
         if self.serial_port.is_open:
