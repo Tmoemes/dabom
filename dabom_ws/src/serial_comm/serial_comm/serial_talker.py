@@ -102,11 +102,11 @@ class Serial_Talker(Node):
                 )
 
     def motor_vel_callback(self, msg):
-        # self.get_logger().info('Received: "%s"' % msg)
         motor_vels = [msg.twist.linear.x, msg.twist.linear.y,msg.twist.linear.z, msg.twist.angular.x]
         # Send the message over the serial port
         for i in range(4):
             serial_message = F'm {i} {str(round(motor_vels[i],3))}\n'
+            self.get_logger().info('sending: "%s"' % serial_message)
             self.send_serial_data(serial_message)
         
 def main(args=None):
