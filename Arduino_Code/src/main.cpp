@@ -19,7 +19,7 @@ long lastReceivedTime = 0;
 void setup()
 {
   // Used to display information
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   Serial2.begin(115200);
 
@@ -70,10 +70,11 @@ void loop()
 
 void processSerialInput(HardwareSerial &thisserial) {
   if (thisserial.available()) {
-    char input[32];
-    thisserial.readBytesUntil('\n', input, 31);
+    char input[64];
+    thisserial.readBytesUntil('\n', input, 63);
+    thisserial.flush();
     Serial.println(input);
-    input[31] = '\0'; // Ensure null-terminated string
+    input[63] = '\0'; // Ensure null-terminated string
     char* command = strtok(input, " "); //tokenise input on spaces
     if (command != nullptr && strcmp(command, "m") == 0) {
       char* motorStr = strtok(NULL, " ");
