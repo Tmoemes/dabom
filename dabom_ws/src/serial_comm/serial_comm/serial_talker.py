@@ -47,12 +47,13 @@ class Serial_Talker(Node):
         try:
             serial_read = self.serial_port.readline().strip().decode()
         except serial.SerialException:
-            self.serial = serial.Serial(
-                port=self.port,
-                baudrate=self.baudrate,
-                timeout=self.timeout,
-                write_timeout=self.timeout
-            )
+            self.get_logger().error('Error reading from serial port')
+            # self.serial = serial.Serial(
+            #     port=self.port,
+            #     baudrate=self.baudrate,
+            #     timeout=self.timeout,
+            #     write_timeout=self.timeout
+            # )
         if serial_read:
             try:
                 encoder_values = serial_read.split(',')
@@ -86,12 +87,12 @@ class Serial_Talker(Node):
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
-                self.serial = serial.Serial(
-                    port=self.port,
-                    baudrate=self.baudrate,
-                    timeout=self.timeout,
-                    write_timeout=self.timeout
-                )
+                # self.serial = serial.Serial(
+                #     port=self.port,
+                #     baudrate=self.baudrate,
+                #     timeout=self.timeout,
+                #     write_timeout=self.timeout
+                # )
 
     def motor_vel_callback(self, msg):
         self.get_logger().info('Received: "%s"' % msg.twist.linear.x)
