@@ -45,7 +45,7 @@ class Serial_Talker(Node):
     def arduino_vel_callback(self):
         serial_read = None
         try:
-            serial_read = self.serial_port.readline().decode()
+            serial_read = self.serial_port.read_until('\n').strip().decode()
         except serial.SerialException:
             self.serial = serial.Serial(
                 port=self.port,
@@ -56,7 +56,7 @@ class Serial_Talker(Node):
         if serial_read:
             try:
                 encoder_values = serial_read.split(',')
-                for i in range(len(encoder_values)):
+                for i in range(4):
                     encoder_values[i] = float(encoder_values[i])
             except ValueError:
                 self.get_logger().error('Error parsing serial data')
