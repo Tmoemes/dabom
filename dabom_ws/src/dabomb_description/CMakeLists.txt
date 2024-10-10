@@ -8,7 +8,7 @@ endif()
 # Find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(xacro REQUIRED)
-find_package(gazebo_ros REQUIRED)  # Required for Gazebo simulation
+find_package(gazebo_ros)  # Required for Gazebo simulation
 find_package(robot_state_publisher REQUIRED)  # Publishes URDF to TF
 find_package(urdf REQUIRED)  # For working with URDF files
 find_package(rclcpp REQUIRED)  # Required if using rclcpp nodes
