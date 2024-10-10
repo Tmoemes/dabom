@@ -46,13 +46,13 @@ def generate_launch_description():
         additional_env={'ROS_DOMAIN_ID': domain_id}
     )
 
-    joint_state_publisher_node = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher',
-        namespace=robot_id,
-        additional_env={'ROS_DOMAIN_ID': domain_id}
-    )
+    # joint_state_publisher_node = Node(
+    #     package='joint_state_publisher',
+    #     executable='joint_state_publisher',
+    #     name='joint_state_publisher',
+    #     namespace=robot_id,
+    #     additional_env={'ROS_DOMAIN_ID': domain_id}
+    # )
 
     # RViz node
     rviz_node = Node(
@@ -99,7 +99,7 @@ def generate_launch_description():
         launch_rviz_arg,
         launch_gazebo_arg,  # New argument for Gazebo
         robot_state_publisher_node,
-        joint_state_publisher_node,
+        #joint_state_publisher_node,
         rviz_node,
         gazebo_server,
         gazebo_client,
