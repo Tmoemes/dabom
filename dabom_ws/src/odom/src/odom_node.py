@@ -146,7 +146,7 @@ class OdomNode(Node):
         odom_msg.pose.pose.position.z = 0.0
 
         # Orientation (quaternion)
-        half_theta = self.theta / 2.0
+        half_theta = self.theta
         odom_msg.pose.pose.orientation.z = math.sin(half_theta)
         odom_msg.pose.pose.orientation.w = math.cos(half_theta)
 
