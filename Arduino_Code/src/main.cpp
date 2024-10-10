@@ -73,7 +73,7 @@ void loop()
 
 void processSerialInput(HardwareSerial &thisserial) {
   if (thisserial.available()) {
-    char input[32];
+    char input[32] = {0};
     thisserial.readBytesUntil('\n', input, 31);
     Serial.println(input);
     input[31] = '\0'; // Ensure null-terminated string
@@ -90,7 +90,7 @@ void processSerialInput(HardwareSerial &thisserial) {
         }
 
         double speed = atof(speedStr);
-        if(speed < -10 || speed > 10) {
+        if(speed < -16 || speed > 16) {
           Serial.println("Invalid speed");
           return;
         }
@@ -152,7 +152,7 @@ void sendEncoder(){
   long count2 = motors[2].readEncoder();
   long count3 = motors[3].readEncoder();
 
-  char message[32];
+  char message[32] = {0};
   snprintf(message, sizeof(message), "%li,%li,%li,%li", count, count1, count2, count3);
   Serial2.println(message);
 }

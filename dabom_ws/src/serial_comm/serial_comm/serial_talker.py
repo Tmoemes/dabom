@@ -46,7 +46,7 @@ class Serial_Talker(Node):
         serial_read = None
         try:
             serial_read = self.serial_port.readline().strip().decode()
-            self.get_logger().info('receiving: "%s"' % serial_read)
+            # self.get_logger().info('receiving: "%s"' % serial_read)
             
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
@@ -88,7 +88,7 @@ class Serial_Talker(Node):
         if self.serial_port.is_open:
             try:
                 # self.serial_port.reset_output_buffer()
-                self.get_logger().info('sending: "%s"' % data.encode())
+                # self.get_logger().info('sending: "%s"' % data.encode())
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
@@ -104,7 +104,7 @@ class Serial_Talker(Node):
         # Send the message over the serial port
         for i in range(4):
             serial_message = f'm {i} {str(round(motor_vels[i],3))}\n'
-            self.get_logger().info('sending: "%s"' % serial_message)
+            # self.get_logger().info('sending: "%s"' % serial_message)
             self.send_serial_data(serial_message)
         
 def main(args=None):
