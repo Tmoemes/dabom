@@ -48,7 +48,7 @@ class Serial_Talker(Node):
         serial_read = None
         try:
             self.serial_port.flush()
-            serial_read = self.serial_port.read_until('\n').strip().decode()
+            serial_read = self.serial_port.read_until('\n').strip().decode().removesuffix('\n')
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
             # self.serial = serial.Serial(
