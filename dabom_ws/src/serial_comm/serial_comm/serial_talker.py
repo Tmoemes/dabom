@@ -103,7 +103,7 @@ class Serial_Talker(Node):
         motor_vels = [msg.twist.linear.x, msg.twist.linear.y,msg.twist.linear.z, msg.twist.angular.x]
         # Send the message over the serial port
         for i in range(4):
-            serial_message = F'm {i} {str(round(motor_vels[i],3))}\n'
+            serial_message = f'm {i} {str(round(motor_vels[i],3))}\n'
             self.get_logger().info('sending: "%s"' % serial_message)
             self.send_serial_data(serial_message)
         
