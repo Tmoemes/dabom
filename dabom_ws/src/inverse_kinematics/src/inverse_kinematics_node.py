@@ -64,7 +64,7 @@ class MecanumKinematicsNode(Node):
             # Extract desired linear and angular velocities
             vx = msg.linear.x
             vy = msg.linear.y
-            omega = self.wrap_angle(msg.angular.z)
+            omega = msg.angular.z
 
             # Create velocity vector for the robot
             velocities = np.array([vx, vy, omega])
