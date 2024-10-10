@@ -39,8 +39,8 @@ class Serial_Talker(Node):
             dsrdtr=False
         )
         
-        self.serial_port.write(b'\x1b[12h')  # Disable echo
-        self.serial_port.flush()
+        # self.serial_port.write(b'\x1b[12h')  # Disable echo
+        # self.serial_port.flush()
 
         #velocities calculation
         self.last_time = self.get_clock().now()
@@ -76,7 +76,6 @@ class Serial_Talker(Node):
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
-            self.serial_port.reset_input_buffer()
 
     def calculate_velocities(self, encoder_values):
         current_time = self.get_clock().now()
@@ -92,7 +91,6 @@ class Serial_Talker(Node):
     def send_serial_data(self, data):
         if self.serial_port.is_open:
             try:
-                self.serial_port.reset_output_buffer()
                 self.serial_port.write(data.encode())
             except serial.SerialException:
                 self.get_logger().error('Error writing to serial port')
