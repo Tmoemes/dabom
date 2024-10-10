@@ -58,7 +58,7 @@ class Serial_Talker(Node):
             )
         if serial_read:
             try:
-                encoder_values = serial_read.split(',')
+                encoder_values = str(serial_read)[2:-1].split(',')
                 for i in range(4):
                     encoder_values[i] = float(encoder_values[i])
             except ValueError:
