@@ -1,10 +1,13 @@
 # dabom_bringup/computer_validation.launch.py
 
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, IncludeLaunchDescription
+from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
+from typing import Optional
 
 def generate_launch_description():
     # Get the path to the computer_bringup.launch.py file
