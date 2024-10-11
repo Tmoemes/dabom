@@ -65,7 +65,6 @@ class Serial_Talker(Node):
                     encoder_values[i] = float(encoder_values[i])
             except Exception as e:
                 self.get_logger().error('Error parsing serial data')
-                self.get_logger().error(e)
                 return
             # self.get_logger().info('read encoder val: "%s"' % encoder_values)
             calculated_velocities = self.calculate_velocities(encoder_values)
