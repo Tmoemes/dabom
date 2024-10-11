@@ -46,8 +46,7 @@ class UniqueJointStatePublisherNode(Node):
 
     def get_delta_time(self, current_time):
         """Helper function to compute the time delta in seconds."""
-        dt_duration = current_time - self.last_time
-        dt = dt_duration.seconds_nanoseconds[0] + dt_duration.seconds_nanoseconds[1] * 1e-9
+        dt = (current_time - self.last_time).nanoseconds / 1e-9
         if dt <= 0.0:
             return None  # Return None to signal invalid delta time
         self.last_time = current_time
