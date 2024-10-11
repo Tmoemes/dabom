@@ -46,7 +46,6 @@ def generate_launch_description():
         ["sllidar_ros2", "sllidar_a2m8_launch.py"],
         ["unique_joint_state_publisher"],
         ["serial_comm", "serial_talker_launch.py"],
-        ["dabomb_description", "display_launch.py"],
         ["dabomb_description", "robot_state_launch.py"]
         ]
     
