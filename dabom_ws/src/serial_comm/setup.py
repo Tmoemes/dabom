@@ -1,7 +1,6 @@
 from setuptools import find_packages, setup
 
 package_name = 'serial_comm'
-
 setup(
     name=package_name,
     version='0.0.0',
@@ -10,7 +9,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['serial_comm/launch/serial_talker_launch.py']),
+        ('share/' + package_name + '/launch', ['launch/serial_talker_launch.py']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
