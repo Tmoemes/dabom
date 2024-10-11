@@ -17,8 +17,8 @@ class Serial_Talker(Node):
         self.declare_parameter('wheel_radius', 0.08)
 
         # self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
-        self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 10)
-        self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 10)
+        self.subscription = self.create_subscription(TwistStamped, '/motor_velocities', self.motor_vel_callback, 1)
+        self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
         
         timer_period = self.get_parameter('timer_period').get_parameter_value().double_value
         self.timer = self.create_timer(timer_period, self.arduino_vel_callback)
