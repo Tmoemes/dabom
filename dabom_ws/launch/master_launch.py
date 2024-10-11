@@ -27,9 +27,6 @@ def generate_launch_file_path(package_name: str, launch_file_name: Optional[str]
         quit()
 
 
-
-
-
 def generate_launch_description():
     packages_launch_files = [
         ["unique_joint_state_publisher"],
