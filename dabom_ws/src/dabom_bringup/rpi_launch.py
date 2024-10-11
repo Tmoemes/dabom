@@ -32,9 +32,9 @@ def generate_launch_file_path(package_name: str, launch_file_name: Optional[str]
 
 
 def generate_launch_description():
-    config_file_path = os.path.join(
-        os.getenv('HOME'), 'Documents', 'dabom', 'dabom_ws', 'src', 'dabom_bringup', 'config', 'launch_config.yaml'
-    ) 
+    file_path = os.path.dirname(os.path.realpath(__file__))
+    config_file_path = os.path.join(file_path, "config", "launch_config.yaml")
+    print(config_file_path)
 
     with open(config_file_path, 'r') as file:
         config = yaml.safe_load(file)
