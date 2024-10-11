@@ -8,6 +8,7 @@ from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TwistStamped
 from geometry_msgs.msg import TransformStamped
+from tf_transformations import quaternion_from_euler
 import tf2_ros
 
 class OdomNode(Node):
@@ -147,8 +148,11 @@ class OdomNode(Node):
 
         # Orientation (quaternion)
         half_theta = self.theta
-        odom_msg.pose.pose.orientation.z = math.sin(half_theta)
-        odom_msg.pose.pose.orientation.w = math.cos(half_theta)
+        q = quaternion_from_euler(0, 0, self.theta)
+        odom_msg.pose.pose.orientation.x = q[0]
+        odom_msg.pose.pose.orientation.y = q[1]
+        odom_msg.pose.pose.orientation.z = q[2]
+        odom_msg.pose.pose.orientation.w = q[3]
 
         # Pose covariance
         odom_msg.pose.covariance = [0.01 if i % 7 == 0 else 0.0 for i in range(36)]
