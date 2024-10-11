@@ -30,7 +30,7 @@ class OdomNode(Node):
         # Subscriber to motor_velocities from arduino
         self.subscription = self.create_subscription(
             TwistStamped,
-            '/arduino_vel',  # Updated to '/arduino_vel'
+            '/motor_velocities',  # Updated to '/arduino_vel'
             self.motor_velocities_callback,
             10
         )
@@ -138,7 +138,7 @@ class OdomNode(Node):
         odom_msg = Odometry()
         odom_msg.header.stamp = current_time.to_msg()
         odom_msg.header.frame_id = 'odom'
-        odom_msg.child_frame_id = 'base_link'
+        odom_msg.child_frame_id = 'base_footprint'
 
         # Position
         odom_msg.pose.pose.position.x = self.x
@@ -168,7 +168,7 @@ class OdomNode(Node):
         t = TransformStamped()
         t.header.stamp = current_time.to_msg()
         t.header.frame_id = 'odom'
-        t.child_frame_id = 'base_link'
+        t.child_frame_id = 'base_footprint'
 
         t.transform.translation.x = self.x
         t.transform.translation.y = self.y
