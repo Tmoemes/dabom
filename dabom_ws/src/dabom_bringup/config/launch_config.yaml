@@ -1,0 +1,8 @@
+# dabom_bringup/config/launch_config.yaml
+
+launch_inverse_kinematics: true
+launch_odom: true
+launch_serial_comm: true
+launch_sllidar: true
+launch_joint_state_publisher: true
+launch_robot_state_publisher: true
