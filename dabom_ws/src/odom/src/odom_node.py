@@ -40,7 +40,7 @@ class OdomNode(Node):
             TwistStamped,
             '/motor_velocities',  # Updated to '/arduino_vel'
             self.motor_velocities_callback,
-            10
+            1
         )
         self.subscription  # Prevent unused variable warning
 
@@ -153,9 +153,9 @@ class OdomNode(Node):
         odom_msg.pose.pose.position.y = self.y
         odom_msg.pose.pose.position.z = 0.0
 
-        # Orientation (quaternion)
+        # Orientation (queuleraternion)
         half_theta = self.theta
-        q = euler_to_quaternion(self.theta)
+        q = euler_to_quaternion(self.theta + np.pi / 2)
         odom_msg.pose.pose.orientation.x = q[1]
         odom_msg.pose.pose.orientation.y = q[2]
         odom_msg.pose.pose.orientation.z = q[3]
