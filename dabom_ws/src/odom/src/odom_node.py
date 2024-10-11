@@ -155,7 +155,7 @@ class OdomNode(Node):
 
         # Orientation (queuleraternion)
         half_theta = self.theta
-        q = euler_to_quaternion(self.theta + np.pi / 2)
+        q = euler_to_quaternion(self.theta)
         odom_msg.pose.pose.orientation.x = q[1]
         odom_msg.pose.pose.orientation.y = q[2]
         odom_msg.pose.pose.orientation.z = q[3]
