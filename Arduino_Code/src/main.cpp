@@ -19,9 +19,9 @@ long lastReceivedTime = 0;
 void setup()
 {
   // Used to display information
-  Serial.begin(115200);
+  Serial.begin(9600);
 
-  Serial2.begin(115200);
+  Serial2.begin(38400);
 
   lastReceivedTime = millis();
   // Wait for Serial Monitor to be opened
@@ -58,7 +58,7 @@ void loop()
     }
   }
 
-  if(currentTime - p_previousTime >= 100){
+  if(currentTime - p_previousTime >= 20){
     
     p_previousTime = currentTime;
     sendEncoder();

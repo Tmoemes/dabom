@@ -9,9 +9,9 @@ class Serial_Talker(Node):
     def __init__(self):
         super().__init__('Serial_Talker')
         # Declare parameters
-        self.declare_parameter('timer_period', 1.0)
+        self.declare_parameter('timer_period', 0.1)
         self.declare_parameter('port', '/dev/ttyS0')
-        self.declare_parameter('baudrate', 115200)
+        self.declare_parameter('baudrate', 9600)
         self.declare_parameter('timeout', 0.01)
         self.declare_parameter('pulses_per_rev', 1440)
         self.declare_parameter('wheel_radius', 0.08)
@@ -59,20 +59,22 @@ class Serial_Talker(Node):
         if serial_read:
             try:
                 encoder_values = str(serial_read)[2:-1].split(',')
+                if len(encoder_values) != 4:
+                    raise Exception('Incorrect number of encoder values')
                 for i in range(4):
                     encoder_values[i] = float(encoder_values[i])
-            except ValueError:
+            except Exception as e:
                 self.get_logger().error('Error parsing serial data')
-                self.get_logger().error(encoder_values)
                 return
+            # self.get_logger().info('read encoder val: "%s"' % encoder_values)
             calculated_velocities = self.calculate_velocities(encoder_values)
+            # self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
             msg = TwistStamped()
             msg.twist.linear.x = calculated_velocities[0]
             msg.twist.linear.y = calculated_velocities[1]
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
-            self.get_logger().info('receiving: "%s"' % calculated_velocities)
             
 
     def calculate_velocities(self, encoder_values):
