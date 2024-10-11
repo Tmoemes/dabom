@@ -28,10 +28,8 @@ def generate_launch_description():
 
     # Process xacro file
     share_dir = get_package_share_directory('dabomb_description')
-    print(share_dir)
-    print(f"is '{share_dir}' is a file {os.path.isfile(share_dir)}")
     xacro_file = os.path.join(share_dir, 'urdf', 'dabomb.xacro')
-    print(f"is '{share_dir}' is a file {os.path.isfile(xacro_file)}")
+    print(f"is '{xacro_file}' is a file {os.path.isfile(xacro_file)}")
 
     # Generate the URDF from xacro
     robot_description_config = xacro.process_file(xacro_file)
