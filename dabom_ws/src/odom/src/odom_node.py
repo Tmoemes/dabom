@@ -38,7 +38,7 @@ class OdomNode(Node):
         # Subscriber to motor_velocities from arduino
         self.subscription = self.create_subscription(
             TwistStamped,
-            '/motor_velocities',  # Updated to '/arduino_vel'
+            '/arduino_vel',  # Updated to '/arduino_vel'
             self.motor_velocities_callback,
             1
         )
