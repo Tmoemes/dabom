@@ -37,7 +37,6 @@ def generate_launch_description():
     dabomb_description_robot_state_launch = generate_launch_file_path("dabomb_description", "robot_state_launch.py")
 
 
-
     return LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(joint_state_launch)
