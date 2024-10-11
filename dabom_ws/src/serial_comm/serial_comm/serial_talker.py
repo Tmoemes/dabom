@@ -46,7 +46,7 @@ class Serial_Talker(Node):
         serial_read = None
         try:
             serial_read = self.serial_port.readline().strip()
-            self.get_logger().info('receiving: "%s"' % serial_read)
+            # self.get_logger().info('receiving: "%s"' % serial_read)
             
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
@@ -64,9 +64,9 @@ class Serial_Talker(Node):
             except ValueError:
                 self.get_logger().error('Error parsing serial data')
                 return
-            self.get_logger().info('read encoder val: "%s"' % encoder_values)
+            # self.get_logger().info('read encoder val: "%s"' % encoder_values)
             calculated_velocities = self.calculate_velocities(encoder_values)
-            self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
+            # self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
             msg = TwistStamped()
             msg.twist.linear.x = calculated_velocities[0]
             msg.twist.linear.y = calculated_velocities[1]
