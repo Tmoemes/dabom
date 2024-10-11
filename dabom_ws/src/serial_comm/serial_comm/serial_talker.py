@@ -11,7 +11,7 @@ class Serial_Talker(Node):
         # Declare parameters
         self.declare_parameter('timer_period', 0.1)
         self.declare_parameter('port', '/dev/ttyS0')
-        self.declare_parameter('baudrate', 115200)
+        self.declare_parameter('baudrate', 9600)
         self.declare_parameter('timeout', 0.01)
         self.declare_parameter('pulses_per_rev', 1440)
         self.declare_parameter('wheel_radius', 0.08)

@@ -19,9 +19,9 @@ long lastReceivedTime = 0;
 void setup()
 {
   // Used to display information
-  Serial.begin(115200);
+  Serial.begin(9600);
 
-  Serial2.begin(115200);
+  Serial2.begin(76800);
 
   lastReceivedTime = millis();
   // Wait for Serial Monitor to be opened
