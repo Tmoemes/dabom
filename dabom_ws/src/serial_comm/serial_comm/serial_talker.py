@@ -65,14 +65,15 @@ class Serial_Talker(Node):
                 self.get_logger().error('Error parsing serial data')
                 self.get_logger().error(encoder_values)
                 return
+            self.get_logger().info('read encoder val: "%s"' % encoder_values)
             calculated_velocities = self.calculate_velocities(encoder_values)
+            self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
             msg = TwistStamped()
             msg.twist.linear.x = calculated_velocities[0]
             msg.twist.linear.y = calculated_velocities[1]
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
-            self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
             
 
     def calculate_velocities(self, encoder_values):
