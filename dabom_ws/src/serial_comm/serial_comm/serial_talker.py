@@ -9,7 +9,7 @@ class Serial_Talker(Node):
     def __init__(self):
         super().__init__('Serial_Talker')
         # Declare parameters
-        self.declare_parameter('timer_period', 1.0)
+        self.declare_parameter('timer_period', 0.1)
         self.declare_parameter('port', '/dev/ttyS0')
         self.declare_parameter('baudrate', 115200)
         self.declare_parameter('timeout', 0.01)

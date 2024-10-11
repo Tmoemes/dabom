@@ -14,7 +14,7 @@ def generate_launch_description():
                 'timeout': 0.01,
                 'pulses_per_rev': 1440,
                 'wheel_radius': 0.08,
-                'timer_period': 0.1
+                'timer_period': 0.01
             }]
         )
     ])

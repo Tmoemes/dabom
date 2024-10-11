@@ -58,7 +58,7 @@ void loop()
     }
   }
 
-  if(currentTime - p_previousTime >= 100){
+  if(currentTime - p_previousTime >= 10){
     
     p_previousTime = currentTime;
     sendEncoder();
