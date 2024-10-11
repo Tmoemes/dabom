@@ -46,7 +46,7 @@ class Serial_Talker(Node):
         serial_read = None
         try:
             serial_read = self.serial_port.readline().strip()
-            # self.get_logger().info('receiving: "%s"' % serial_read)
+            self.get_logger().info('receiving: "%s"' % serial_read)
             
         except serial.SerialException:
             self.get_logger().error('Error reading from serial port')
@@ -72,7 +72,7 @@ class Serial_Talker(Node):
             msg.twist.linear.z = calculated_velocities[2]
             msg.twist.angular.x = calculated_velocities[3]
             self.publisher_.publish(msg)
-            self.get_logger().info('receiving: "%s"' % calculated_velocities)
+            self.get_logger().info('calculated vel: "%s"' % calculated_velocities)
             
 
     def calculate_velocities(self, encoder_values):
