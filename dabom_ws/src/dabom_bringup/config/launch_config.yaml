@@ -1,0 +1,9 @@
+# dabom_bringup/config/launch_config.yaml
+
+inverse_kinematics: true
+odom: true
+serial_comm: false 
+sllidar_ros2: true
+launch_robot_state_publisher: true
+unique_joint_state_publisher: true
+dabomb_description: true
