@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/c/dabom/dabom_ws/install/x_serial/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/dabom_joy/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/serial_comm/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/odom/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/inv_kin/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/c/dabom/dabom_ws/install/x_serial/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/dabom_joy/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/serial_comm/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/odom/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages",
+        "/home/c/dabom/dabom_ws/install/inv_kin/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot name="dabomb" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="Wheel1_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Wheel3_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Wheel2_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Wheel4_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="LIDAR_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>  <!-- Hardcoded value -->
+  <mu2>0.2</mu2>  <!-- Hardcoded value -->
+  <self_collide>true</self_collide>
+</gazebo>
+
+</robot>
