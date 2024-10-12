@@ -1,0 +1,23 @@
+[0.016s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12
+[0.213s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12
+[0.237s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics
+[0.242s] -- Install configuration: ""
+[0.242s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/lib/inverse_kinematics/inverse_kinematics_node.py
+[0.242s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/launch
+[0.242s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/launch/inverse_kinematics.launch.py
+[0.242s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/ament_index/resource_index/package_run_dependencies/inverse_kinematics
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/ament_index/resource_index/parent_prefix_path/inverse_kinematics
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/environment/ament_prefix_path.sh
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/environment/ament_prefix_path.dsv
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/environment/path.sh
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/environment/path.dsv
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/local_setup.bash
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/local_setup.sh
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/local_setup.zsh
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/local_setup.dsv
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/package.dsv
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/ament_index/resource_index/packages/inverse_kinematics
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/cmake/inverse_kinematicsConfig.cmake
+[0.243s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/cmake/inverse_kinematicsConfig-version.cmake
+[0.243s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics/share/inverse_kinematics/package.xml
+[0.245s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics

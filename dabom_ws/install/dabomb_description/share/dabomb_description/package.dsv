@@ -1,3 +1,6 @@
+source;share/dabomb_description/hook/cmake_prefix_path.ps1
+source;share/dabomb_description/hook/cmake_prefix_path.dsv
+source;share/dabomb_description/hook/cmake_prefix_path.sh
 source;share/dabomb_description/local_setup.bash
 source;share/dabomb_description/local_setup.dsv
 source;share/dabomb_description/local_setup.ps1

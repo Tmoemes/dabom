@@ -1,0 +1,20 @@
+[0.016s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+[0.212s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+[0.235s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom
+[0.240s] -- Install configuration: ""
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/ament_index/resource_index/package_run_dependencies/odom
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/ament_index/resource_index/parent_prefix_path/odom
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/environment/ament_prefix_path.sh
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/environment/ament_prefix_path.dsv
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/environment/path.sh
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/environment/path.dsv
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/local_setup.bash
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/local_setup.sh
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/local_setup.zsh
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/local_setup.dsv
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/package.dsv
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/ament_index/resource_index/packages/odom
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/cmake/odomConfig.cmake
+[0.241s] -- Up-to-date: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/cmake/odomConfig-version.cmake
+[0.241s] -- Installing: /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom/share/odom/package.xml
+[0.251s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom

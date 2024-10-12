@@ -1,0 +1,30 @@
+running egg_info
+writing ../../build/xbox_controller/xbox_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/xbox_controller/xbox_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/xbox_controller/xbox_controller.egg-info/entry_points.txt
+writing requirements to ../../build/xbox_controller/xbox_controller.egg-info/requires.txt
+writing top-level names to ../../build/xbox_controller/xbox_controller.egg-info/top_level.txt
+reading manifest file '../../build/xbox_controller/xbox_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/xbox_controller/xbox_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+copying xbox_controller_node.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib
+copying xbox_controller/__init__.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller
+running install
+running install_lib
+copying /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller/__init__.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller
+copying /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller_node.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages
+byte-compiling /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller_node.py to xbox_controller_node.cpython-310.pyc
+running install_data
+creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index
+creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index
+creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index/packages
+copying resource/xbox_controller -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/xbox_controller
+running install_egg_info
+removing '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/xbox_controller/xbox_controller.egg-info to /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller-0.0.0-py3.10.egg-info
+running install_scripts
+Installing xbox_controller_node script to /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/xbox_controller
+writing list of installed files to '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/install.log'

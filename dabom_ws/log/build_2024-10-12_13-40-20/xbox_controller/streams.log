@@ -1,0 +1,32 @@
+[0.479s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/xbox_controller': PYTHONPATH=/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/xbox_controller build --build-base /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build install --record /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/install.log --single-version-externally-managed install_data
+[0.655s] running egg_info
+[0.656s] writing ../../build/xbox_controller/xbox_controller.egg-info/PKG-INFO
+[0.656s] writing dependency_links to ../../build/xbox_controller/xbox_controller.egg-info/dependency_links.txt
+[0.656s] writing entry points to ../../build/xbox_controller/xbox_controller.egg-info/entry_points.txt
+[0.656s] writing requirements to ../../build/xbox_controller/xbox_controller.egg-info/requires.txt
+[0.656s] writing top-level names to ../../build/xbox_controller/xbox_controller.egg-info/top_level.txt
+[0.658s] reading manifest file '../../build/xbox_controller/xbox_controller.egg-info/SOURCES.txt'
+[0.659s] writing manifest file '../../build/xbox_controller/xbox_controller.egg-info/SOURCES.txt'
+[0.659s] running build
+[0.659s] running build_py
+[0.659s] copying xbox_controller_node.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib
+[0.660s] copying xbox_controller/__init__.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller
+[0.660s] running install
+[0.660s] running install_lib
+[0.662s] copying /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller/__init__.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller
+[0.662s] copying /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build/lib/xbox_controller_node.py -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages
+[0.662s] byte-compiling /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller/__init__.py to __init__.cpython-310.pyc
+[0.663s] byte-compiling /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller_node.py to xbox_controller_node.cpython-310.pyc
+[0.663s] running install_data
+[0.663s] creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index
+[0.663s] creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index
+[0.663s] creating /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index/packages
+[0.663s] copying resource/xbox_controller -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/ament_index/resource_index/packages
+[0.664s] copying package.xml -> /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/share/xbox_controller
+[0.664s] running install_egg_info
+[0.665s] removing '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller-0.0.0-py3.10.egg-info' (and everything under it)
+[0.665s] Copying ../../build/xbox_controller/xbox_controller.egg-info to /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages/xbox_controller-0.0.0-py3.10.egg-info
+[0.665s] running install_scripts
+[0.680s] Installing xbox_controller_node script to /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/xbox_controller
+[0.680s] writing list of installed files to '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/install.log'
+[0.705s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/xbox_controller' returned '0': PYTHONPATH=/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/xbox_controller build --build-base /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/build install --record /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller/install.log --single-version-externally-managed install_data
