@@ -11,11 +11,20 @@ def generate_launch_description():
         'dabomb.xacro')
 
     return LaunchDescription([
+        # Launch robot_state_publisher
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
             parameters=[{'robot_description': Command(['xacro ', urdf_file])}]
+        ),
+        
+        # Launch joint_state_publisher
+        Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name='joint_state_publisher',
+            output='screen'
         )
     ])
