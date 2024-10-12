@@ -1,0 +1,2 @@
+source;share/inverse_kinematics/environment/ament_prefix_path.sh
+source;share/inverse_kinematics/environment/path.sh

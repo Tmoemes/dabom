@@ -1,0 +1,6 @@
+[0.022s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description -- -j12 -l12
+[0.200s] [0mCMake Error: The current CMakeCache.txt directory /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description/CMakeCache.txt is different than the directory /home/abdulhadi/ROS Projects/Python/dabom/dabom_ws/build/dabomb_description where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.200s] [0mCMake Error: The source directory "/home/abdulhadi/ROS Projects/Python/dabom/dabom_ws/src/dabomb_description" does not exist.
+[0.200s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.200s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.204s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description -- -j12 -l12

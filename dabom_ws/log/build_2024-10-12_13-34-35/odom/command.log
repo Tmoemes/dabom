@@ -1,0 +1,3 @@
+Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom

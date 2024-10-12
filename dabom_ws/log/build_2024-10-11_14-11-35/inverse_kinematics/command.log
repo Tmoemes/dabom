@@ -1,0 +1,2 @@
+Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12
+Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12

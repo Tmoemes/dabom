@@ -1,0 +1,1 @@
+Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller:/opt/ros/humble /usr/bin/cmake /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/odom -DCMAKE_INSTALL_PREFIX=/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom

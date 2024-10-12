@@ -1,0 +1,345 @@
+[0.133s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.133s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7dd4502f6f50>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7dd4502f69e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7dd4502f69e0>>, mixin_verb=('build',))
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.349s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.349s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ignore_ament_install'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['colcon_pkg']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'colcon_pkg'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['colcon_meta']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'colcon_meta'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['ros']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'ros'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['cmake', 'python']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'cmake'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'python'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extensions ['python_setup_py']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/config) by extension 'python_setup_py'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'ignore'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'ignore_ament_install'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['colcon_pkg']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'colcon_pkg'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['colcon_meta']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'colcon_meta'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['ros']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'ros'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['cmake', 'python']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'cmake'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'python'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extensions ['python_setup_py']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup) by extension 'python_setup_py'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'ignore'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'ignore_ament_install'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['colcon_pkg']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'colcon_pkg'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['colcon_meta']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'colcon_meta'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['ros']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'ros'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['cmake', 'python']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'cmake'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'python'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extensions ['python_setup_py']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabom_bringup/config) by extension 'python_setup_py'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extension 'ignore'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extension 'ignore_ament_install'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extensions ['colcon_pkg']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extension 'colcon_pkg'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extensions ['colcon_meta']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extension 'colcon_meta'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extensions ['ros']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/dabomb_description) by extension 'ros'
+[0.363s] DEBUG:colcon.colcon_core.package_identification:Package 'src/dabomb_description' with type 'ros.ament_cmake' and name 'dabomb_description'
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extensions ['ignore', 'ignore_ament_install']
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extension 'ignore'
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extension 'ignore_ament_install'
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extensions ['colcon_pkg']
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extension 'colcon_pkg'
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extensions ['colcon_meta']
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extension 'colcon_meta'
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extensions ['ros']
+[0.363s] Level 1:colcon.colcon_core.package_identification:_identify(src/inverse_kinematics) by extension 'ros'
+[0.364s] DEBUG:colcon.colcon_core.package_identification:Package 'src/inverse_kinematics' with type 'ros.ament_cmake' and name 'inverse_kinematics'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['ignore', 'ignore_ament_install']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'ignore'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'ignore_ament_install'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['colcon_pkg']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'colcon_pkg'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['colcon_meta']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'colcon_meta'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['ros']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'ros'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['cmake', 'python']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'cmake'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'python'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extensions ['python_setup_py']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch) by extension 'python_setup_py'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'ignore'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'ignore_ament_install'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['colcon_pkg']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'colcon_pkg'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['colcon_meta']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'colcon_meta'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['ros']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'ros'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['cmake', 'python']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'cmake'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'python'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extensions ['python_setup_py']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/launch/__pycache__) by extension 'python_setup_py'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extensions ['ignore', 'ignore_ament_install']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extension 'ignore'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extension 'ignore_ament_install'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extensions ['colcon_pkg']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extension 'colcon_pkg'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extensions ['colcon_meta']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extension 'colcon_meta'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extensions ['ros']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/odom) by extension 'ros'
+[0.367s] DEBUG:colcon.colcon_core.package_identification:Package 'src/odom' with type 'ros.ament_cmake' and name 'odom'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extensions ['ignore', 'ignore_ament_install']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extension 'ignore'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extension 'ignore_ament_install'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extensions ['colcon_pkg']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extension 'colcon_pkg'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extensions ['colcon_meta']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extension 'colcon_meta'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extensions ['ros']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/serial_comm) by extension 'ros'
+[0.368s] DEBUG:colcon.colcon_core.package_identification:Package 'src/serial_comm' with type 'ros.ament_python' and name 'serial_comm'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ignore'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ignore_ament_install'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['colcon_pkg']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'colcon_pkg'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['colcon_meta']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'colcon_meta'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extensions ['ros']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/sllidar_ros2) by extension 'ros'
+[0.369s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sllidar_ros2' with type 'ros.ament_cmake' and name 'sllidar_ros2'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extensions ['ignore', 'ignore_ament_install']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extension 'ignore'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extension 'ignore_ament_install'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extensions ['colcon_pkg']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extension 'colcon_pkg'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extensions ['colcon_meta']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extension 'colcon_meta'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extensions ['ros']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/unique_joint_state_publisher) by extension 'ros'
+[0.370s] DEBUG:colcon.colcon_core.package_identification:Package 'src/unique_joint_state_publisher' with type 'ros.ament_cmake' and name 'unique_joint_state_publisher'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extension 'ignore'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extension 'ignore_ament_install'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extensions ['colcon_pkg']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extension 'colcon_pkg'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extensions ['colcon_meta']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extension 'colcon_meta'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extensions ['ros']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/xbox_controller) by extension 'ros'
+[0.371s] DEBUG:colcon.colcon_core.package_identification:Package 'src/xbox_controller' with type 'ros.ament_cmake' and name 'xbox_controller'
+[0.371s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.371s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.371s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.371s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.371s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.407s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install
+[0.408s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 407 installed packages in /opt/ros/humble
+[0.410s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.442s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_target' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.443s] DEBUG:colcon.colcon_core.verb:Building package 'dabomb_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/dabomb_description', 'symlink_install': False, 'test_result_base': None}
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_target' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_clean_cache' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_clean_first' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'cmake_force_configure' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'ament_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'catkin_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'inverse_kinematics' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.443s] DEBUG:colcon.colcon_core.verb:Building package 'inverse_kinematics' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/inverse_kinematics', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/inverse_kinematics', 'symlink_install': False, 'test_result_base': None}
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_target' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_clean_cache' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_clean_first' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_force_configure' from command line to 'False'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'ament_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'catkin_cmake_args' from command line to 'None'
+[0.443s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.443s] DEBUG:colcon.colcon_core.verb:Building package 'odom' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/odom', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/odom', 'symlink_install': False, 'test_result_base': None}
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_target' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_clean_cache' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_clean_first' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_force_configure' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'ament_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'catkin_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.444s] DEBUG:colcon.colcon_core.verb:Building package 'serial_comm' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/serial_comm', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/serial_comm', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/serial_comm', 'symlink_install': False, 'test_result_base': None}
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_target' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'sllidar_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.444s] DEBUG:colcon.colcon_core.verb:Building package 'sllidar_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/sllidar_ros2', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/sllidar_ros2', 'symlink_install': False, 'test_result_base': None}
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_target' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_clean_cache' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_clean_first' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'cmake_force_configure' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'ament_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'catkin_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'unique_joint_state_publisher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.444s] DEBUG:colcon.colcon_core.verb:Building package 'unique_joint_state_publisher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/unique_joint_state_publisher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/unique_joint_state_publisher', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/unique_joint_state_publisher', 'symlink_install': False, 'test_result_base': None}
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_args' from command line to 'None'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_target' from command line to 'None'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.445s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.445s] DEBUG:colcon.colcon_core.verb:Building package 'xbox_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/xbox_controller', 'merge_install': False, 'path': '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/xbox_controller', 'symlink_install': False, 'test_result_base': None}
+[0.445s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.446s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.446s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/dabomb_description' with build type 'ament_cmake'
+[0.446s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/dabomb_description'
+[0.451s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.451s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.451s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.455s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/inverse_kinematics' with build type 'ament_cmake'
+[0.455s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/inverse_kinematics'
+[0.455s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.455s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.459s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/odom' with build type 'ament_cmake'
+[0.459s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/odom'
+[0.460s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.460s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.462s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/serial_comm' with build type 'ament_python'
+[0.462s] Level 1:colcon.colcon_core.shell:create_environment_hook('serial_comm', 'ament_prefix_path')
+[0.463s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/serial_comm/share/serial_comm/hook/ament_prefix_path.ps1'
+[0.464s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/serial_comm/share/serial_comm/hook/ament_prefix_path.dsv'
+[0.464s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/serial_comm/share/serial_comm/hook/ament_prefix_path.sh'
+[0.465s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.465s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.467s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/sllidar_ros2' with build type 'ament_cmake'
+[0.467s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/sllidar_ros2'
+[0.467s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.468s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.470s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/unique_joint_state_publisher' with build type 'ament_cmake'
+[0.470s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/unique_joint_state_publisher'
+[0.470s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.470s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.473s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/xbox_controller' with build type 'ament_cmake'
+[0.474s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/xbox_controller'
+[0.474s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.474s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.483s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description -- -j12 -l12
+[0.485s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12
+[0.488s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+[0.685s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/src/serial_comm'
+[0.685s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.685s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.691s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2 -- -j12 -l12
+[0.695s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/unique_joint_state_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/unique_joint_state_publisher -- -j12 -l12
+[0.699s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller -- -j12 -l12
+[0.700s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/dabomb_description -- -j12 -l12
+[0.701s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom -- -j12 -l12
+[0.703s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/inverse_kinematics -- -j12 -l12
+[0.711s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2 -- -j12 -l12
+[0.725s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/odom
+[0.725s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dabomb_description)
+[0.732s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description' for CMake module files
+[0.732s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description' for CMake config files
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/bin'
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/lib/pkgconfig/dabomb_description.pc'
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/lib/python3.10/site-packages'
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/bin'
+[0.734s] INFO:colcon.colcon_core.shell:Creating package script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/dabomb_description/package.ps1'
+[0.735s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/dabomb_description/package.dsv'
+[0.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/dabomb_description/package.sh'
+[0.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/dabomb_description/package.bash'
+[0.737s] INFO:colcon.colcon_core.shell:Creating package script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/dabomb_description/package.zsh'
+[0.738s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/dabomb_description/share/colcon-core/packages/dabomb_description)
+[1.115s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.116s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.116s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[1.116s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.121s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.121s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.121s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.135s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.135s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/local_setup.ps1'
+[1.136s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/_local_setup_util_ps1.py'
+[1.138s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/setup.ps1'
+[1.139s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/local_setup.sh'
+[1.140s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/_local_setup_util_sh.py'
+[1.140s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/setup.sh'
+[1.141s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/local_setup.bash'
+[1.141s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/setup.bash'
+[1.142s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/local_setup.zsh'
+[1.143s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/install/setup.zsh'

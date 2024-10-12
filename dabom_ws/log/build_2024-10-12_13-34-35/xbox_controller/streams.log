@@ -1,0 +1,1 @@
+[0.225s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/xbox_controller -- -j12 -l12

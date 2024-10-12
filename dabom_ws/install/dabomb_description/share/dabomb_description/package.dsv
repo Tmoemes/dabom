@@ -1,0 +1,5 @@
+source;share/dabomb_description/local_setup.bash
+source;share/dabomb_description/local_setup.dsv
+source;share/dabomb_description/local_setup.ps1
+source;share/dabomb_description/local_setup.sh
+source;share/dabomb_description/local_setup.zsh

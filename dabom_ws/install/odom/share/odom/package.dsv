@@ -1,0 +1,4 @@
+source;share/odom/local_setup.bash
+source;share/odom/local_setup.dsv
+source;share/odom/local_setup.sh
+source;share/odom/local_setup.zsh

@@ -1,0 +1,6 @@
+[0.186s] Invoking command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2 -- -j12 -l12
+[0.192s] [0mCMake Error: The current CMakeCache.txt directory /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2/CMakeCache.txt is different than the directory /home/abdulhadi/ROS Projects/Python/dabom/dabom_ws/build/sllidar_ros2 where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.198s] [0mCMake Error: The source directory "/home/abdulhadi/ROS Projects/Python/dabom/dabom_ws/src/sllidar_ros2" does not exist.
+[0.198s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.198s] gmake: *** [Makefile:740: cmake_check_build_system] Error 1
+[0.200s] Invoked command in '/home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/abdulhadi/ROS_Projects/Python/dabom/dabom_ws/build/sllidar_ros2 -- -j12 -l12
