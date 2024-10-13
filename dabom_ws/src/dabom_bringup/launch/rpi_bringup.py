@@ -23,7 +23,6 @@ def generate_launch_description():
 
     # Paths to individual launch files
     launch_files = {
-        'robot_state': os.path.join(get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py'),
         'rplidar': os.path.join(get_package_share_directory('rplidar_ros'), 'launch', 'rplidar_a2m8_launch.py'),
         'serial_talker': os.path.join(get_package_share_directory('serial_comm'), 'launch', 'serial_talker_launch.py'),
         'x_serial': os.path.join(get_package_share_directory('x_serial'), 'launch', 'x_serial_launch.py')
@@ -31,9 +30,6 @@ def generate_launch_description():
 
     # Create the launch description
     ld = LaunchDescription()
-
-    # Always include robot state
-    ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['robot_state'])))
 
     # Conditionally add inv_kin and odom nodes with common parameters
     if use_inv_kin:

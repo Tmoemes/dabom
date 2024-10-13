@@ -4,12 +4,12 @@ launch_config:
   use_joy: true           # Set to true to launch joystick control
   use_slam: false          # Set to true to launch SLAM Toolbox
   use_nav2: false          # Set to true to launch Nav2 (Navigation Stack)
-  use_rviz: false          # Set to true to launch RViz for visualization
-  use_robot_state: false  # Set to true to launch robot state publisher
+  use_rviz: true          # Set to true to launch RViz for visualization
+  use_robot_state: true  # Set to true to launch robot state publisher
 
   # Control RPi nodes
   use_inv_kin: true       # Set to true to launch inv_kin_node
-  use_odom: false          # Set to true to launch odom_node
+  use_odom: true          # Set to true to launch odom_node
   use_rplidar: false       # Set to true to launch rplidar_node
   use_serial_talker: false # Set to true to launch serial talker
-  use_x_serial: false      # Set to true to launch x_serial
+  use_x_serial: true      # Set to true to launch x_serial

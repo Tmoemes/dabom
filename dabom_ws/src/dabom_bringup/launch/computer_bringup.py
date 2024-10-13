@@ -1,10 +1,11 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, LogInfo
+from launch.actions import IncludeLaunchDescription, LogInfo
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 import os
+import yaml
 
 def generate_launch_description():
     # Path to the launch configuration file
@@ -14,68 +15,56 @@ def generate_launch_description():
         'launch_config.yaml'
     )
 
-    # Declare Launch Arguments
-    use_joy = LaunchConfiguration('use_joy')
-    use_rviz = LaunchConfiguration('use_rviz')
-    use_slam = LaunchConfiguration('use_slam')
-    use_nav2 = LaunchConfiguration('use_nav2')
+    # Load the launch config YAML file
+    with open(launch_config_path, 'r') as f:
+        config = yaml.safe_load(f)
+        use_joy = config['launch_config'].get('use_joy', True)
+        use_rviz = config['launch_config'].get('use_rviz', True)
+        use_slam = config['launch_config'].get('use_slam', True)
+        use_nav2 = config['launch_config'].get('use_nav2', True)
+        use_robot_state = config['launch_config'].get('use_robot_state', True)
 
-    # Declare Launch Configuration Arguments
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_joy',
-            default_value='true',
-            description='Launch joystick control'
-        ),
-        DeclareLaunchArgument(
-            'use_rviz',
-            default_value='true',
-            description='Launch RViz'
-        ),
-        DeclareLaunchArgument(
-            'use_slam',
-            default_value='true',
-            description='Launch SLAM Toolbox'
-        ),
-        DeclareLaunchArgument(
-            'use_nav2',
-            default_value='true',
-            description='Launch Nav2'
-        ),
+    # Paths to individual launch files
+    joy_teleop_launch = os.path.join(get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py')
+    slam_toolbox_launch = os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
+    robot_state_launch = os.path.join(get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py')
 
-        # Conditionally launch the joystick control
-        LogInfo(condition=LaunchConfiguration('use_joy'), msg="Launching joystick control..."),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py')),
-            condition=LaunchConfiguration('use_joy')
-        ),
+    # Create the launch description
+    ld = LaunchDescription()
 
-        # Conditionally launch RViz
-        LogInfo(condition=LaunchConfiguration('use_rviz'), msg="Launching RViz..."),
-        Node(
+    # Conditionally launch the robot state publisher
+    if use_robot_state:
+        ld.add_action(LogInfo(msg="Launching robot state publisher..."))
+        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(robot_state_launch)))
+
+    # Conditionally launch the joystick control
+    if use_joy:
+        ld.add_action(LogInfo(msg="Launching joystick control..."))
+        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(joy_teleop_launch)))
+
+    # Conditionally launch RViz
+    if use_rviz:
+        ld.add_action(LogInfo(msg="Launching RViz..."))
+        ld.add_action(Node(
             package='rviz2',
             executable='rviz2',
             name='rviz2',
             output='screen',
-            condition=LaunchConfiguration('use_rviz')
-        ),
+        ))
 
-        # Conditionally launch SLAM Toolbox
-        LogInfo(condition=LaunchConfiguration('use_slam'), msg="Launching SLAM Toolbox..."),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')),
-            condition=LaunchConfiguration('use_slam')
-        ),
+    # Conditionally launch SLAM Toolbox
+    if use_slam:
+        ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
+        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(slam_toolbox_launch)))
 
-        # Conditionally launch Nav2 (Navigation stack)
-        LogInfo(condition=LaunchConfiguration('use_nav2'), msg="Launching Nav2..."),
-        Node(
+    # Conditionally launch Nav2 (Navigation stack)
+    if use_nav2:
+        ld.add_action(LogInfo(msg="Launching Nav2..."))
+        ld.add_action(Node(
             package='nav2_bringup',
             executable='bringup_launch.py',
             name='nav2',
             output='screen',
-            condition=LaunchConfiguration('use_nav2')
-        )
-    ])
+        ))
+
+    return ld
