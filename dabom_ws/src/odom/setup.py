@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+from glob import glob
+import os
 
 package_name = 'odom'
 
@@ -10,13 +12,14 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['launch/odom_launch.py']),  # Ensure launch file is installed
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml'))  # YAML file installation
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='christopher',
     maintainer_email='christopher@karg.ca',
-    description='Odometry calculation for a Mecanum-wheeled robot.',
+    description='Odometry for a Mecanum-wheeled robot.',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={

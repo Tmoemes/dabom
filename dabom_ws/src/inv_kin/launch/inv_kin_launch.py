@@ -16,6 +16,6 @@ def generate_launch_description():
             executable='inv_kin_node',
             name='inv_kin_node',
             output='screen',
-            parameters=[config]  # Correctly load the YAML file
+            parameters=[config]
         )
     ])
