@@ -1,0 +1,56 @@
+# Parameters for inv_kin node
+inv_kin_node:
+  ros__parameters:
+    lx: 0.32   # Robot length in meters (override from common_params.yaml)
+    ly: 0.32   # Robot width in meters (override from common_params.yaml)
+    wheel_radius: 0.05  # Wheel radius in meters (override from common_params.yaml)
+    cmd_vel_topic: '/cmd_vel'
+    motor_vel_topic: '/motor_vel'
+    frame_id: 'base_link'
+
+# Parameters for odom node
+odom_node:
+  ros__parameters:
+    lx: 0.32   # Robot length in meters (override from common_params.yaml)
+    ly: 0.32   # Robot width in meters (override from common_params.yaml)
+    wheel_radius: 0.05  # Wheel radius in meters (override from common_params.yaml)
+    odom_frame: 'odom'
+    base_frame: 'base_footprint'
+
+# Parameters for rplidar node
+rplidar_node:
+  ros__parameters:
+    serial_port: '/dev/ttyUSB0'
+    serial_baudrate: 115200
+    frame_id: 'laser'
+    inverted: false
+    angle_compensate: true
+    scan_mode: 'Standard'
+
+# Parameters for joystick controller and teleop
+game_controller_node:
+  ros__parameters:
+    device_id: 0
+    deadzone: 0.15
+    autorepeat_rate: 20.0
+
+teleop_node:
+  ros__parameters:
+    axis_linear:
+      x: 1
+      y: 0
+    scale_linear:
+      x: 0.2
+      y: 0.2
+    scale_linear_turbo:
+      x: 0.4
+      y: 0.4
+    axis_angular:
+      yaw: 2
+    scale_angular:
+      yaw: 0.2
+    scale_angular_turbo:
+      yaw: 0.4
+    enable_button: 9
+    enable_turbo_button: 10
+    require_enable_button: true
