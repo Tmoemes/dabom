@@ -4,15 +4,7 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    config_file_path = os.path.join(
-        get_package_share_directory('rplidar_ros'),
-        'config',
-        'rplidar_a2m8.yaml'
-    )
-
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('rplidar_ros'),
-        'rplidar_ros.rviz')
+    config_file_path = os.path.join(get_package_share_directory('rplidar_ros'), 'config', 'config', 'rplidar_a2m8.yaml')
 
     return LaunchDescription([
 
