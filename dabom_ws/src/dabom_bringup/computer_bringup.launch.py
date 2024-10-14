@@ -36,7 +36,7 @@ def generate_launch_description():
 
     # List of package names and their optional launch files
     packages_launch_files = [
-        ["xbox_controller"],
+        #["xbox_controller"],
     ]
 
     # Store launch descriptions
@@ -58,6 +58,8 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource(launch_description)
             )
         )
+
+    print(f"{rviz_config_file}")
 
     # RViz node with configuration file (manually added as it's not from a launch file)
     rviz_node = Node(
