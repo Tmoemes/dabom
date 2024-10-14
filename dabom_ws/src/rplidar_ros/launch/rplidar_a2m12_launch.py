@@ -13,14 +13,12 @@ from launch_ros.actions import Node
 def generate_launch_description():
     channel_type =  LaunchConfiguration('channel_type', default='serial')
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
-    serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
+    serial_baudrate = LaunchConfiguration('serial_baudrate', default='256000')
     frame_id = LaunchConfiguration('frame_id', default='laser')
-    inverted = LaunchConfiguration('inverted', default='true')
+    inverted = LaunchConfiguration('inverted', default='false')
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
-    scan_mode = LaunchConfiguration('scan_mode', default='Express')
-	
+    scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
     
-
     return LaunchDescription([
 
         DeclareLaunchArgument(
@@ -57,6 +55,7 @@ def generate_launch_description():
             default_value=scan_mode,
             description='Specifying scan mode of lidar'),
 
+
         Node(
             package='rplidar_ros',
             executable='rplidar_node',
@@ -66,11 +65,7 @@ def generate_launch_description():
                          'serial_baudrate': serial_baudrate,
                          'frame_id': frame_id,
                          'inverted': inverted,
-                         'angle_compensate': angle_compensate,
-                           'scan_mode': scan_mode
-                         }],
+                         'angle_compensate': angle_compensate}],
             output='screen'),
-
-        
     ])
 
