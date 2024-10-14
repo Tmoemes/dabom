@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, LogInfo, ExecuteProcess
+from launch.actions import IncludeLaunchDescription, LogInfo
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
@@ -15,15 +15,15 @@ def generate_launch_description():
     # Load launch configuration
     with open(launch_config_path, 'r') as f:
         config = yaml.safe_load(f)['launch_config']
-
-    use_serial_talker = config.get('use_serial_talker', True)
-    use_x_serial = config.get('use_x_serial', True)
-    use_inv_kin = config.get('use_inv_kin', True)
-    use_odom = config.get('use_odom', True)
-    use_rplidar = config.get('use_rplidar', True)
+        use_serial_talker = config.get('use_serial_talker', True)
+        use_x_serial = config.get('use_x_serial', True)
+        use_inv_kin = config.get('use_inv_kin', True)
+        use_odom = config.get('use_odom', True)
+        use_rplidar = config.get('use_rplidar', True)
 
     # Paths to individual launch files
     launch_files = {
+        'rplidar': os.path.join(get_package_share_directory('rplidar_ros'), 'launch', 'rplidar_a2m8_launch.py'),
         'serial_talker': os.path.join(get_package_share_directory('serial_comm'), 'launch', 'serial_talker_launch.py'),
         'x_serial': os.path.join(get_package_share_directory('x_serial'), 'launch', 'x_serial_launch.py')
     }
@@ -61,14 +61,9 @@ def generate_launch_description():
         ld.add_action(LogInfo(msg="Launching x_serial..."))
         ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['x_serial'])))
 
-    # Conditionally include RPLIDAR using ExecuteProcess From OLD WORKING REPO 
+    # Conditionally include RPLIDAR
     if use_rplidar:
         ld.add_action(LogInfo(msg="Launching RPLIDAR..."))
-        ld.add_action(ExecuteProcess(
-            cmd=['bash', '-c', 'source /home/pi/ros2_ws/install/setup.bash && '
-                               'source /opt/ros/humble/setup.bash && '
-                               'ros2 launch /home/pi/ros2_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m8_launch.py'],
-            output='screen'
-        ))
+        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['rplidar'])))
 
     return ld
