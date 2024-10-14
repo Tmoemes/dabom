@@ -65,9 +65,9 @@ def generate_launch_description():
     if use_rplidar:
         ld.add_action(LogInfo(msg="Launching RPLIDAR..."))
         ld.add_action(ExecuteProcess(
-            cmd=['bash', '-c', 'source /home/ubuntu/ros2_ws/install/setup.bash && '
+            cmd=['bash', '-c', 'source /home/pi/ros2_ws/install/setup.bash && '
                                'source /opt/ros/humble/setup.bash && '
-                               'ros2 launch /home/ubuntu/ros2_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m8_launch.py'],
+                               'ros2 launch /home/pi/ros2_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m8_launch.py'],
             output='screen'
         ))
 
