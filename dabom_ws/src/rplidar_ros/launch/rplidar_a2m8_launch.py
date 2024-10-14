@@ -14,6 +14,10 @@ def generate_launch_description():
         'rplidar_a2m8.yaml'
     )
 
+    # Ensure the YAML file exists
+    if not os.path.exists(config_file_path):
+        raise FileNotFoundError(f"Could not find YAML file: {config_file_path}")
+
     return LaunchDescription([
 
         # Define the RPLIDAR node and load parameters from YAML
@@ -21,6 +25,7 @@ def generate_launch_description():
             package='rplidar_ros',
             executable='rplidar_node',
             name='rplidar_node',
-            parameters=[config_file_path],  # Use the YAML file
-            output='screen'),
+            parameters=[config_file_path],  # Load the YAML parameters
+            output='screen',
+        ),
     ])
