@@ -24,15 +24,15 @@ class OdomNode(Node):
         super().__init__('odom_node')
 
         # Declare ROS2 parameters
-        self.declare_parameter('lx', 0.3)
-        self.declare_parameter('ly', 0.3)
+        self.declare_parameter('lx', 0.15)
+        self.declare_parameter('ly', 0.15)
         self.declare_parameter('wheel_radius', 0.04)
         self.declare_parameter('odom_frame', 'odom')
         self.declare_parameter('base_frame', 'base_footprint')
 
         # Retrieve parameters
-        self.lx = self.get_parameter_or('lx', 0.3).value
-        self.ly = self.get_parameter_or('ly', 0.3).value
+        self.lx = self.get_parameter_or('lx', 0.15).value
+        self.ly = self.get_parameter_or('ly', 0.15).value
         self.wheel_radius = self.get_parameter_or('wheel_radius', 0.04).value
         self.odom_frame = self.get_parameter_or('odom_frame', 'odom').value
         self.base_frame = self.get_parameter_or('base_frame', 'base_footprint').value

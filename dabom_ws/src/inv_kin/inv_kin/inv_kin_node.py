@@ -12,8 +12,8 @@ class InvKinNode(Node):
         super().__init__('inv_kin_node')
 
         # Declare ROS2 parameters for robot configuration with default values
-        self.declare_parameter('lx', 0.3)  # Half of the wheelbase (meters)
-        self.declare_parameter('ly', 0.3)  # Half of the track width (meters)
+        self.declare_parameter('lx', 0.15)  # Half of the wheelbase (meters)
+        self.declare_parameter('ly', 0.15)  # Half of the track width (meters)
         self.declare_parameter('wheel_radius', 0.04)  # Wheel radius (meters)
         self.declare_parameter('cmd_vel_topic', '/cmd_vel')
         self.declare_parameter('motor_vel_topic', '/motor_vel')

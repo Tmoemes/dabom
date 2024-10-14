@@ -1,9 +1,9 @@
 # Parameters for inv_kin node
 inv_kin_node:
   ros__parameters:
-    lx: 0.32   # Robot length in meters (override from common_params.yaml)
-    ly: 0.32   # Robot width in meters (override from common_params.yaml)
-    wheel_radius: 0.05  # Wheel radius in meters (override from common_params.yaml)
+    lx: 0.15   # Robot length in meters (override from common_params.yaml)
+    ly: 0.15   # Robot width in meters (override from common_params.yaml)
+    wheel_radius: 0.04  # Wheel radius in meters (override from common_params.yaml)
     cmd_vel_topic: '/cmd_vel'
     motor_vel_topic: '/motor_vel'
     frame_id: 'base_link'
@@ -11,9 +11,9 @@ inv_kin_node:
 # Parameters for odom node
 odom_node:
   ros__parameters:
-    lx: 0.32   # Robot length in meters (override from common_params.yaml)
-    ly: 0.32   # Robot width in meters (override from common_params.yaml)
-    wheel_radius: 0.05  # Wheel radius in meters (override from common_params.yaml)
+    lx: 0.15   # Robot length in meters (override from common_params.yaml)
+    ly: 0.15   # Robot width in meters (override from common_params.yaml)
+    wheel_radius: 0.04  # Wheel radius in meters (override from common_params.yaml)
     odom_frame: 'odom'
     base_frame: 'base_footprint'
 

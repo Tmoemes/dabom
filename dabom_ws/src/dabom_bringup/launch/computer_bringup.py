@@ -1,6 +1,5 @@
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, LogInfo
-from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
@@ -26,7 +25,7 @@ def generate_launch_description():
 
     # Paths to individual launch files
     joy_teleop_launch = os.path.join(get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py')
-    slam_toolbox_launch = os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
+    slam_params_path = os.path.join(get_package_share_directory('dabom_bringup'), 'config', 'mapper_params_online_async.yaml')
     robot_state_launch = os.path.join(get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py')
     rviz_config_path = os.path.join(get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz')
 
@@ -52,13 +51,18 @@ def generate_launch_description():
             name='rviz2',
             arguments=['-d', rviz_config_path],  # Load the custom RViz config
             output='screen',
-    ))
+        ))
 
-
-    # Conditionally launch SLAM Toolbox
+    # Conditionally launch SLAM Toolbox with custom parameters
     if use_slam:
         ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(slam_toolbox_launch)))
+        ld.add_action(Node(
+            package='slam_toolbox',
+            executable='async_slam_toolbox_node',
+            name='slam_toolbox',
+            output='screen',
+            parameters=[slam_params_path]  # Load SLAM parameters
+        ))
 
     # Conditionally launch Nav2 (Navigation stack)
     if use_nav2:

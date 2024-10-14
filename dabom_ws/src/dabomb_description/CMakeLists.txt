@@ -5,16 +5,26 @@ project(dabomb_description)
 find_package(ament_cmake REQUIRED)
 find_package(xacro REQUIRED)
 find_package(urdf REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
-# Install URDF, launch, and mesh files
 install(DIRECTORY launch urdf meshes
   DESTINATION share/${PROJECT_NAME}/
 )
 
-# Install the resource directory (if it contains files like package manifest)
 install(DIRECTORY resource
   DESTINATION share/${PROJECT_NAME}/
 )
 
-# Mark the package for export
+ament_package()
+
+install(DIRECTORY launch urdf meshes
+  DESTINATION share/${PROJECT_NAME}/
+)
+
+install(
+  DIRECTORY resource
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 ament_package()

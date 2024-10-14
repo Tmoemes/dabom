@@ -2,7 +2,7 @@
 launch_config:
   # Control Computer nodes
   use_joy: true           # Set to true to launch joystick control
-  use_slam: false          # Set to true to launch SLAM Toolbox
+  use_slam: true          # Set to true to launch SLAM Toolbox
   use_nav2: false          # Set to true to launch Nav2 (Navigation Stack)
   use_rviz: true          # Set to true to launch RViz for visualization
   use_robot_state: true  # Set to true to launch robot state publisher
