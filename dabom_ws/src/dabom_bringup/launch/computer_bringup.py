@@ -28,6 +28,7 @@ def generate_launch_description():
     joy_teleop_launch = os.path.join(get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py')
     slam_toolbox_launch = os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
     robot_state_launch = os.path.join(get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py')
+    rviz_config_path = os.path.join(get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz')
 
     # Create the launch description
     ld = LaunchDescription()
@@ -49,8 +50,10 @@ def generate_launch_description():
             package='rviz2',
             executable='rviz2',
             name='rviz2',
+            arguments=['-d', rviz_config_path],  # Load the custom RViz config
             output='screen',
-        ))
+    ))
+
 
     # Conditionally launch SLAM Toolbox
     if use_slam:
