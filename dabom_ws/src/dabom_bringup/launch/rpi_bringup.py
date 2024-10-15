@@ -17,11 +17,11 @@ def generate_launch_description():
     with open(launch_config_path, 'r') as f:
         config = yaml.safe_load(f)['launch_config']
         use_serial_talker = config.get('use_serial_talker', True)
-        use_x_serial = config.get('use_x_serial', True)
+        use_x_serial = config.get('use_x_serial', False)
         use_inv_kin = config.get('use_inv_kin', True)
         use_odom = config.get('use_odom', True)
         use_rplidar = config.get('use_rplidar', True)
-        use_slam = config.get('use_slam', True)
+        use_slam = config.get('use_slam_pi', False)
 
     # Paths to individual launch files
     launch_files = {
