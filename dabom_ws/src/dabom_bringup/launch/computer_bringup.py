@@ -18,11 +18,12 @@ def generate_launch_description():
     # Load the launch config YAML file
     with open(launch_config_path, 'r') as f:
         config = yaml.safe_load(f)
-        use_joy = config['launch_config'].get('use_joy', True)
+        use_joy = config['launch_config'].get('use_joy', False)
         use_rviz = config['launch_config'].get('use_rviz', True)
         use_slam = config['launch_config'].get('use_slam', True)
         use_nav2 = config['launch_config'].get('use_nav2', True)
         use_robot_state = config['launch_config'].get('use_robot_state', True)
+        use_xbox = config['launch_config'].get('use_xbox', True)
 
     # Paths to individual launch files
     joy_teleop_launch = os.path.join(
@@ -96,5 +97,13 @@ def generate_launch_description():
             name='nav2',
             output='screen',
         ))
+    
+    # Conditionally launch Xbox Controller
+    if use_xbox:
+        ld.add_action(LogInfo(msg="Launching Xbox Controller..."))
+        ld.add_action(IncludeLaunchDescription(
+    		PythonLaunchDescriptionSource(os.path.join(
+        		get_package_share_directory('xbox_controller'), 'launch', 'xbox_controller_launch.py')),
+))
 
     return ld
