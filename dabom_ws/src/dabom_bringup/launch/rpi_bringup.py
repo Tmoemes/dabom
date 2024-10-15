@@ -1,7 +1,8 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, LogInfo
+from launch.actions import IncludeLaunchDescription, LogInfo, DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 import yaml
@@ -20,6 +21,7 @@ def generate_launch_description():
         use_inv_kin = config.get('use_inv_kin', True)
         use_odom = config.get('use_odom', True)
         use_rplidar = config.get('use_rplidar', True)
+        use_slam = config.get('use_slam', True)
 
     # Paths to individual launch files
     launch_files = {
@@ -27,6 +29,8 @@ def generate_launch_description():
         'serial_talker': os.path.join(get_package_share_directory('serial_comm'), 'launch', 'serial_talker_launch.py'),
         'x_serial': os.path.join(get_package_share_directory('x_serial'), 'launch', 'x_serial_launch.py')
     }
+    
+    slam_params_path = os.path.join(config_dir, 'config', 'mapper_params_online_async.yaml')
 
     # Create the launch description
     ld = LaunchDescription()
@@ -55,15 +59,33 @@ def generate_launch_description():
     # Conditionally include the serial talker and x_serial based on launch_config.yaml
     if use_serial_talker:
         ld.add_action(LogInfo(msg="Launching serial talker..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['serial_talker'])))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(launch_files['serial_talker'])
+        ))
 
     if use_x_serial:
         ld.add_action(LogInfo(msg="Launching x_serial..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['x_serial'])))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(launch_files['x_serial'])
+        ))
 
     # Conditionally include RPLIDAR
     if use_rplidar:
         ld.add_action(LogInfo(msg="Launching RPLIDAR..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(launch_files['rplidar'])))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(launch_files['rplidar'])
+        ))
+
+    # Conditionally launch SLAM Toolbox with custom parameters
+    if use_slam:
+        ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(
+                get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')),
+            launch_arguments={
+                'slam_param_file': slam_params_path,
+                'use_sim_time': 'false'
+            }.items()
+        ))
 
     return ld

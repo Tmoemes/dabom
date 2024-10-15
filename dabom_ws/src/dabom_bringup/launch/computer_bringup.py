@@ -1,7 +1,8 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, LogInfo
+from launch.actions import IncludeLaunchDescription, LogInfo, DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 import yaml
@@ -24,23 +25,44 @@ def generate_launch_description():
         use_robot_state = config['launch_config'].get('use_robot_state', True)
 
     # Paths to individual launch files
-    joy_teleop_launch = os.path.join(get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py')
-    slam_params_path = os.path.join(get_package_share_directory('dabom_bringup'), 'config', 'mapper_params_online_async.yaml')
-    robot_state_launch = os.path.join(get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py')
-    rviz_config_path = os.path.join(get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz')
+    joy_teleop_launch = os.path.join(
+        get_package_share_directory('dabom_joy'), 'launch', 'joy_teleop_launch.py'
+    )
+    slam_params_path = os.path.join(
+        get_package_share_directory('dabom_bringup'), 'config', 'mapper_params_online_async.yaml'
+    )
+    robot_state_launch = os.path.join(
+        get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py'
+    )
+    rviz_config_path = os.path.join(
+        get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz'
+    )
+
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     # Create the launch description
     ld = LaunchDescription()
 
+    # Declare simulation time argument
+    ld.add_action(DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation time (for playback)'
+    ))
+
     # Conditionally launch the robot state publisher
     if use_robot_state:
         ld.add_action(LogInfo(msg="Launching robot state publisher..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(robot_state_launch)))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(robot_state_launch)
+        ))
 
     # Conditionally launch the joystick control
     if use_joy:
         ld.add_action(LogInfo(msg="Launching joystick control..."))
-        ld.add_action(IncludeLaunchDescription(PythonLaunchDescriptionSource(joy_teleop_launch)))
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(joy_teleop_launch)
+        ))
 
     # Conditionally launch RViz
     if use_rviz:
@@ -56,12 +78,13 @@ def generate_launch_description():
     # Conditionally launch SLAM Toolbox with custom parameters
     if use_slam:
         ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
-        ld.add_action(Node(
-            package='slam_toolbox',
-            executable='async_slam_toolbox_node',
-            name='slam_toolbox',
-            output='screen',
-            parameters=[slam_params_path]  # Load SLAM parameters
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(
+                get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')),
+            launch_arguments={
+                'slam_param_file': slam_params_path,
+                'use_sim_time': 'false'
+            }.items()
         ))
 
     # Conditionally launch Nav2 (Navigation stack)
