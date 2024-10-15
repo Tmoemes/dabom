@@ -100,11 +100,11 @@ def generate_launch_description():
         ld.add_action(LogInfo(msg="Launching Nav2..."))
         ld.add_action(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('nav2_bringup'), 'launch', 'bringup_launch.py')),
+                get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
             launch_arguments={
                 'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
-                'use_sim_time': 'false',
-                'map': '/dev/null'  # Override the map argument with an empty value
+                'use_sim_time': 'false'
+                #'map': '/dev/null'  # Override the map argument with an empty value
         }.items()
     ))
 

@@ -129,8 +129,8 @@ controller_server:
       stateful: True
 
     # MPPI controller parameters with updated velocity settings
-    MPPIController:
-      plugin: "nav2_mppi_controller/MppiController"
+    FollowPath:
+      plugin: "nav2_mppi_controller::MPPIController"
       motion_model: "Omni"
       batch_size: 1000
       time_steps: 56
