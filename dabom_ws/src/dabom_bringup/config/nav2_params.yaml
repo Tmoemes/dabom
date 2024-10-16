@@ -283,7 +283,7 @@ planner_server:
       max_iterations: 1000000
       max_on_approach_iterations: 1000
       max_planning_time: 3.5
-      motion_model_for_search: "DUBIN"  # Consider changing to "STATE_LATTICE" for more flexible paths
+      motion_model_for_search: "STATE_LATTICE"  # Consider changing to "STATE_LATTICE" for more flexible paths
       angle_quantization_bins: 64
       analytic_expansion_ratio: 3.5
       analytic_expansion_max_length: 3.0
