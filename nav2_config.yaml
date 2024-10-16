@@ -1,70 +1,70 @@
-# nav2_params.yaml
-amcl:
-  ros__parameters:
-    enabled: False
-    use_sim_time: false
-    alpha1: 0.2
-    alpha2: 0.2
-    alpha3: 0.2
-    alpha4: 0.2
-    alpha5: 0.1
-    base_frame_id: "base_link"
-    odom_frame_id: "odom"
-    scan_topic: "scan"
-    robot_model_type: "nav2_amcl::OmniMotionModel"  # Should be adapted for your robot's kinematic model
-    # percetange of beams to force full update of map
-    beam_skip_error_threshold: 0.8
-    # Percetang of beams required to skip
-    beam_skip_threshold: 0.3
-    do_beam_skip: False
-    global_frame_id: "map"
-    # Decay parameter for z_short part of the model
-    lambda_short: 0.1
-    # max distance for obstacle inflation on map
-    lasaer_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
-    laser_min_range: -1
-    # Use "likelihood_field_prob" when beam skipping
-    laser_model_type: "likelihood_field"
-    set_initial_pose: False
-    # initial_pose: [0.0, 0.0, 0.0, 0.0]
-    # How many beams to use in update filter
-    max_beams: 60
-    min_particles: 500
-    max_particles: 2000
-    pf_err: 0.05
-    # Particle filter population desinty
-    pf_z: 0.99
-    # Exponential decay rate for fast average wieght filted used to decide whe nto add random pose a good value might be 0.1
-    recovery_alpha_fast: 0.1
-    # Exponential decay rate for slow average wieght filted used to decide whe nto add random pose a good value might be 000.1
-    recovery_alpha_slow: 0.001
-    # samples needed before updating
-    resample_interval: 1
-    # when to save pos for next run?
-    save_pose_rate: 0.5
-    # std for gaussian model used in z-hit part of the model
-    sigma_hit: 0.2
-    # Broadcasts the transfor mbetwee n global frame and odom frame
-    tf_broadcast: True
-    # Time with which to post-date the transform that is published, to indicate that this transform is valid into the future.T
-    transform_tolerance: 0.1
-    # Rotational movement needed before filter update
-    update_min_a: 0.1
-    # translation before filter update
-    update_min_d: 0.1
-    # mixture wieghts for the z? part of the model
-    # z-hit prt of model
-    z_hit: 0.5
-    z_max: 0.05
-    z_rand: 0.5
-    z_short: 0.005
-    # if true provide acml with initial pose
-    always_reset_initial_pose: False
-    # accepts more then once on the map topic
-    first_map_only: False
-    # Lifecycle node bond mechanism
-    bond_heart_period: 0.1
+# # nav2_params.yaml
+# amcl:
+#   ros__parameters:
+#     enabled: False
+#     use_sim_time: false
+#     alpha1: 0.2
+#     alpha2: 0.2
+#     alpha3: 0.2
+#     alpha4: 0.2
+#     alpha5: 0.1
+#     base_frame_id: "base_link"
+#     odom_frame_id: "odom"
+#     scan_topic: "scan"
+#     robot_model_type: "nav2_amcl::OmniMotionModel"  # Should be adapted for your robot's kinematic model
+#     # percetange of beams to force full update of map
+#     beam_skip_error_threshold: 0.8
+#     # Percetang of beams required to skip
+#     beam_skip_threshold: 0.3
+#     do_beam_skip: False
+#     global_frame_id: "map"
+#     # Decay parameter for z_short part of the model
+#     lambda_short: 0.1
+#     # max distance for obstacle inflation on map
+#     lasaer_likelihood_max_dist: 2.0
+#     laser_max_range: 100.0
+#     laser_min_range: -1
+#     # Use "likelihood_field_prob" when beam skipping
+#     laser_model_type: "likelihood_field"
+#     set_initial_pose: False
+#     # initial_pose: [0.0, 0.0, 0.0, 0.0]
+#     # How many beams to use in update filter
+#     max_beams: 60
+#     min_particles: 500
+#     max_particles: 2000
+#     pf_err: 0.05
+#     # Particle filter population desinty
+#     pf_z: 0.99
+#     # Exponential decay rate for fast average wieght filted used to decide whe nto add random pose a good value might be 0.1
+#     recovery_alpha_fast: 0.1
+#     # Exponential decay rate for slow average wieght filted used to decide whe nto add random pose a good value might be 000.1
+#     recovery_alpha_slow: 0.001
+#     # samples needed before updating
+#     resample_interval: 1
+#     # when to save pos for next run?
+#     save_pose_rate: 0.5
+#     # std for gaussian model used in z-hit part of the model
+#     sigma_hit: 0.2
+#     # Broadcasts the transfor mbetwee n global frame and odom frame
+#     tf_broadcast: True
+#     # Time with which to post-date the transform that is published, to indicate that this transform is valid into the future.T
+#     transform_tolerance: 0.1
+#     # Rotational movement needed before filter update
+#     update_min_a: 0.1
+#     # translation before filter update
+#     update_min_d: 0.1
+#     # mixture wieghts for the z? part of the model
+#     # z-hit prt of model
+#     z_hit: 0.5
+#     z_max: 0.05
+#     z_rand: 0.5
+#     z_short: 0.005
+#     # if true provide acml with initial pose
+#     always_reset_initial_pose: False
+#     # accepts more then once on the map topic
+#     first_map_only: False
+#     # Lifecycle node bond mechanism
+#     bond_heart_period: 0.1
 
 slam_toolbox:
   ros__parameters:
@@ -99,12 +99,13 @@ costmap_filter_info_server:
 
 planner_server:
   ros__parameters:
+    planner_plugins: ["GridBased"]
     # Frquency of planner update if current freq < expected print warning
     expected_planner_frequency: 20.0
     # After this many seconds timeout action
     action_server_result_timeout: 10.0
     GridBased:
-      plugin: "nav2_navfn_planner/NavfnPlanner"
+      plugin: "nav2_smac_planner/SmacLatticePlanner"
       use_astart: True
       use_final_approach_orientation: false
       # Toleracne in meter between goal pose and end path
@@ -128,8 +129,8 @@ controller_server:
       min_speed_xy: 0.0
       max_speed_xy: 0.47
       min_speed_theta: 0.1
-      min_vel_x: 0.1
-      min_vel_y: 0.1
+      min_vel_x: -0.48
+      min_vel_y: -0.48
       max_vel_x: 0.48
       max_vel_y: 0.48
 
@@ -272,7 +273,7 @@ local_costmap:
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: "odom"
-      robot_base_frame: "base_link"
+      robot_base_frame: "base_footprint"
       rolling_window: true
       width: 3.0
       height: 3.0
@@ -298,7 +299,7 @@ bt_navigator:
     # toleracne for tf
     transform_tolerace: 0.1
     global_frame: "map"
-    robot_base_frame: "base_link"
+    robot_base_frame: "base_footprint"
     odom_topic: "odom"
     plugin_lib_names:
       - nav2_compute_path_to_pose_action_bt_node
@@ -330,13 +331,12 @@ waypoint_follower:
   ros__parameters:
   # Rat eat which to check nagivation stack
   loop_rate: 20
+  waypoint_task_executor_plugin: "wait_at_waypoint"
   stop_on_failure: true 
   global_frame_id: "map"
-  action_server_
-    # use_sim_time: false
-    # waypoint_follower_plugin: "nav2_waypoint_follower::WaypointFollower"
-
-robot_description:
-  ros__parameters:
+  wait_at_waypoint:
     use_sim_time: false
-    urdf: "path/to/robot.urdf"
+    plugin: "nav2_waypoint_follower/WaitAtWaypoint"
+    enabled: True
+    waypoint_pause_duration: 0
+
