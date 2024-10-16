@@ -110,12 +110,12 @@ controller_server:
   ros__parameters:
     use_sim_time: False
     controller_frequency: 20.0
-    min_x_velocity_threshold: 0.05
-    min_y_velocity_threshold: 0.1
-    min_theta_velocity_threshold: 0.3
+    min_x_velocity_threshold: 0.001  # Lower threshold for holonomic movement
+    min_y_velocity_threshold: 0.001  # Lower threshold for holonomic movement
+    min_theta_velocity_threshold: 0.001
     failure_tolerance: 0.3
     progress_checker_plugin: "progress_checker"
-    goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
+    goal_checker_plugins: ["general_goal_checker"]
     controller_plugins: ["FollowPath"]
 
     # Progress checker parameters
@@ -134,30 +134,28 @@ controller_server:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.25
       yaw_goal_tolerance: 0.25
-    # DWB parameters
+  # DWB parameters for holonomic robot
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: 0.0
-      min_vel_y: 0.0
-      max_vel_x: 0.4
-      max_vel_y: 0.4
-      max_vel_theta: 0.6
+      min_vel_x: -0.26  # Allow negative velocity for holonomic movement
+      min_vel_y: -0.26  # Allow Y-axis movement
+      max_vel_x: 0.26
+      max_vel_y: 0.26
+      max_vel_theta: 1.0
       min_speed_xy: 0.0
       max_speed_xy: 0.26
-      min_speed_theta: 0.01
-      # Add high threshold velocity for turtlebot 3 issue.
-      # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
+      min_speed_theta: 0.0
       acc_lim_x: 2.5
       acc_lim_y: 2.5
-      acc_lim_theta: 3.0
+      acc_lim_theta: 3.2
       decel_lim_x: -2.5
       decel_lim_y: -2.5
-      decel_lim_theta: -3.0
+      decel_lim_theta: -3.2
       vx_samples: 20
-      vy_samples: 5
-      vtheta_samples: 20
-      #sim_time: 0.0
+      vy_samples: 20  # Increase Y samples for holonomic movement
+      vtheta_samples: 40
+      sim_time: 1.7
       linear_granularity: 0.05
       angular_granularity: 0.025
       transform_tolerance: 0.2
@@ -166,7 +164,7 @@ controller_server:
       short_circuit_trajectory_evaluation: True
       stateful: True
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.05
+      BaseObstacle.scale: 0.02
       PathAlign.scale: 32.0
       PathAlign.forward_point_distance: 0.1
       GoalAlign.scale: 24.0
@@ -176,7 +174,7 @@ controller_server:
       RotateToGoal.scale: 32.0
       RotateToGoal.slowing_factor: 5.0
       RotateToGoal.lookahead_time: -1.0
-
+      
 local_costmap:
   local_costmap:
     ros__parameters:
@@ -278,36 +276,34 @@ planner_server:
 
     GridBased:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
-      tolerance: 0.5                      # tolerance for planning if unable to reach exact pose, in meters
-      downsample_costmap: false           # whether or not to downsample the map
-      downsampling_factor: 1              # multiplier for the resolution of the costmap layer (e.g. 2 on a 5cm costmap would be 10cm)
-      allow_unknown: false                # allow traveling in unknown space
-      max_iterations: 1000000             # maximum total iterations to search for before failing (in case unreachable), set to -1 to disable
-      max_on_approach_iterations: 1000    # maximum number of iterations to attempt to reach goal once in tolerance
-      max_planning_time: 3.5              # max time in s for planner to plan, smooth, and upsample. Will scale maximum smoothing and upsampling times based on remaining time after planning.
-      motion_model_for_search: "DUBIN"    # For Hybrid Dubin, Redds-Shepp
-      cost_travel_multiplier: 2.0         # For 2D: Cost multiplier to apply to search to steer away from high cost areas. Larger values will place in the center of aisles more exactly (if non-`FREE` cost potential field exists) but take slightly longer to compute. To optimize for speed, a value of 1.0 is reasonable. A reasonable tradeoff value is 2.0. A value of 0.0 effective disables steering away from obstacles and acts like a naive binary search A*.
-      angle_quantization_bins: 64         # For Hybrid nodes: Number of angle bins for search, must be 1 for 2D node (no angle search)
-      analytic_expansion_ratio: 3.5       # For Hybrid/Lattice nodes: The ratio to attempt analytic expansions during search for final approach.
-      analytic_expansion_max_length: 3.0    # For Hybrid/Lattice nodes: The maximum length of the analytic expansion to be considered valid to prevent unsafe shortcutting (in meters). This should be scaled with minimum turning radius and be no less than 4-5x the minimum radius
-      minimum_turning_radius: 0.40        # For Hybrid/Lattice nodes: minimum turning radius in m of path / vehicle
-      reverse_penalty: 2.0                # For Reeds-Shepp model: penalty to apply if motion is reversing, must be => 1
-      change_penalty: 0.4                 # For Hybrid nodes: penalty to apply if motion is changing directions, must be >= 0
-      non_straight_penalty: 1.20          # For Hybrid nodes: penalty to apply if motion is non-straight, must be => 1
-      cost_penalty: 2.0                   # For Hybrid nodes: penalty to apply to higher cost areas when adding into the obstacle map dynamic programming distance expansion heuristic. This drives the robot more towards the center of passages. A value between 1.3 - 3.5 is reasonable.
-      retrospective_penalty: 0.025        # For Hybrid/Lattice nodes: penalty to prefer later maneuvers before earlier along the path. Saves search time since earlier nodes are not expanded until it is necessary. Must be >= 0.0 and <= 1.0
-      rotation_penalty: 5.0               # For Lattice node: Penalty to apply only to pure rotate in place commands when using minimum control sets containing rotate in place primitives. This should always be set sufficiently high to weight against this action unless strictly necessary for obstacle avoidance or there may be frequent discontinuities in the plan where it requests the robot to rotate in place to short-cut an otherwise smooth path for marginal path distance savings.
-      lookup_table_size: 20.0               # For Hybrid nodes: Size of the dubin/reeds-sheep distance window to cache, in meters.
-      cache_obstacle_heuristic: False      # For Hybrid nodes: Cache the obstacle map dynamic programming distance expansion heuristic between subsiquent replannings of the same goal location. Dramatically speeds up replanning performance (40x) if costmap is largely static.  
-      allow_reverse_expansion: False      # For Lattice nodes: Whether to expand state lattice graph in forward primitives or reverse as well, will double the branching factor at each step.   
-      smooth_path: True                   # For Lattice/Hybrid nodes: Whether or not to smooth the path, always true for 2D nodes.
+      tolerance: 0.5
+      downsample_costmap: false
+      downsampling_factor: 1
+      allow_unknown: false
+      max_iterations: 1000000
+      max_on_approach_iterations: 1000
+      max_planning_time: 3.5
+      motion_model_for_search: "DUBIN"  # Consider changing to "STATE_LATTICE" for more flexible paths
+      angle_quantization_bins: 64
+      analytic_expansion_ratio: 3.5
+      analytic_expansion_max_length: 3.0
+      minimum_turning_radius: 0.40
+      reverse_penalty: 2.0
+      change_penalty: 0.0  # Reduce or remove change penalty for holonomic movement
+      non_straight_penalty: 1.05  # Reduce non-straight penalty for holonomic movement
+      cost_penalty: 2.0
+      retrospective_penalty: 0.025
+      lookup_table_size: 20.0
+      cache_obstacle_heuristic: False
+      allow_reverse_expansion: True  # Enable reverse expansion for holonomic movement
+      smooth_path: True
       smoother:
         max_iterations: 1000
         w_smooth: 0.3
         w_data: 0.2
         tolerance: 1.0e-10
-        do_refinement: true               # Whether to recursively run the smoother 3 times on the results from prior runs to refine the results further
-
+        do_refinement: true
+        
 behavior_server:
   ros__parameters:
     costmap_topic: local_costmap/costmap_raw
