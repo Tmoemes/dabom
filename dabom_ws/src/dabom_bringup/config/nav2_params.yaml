@@ -138,10 +138,10 @@ controller_server:
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: -0.48
-      min_vel_y: -0.48
-      max_vel_x: 0.48
-      max_vel_y: 0.48
+      min_vel_x: -0.40
+      min_vel_y: -0.40
+      max_vel_x: 0.40
+      max_vel_y: 0.40
       max_vel_theta: 0.6
       min_speed_xy: 0.0
       max_speed_xy: 0.26
@@ -155,7 +155,7 @@ controller_server:
       decel_lim_y: -2.5
       decel_lim_theta: -3.0
       vx_samples: 20
-      vy_samples: 5
+      vy_samples: 20 
       vtheta_samples: 20
       #sim_time: 0.0
       linear_granularity: 0.05
@@ -169,7 +169,7 @@ controller_server:
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist", "Twirling"]
       BaseObstacle.scale: 0.05
       #32
-      PathAlign.scale: 5.0
+      PathAlign.scale: 24.0
       PathAlign.forward_point_distance: 0.1
       GoalAlign.scale: 24.0
       GoalAlign.forward_point_distance: 0.1
@@ -192,12 +192,13 @@ local_costmap:
       width: 3
       height: 3
       resolution: 0.05
+      #footprint: [[0.175, 0.195], [0.175, -0.195], [-0.175, -0.195], [-0.175, 0.195]]
       robot_radius: 0.3
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 4.0
-        inflation_radius: 0.75
+        cost_scaling_factor: 2.0
+        inflation_radius: 0.7
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -232,6 +233,9 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_footprint
       use_sim_time: false
+      # width: 35 cm
+      # height: 39 CM
+      #footprint: [[0.175, 0.195], [0.175, -0.195], [-0.175, -0.195], [-0.175, 0.195]]
       robot_radius: 0.3
       resolution: 0.05
       track_unknown_space: true
@@ -256,7 +260,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.6
+        inflation_radius: 0.7
       always_send_full_costmap: True
 
 map_server:
@@ -280,33 +284,41 @@ planner_server:
     use_sim_time: False
 
     GridBased:
-      plugin: "nav2_smac_planner/SmacPlannerLattice"
-      allow_unknown: true                 # Allow traveling in unknown space
-      tolerance: 0.25                     # dist-to-goal heuristic cost (distance) for valid tolerance endpoints if exact goal cannot be found.
-      max_iterations: 1000000             # Maximum total iterations to search for before failing (in case unreachable), set to -1 to disable
-      max_on_approach_iterations: 1000    # Maximum number of iterations after within tolerances to continue to try to find exact solution
-      max_planning_time: 5.0              # Max time in s for planner to plan, smooth
-      analytic_expansion_ratio: 3.5       # The ratio to attempt analytic expansions during search for final approach.
-      analytic_expansion_max_length: 3.0  # For Hybrid/Lattice nodes The maximum length of the analytic expansion to be considered valid to prevent unsafe shortcutting
-      analytic_expansion_max_cost: 200.0  # The maximum single cost for any part of an analytic expansion to contain and be valid, except when necessary on approach to goal
-      analytic_expansion_max_cost_override: false  #  Whether or not to override the maximum cost setting if within critical distance to goal (ie probably required)
-      reverse_penalty: 2.0                # Penalty to apply if motion is reversing, must be => 1
-      change_penalty: 0.05                # Penalty to apply if motion is changing directions (L to R), must be >= 0
-      non_straight_penalty: 1.05          # Penalty to apply if motion is non-straight, must be => 1
-      cost_penalty: 2.0                   # Penalty to apply to higher cost areas when adding into the obstacle map dynamic programming distance expansion heuristic. This drives the robot more towards the center of passages. A value between 1.3 - 3.5 is reasonable.
-      rotation_penalty: 5.0               # Penalty to apply to in-place rotations, if minimum control set contains them
-      retrospective_penalty: 0.015
-      lookup_table_size: 20.0             # Size of the dubin/reeds-sheep distance window to cache, in meters.
-      cache_obstacle_heuristic: false     # Cache the obstacle map dynamic programming distance expansion heuristic between subsequent replannings of the same goal location. Dramatically speeds up replanning performance (40x) if costmap is largely static.
-      allow_reverse_expansion: false      # If true, allows the robot to use the primitives to expand in the mirrored opposite direction of the current robot's orientation (to reverse).
-      smooth_path: True                   # If true, does a simple and quick smoothing post-processing to the path
-      smoother:
-        max_iterations: 1000
-        w_smooth: 0.3
-        w_data: 0.2
-        tolerance: 1.0e-10
-        do_refinement: true
-        refinement_num: 2
+      plugin: "nav2_theta_star_planner/ThetaStarPlanner"
+      how_many_corners: 8
+      w_euc_cost: 1.0
+      w_traversal_cost: 2.0
+      w_heuristic_cost: 1.0
+      # plugin: "nav2_navfn_planner/NavfnPlanner"
+      # use_astar: True
+      # allow_unkown: True
+      # tolerance: 0.5
+      # allow_unknown: true                 # Allow traveling in unknown space
+      # tolerance: 0.25                     # dist-to-goal heuristic cost (distance) for valid tolerance endpoints if exact goal cannot be found.
+      # max_iterations: 1000000             # Maximum total iterations to search for before failing (in case unreachable), set to -1 to disable
+      # max_on_approach_iterations: 1000    # Maximum number of iterations after within tolerances to continue to try to find exact solution
+      # max_planning_time: 5.0              # Max time in s for planner to plan, smooth
+      # analytic_expansion_ratio: 3.5       # The ratio to attempt analytic expansions during search for final approach.
+      # analytic_expansion_max_length: 3.0  # For Hybrid/Lattice nodes The maximum length of the analytic expansion to be considered valid to prevent unsafe shortcutting
+      # analytic_expansion_max_cost: 200.0  # The maximum single cost for any part of an analytic expansion to contain and be valid, except when necessary on approach to goal
+      # analytic_expansion_max_cost_override: false  #  Whether or not to override the maximum cost setting if within critical distance to goal (ie probably required)
+      # reverse_penalty: 2.0                # Penalty to apply if motion is reversing, must be => 1
+      # change_penalty: 0.05                # Penalty to apply if motion is changing directions (L to R), must be >= 0
+      # non_straight_penalty: 1.05          # Penalty to apply if motion is non-straight, must be => 1
+      # cost_penalty: 2.0                   # Penalty to apply to higher cost areas when adding into the obstacle map dynamic programming distance expansion heuristic. This drives the robot more towards the center of passages. A value between 1.3 - 3.5 is reasonable.
+      # rotation_penalty: 5.0               # Penalty to apply to in-place rotations, if minimum control set contains them
+      # retrospective_penalty: 0.015
+      # lookup_table_size: 20.0             # Size of the dubin/reeds-sheep distance window to cache, in meters.
+      # cache_obstacle_heuristic: false     # Cache the obstacle map dynamic programming distance expansion heuristic between subsequent replannings of the same goal location. Dramatically speeds up replanning performance (40x) if costmap is largely static.
+      # allow_reverse_expansion: false      # If true, allows the robot to use the primitives to expand in the mirrored opposite direction of the current robot's orientation (to reverse).
+      # smooth_path: True                   # If true, does a simple and quick smoothing post-processing to the path
+      # smoother:
+      #   max_iterations: 1000
+      #   w_smooth: 0.3
+      #   w_data: 0.2
+      #   tolerance: 1.0e-10
+      #   do_refinement: true
+      #   refinement_num: 2
         #SmacPlannerHybrid
       # tolerance: 0.5                      # tolerance for planning if unable to reach exact pose, in meters
       # downsample_costmap: false           # whether or not to downsample the map
@@ -384,8 +396,8 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: True
     feedback: "OPEN_LOOP"
-    max_velocity: [0.4, 0.4, 0.4]
-    min_velocity: [-0.4, -0.4, -0.6]
+    max_velocity: [0.40, 0.40, 0.6]
+    min_velocity: [-0.40, -0.40, -0.6]
     max_accel: [0.5, 0.5, 0.5]
     max_decel: [-0.5, -0.5, -0.5]
     odom_topic: "odom"
