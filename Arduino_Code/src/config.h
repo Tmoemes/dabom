@@ -2,46 +2,45 @@
 #define CONFIG_H
 #include "motor.h"
 #include <Encoder.h>
-// int pulsesPerRevolution = 1440;
 
-#if defined(__AVR_ATmega2560__)
-//front left
-// Motor 0 Pins
+// PI COMM constants
+#define PI_COMM_FREQ 20 
+#define PI_COMM_TIMEOUT 300
+#define PI_BAUD_RATE 38400
+
+// DEBUG constants
+#define DEBUG_FREQ 1000 // time in ms between debug prints, 0 to disable
+#define DEBUG_BAUD_RATE 9600
+
+// Motor 0:Front left
 #define MOTOR0_PIN_EN 2 
 #define MOTOR0_PIN_IN1 35
 #define MOTOR0_PIN_IN2 37
-// Encoder 0 Pins
-#define ENCODER0_PIN_A 18   //blue 
-#define ENCODER0_PIN_B 23   //yellow
+#define ENCODER0_PIN_A 18 // INT.3 on Pin 18
+#define ENCODER0_PIN_B 23   
 
-//front right
-// Motor 1 Pins
+// Motor 1: Front right
 #define MOTOR1_PIN_EN 3
 #define MOTOR1_PIN_IN1 41
 #define MOTOR1_PIN_IN2 39
-// Encoder 1 Pins
-#define ENCODER1_PIN_A 19
+#define ENCODER1_PIN_A 19 // INT.2 on pin 19
 #define ENCODER1_PIN_B 25
 
-//back left
-// Motor 2 Pins
+// Motor 2: Back left
 #define MOTOR2_PIN_EN 4
 #define MOTOR2_PIN_IN1 31
 #define MOTOR2_PIN_IN2 33
-// Encoder 2 Pins
-#define ENCODER2_PIN_A 20
+#define ENCODER2_PIN_A 20 // INT.1 on pin 20
 #define ENCODER2_PIN_B 27
-
-//back right
-// Motor 3 Pins
+ 
+// Motor 3: Back right
 #define MOTOR3_PIN_EN 5
 #define MOTOR3_PIN_IN1 45
 #define MOTOR3_PIN_IN2 43
-// Encoder 3 Pins
-#define ENCODER3_PIN_A 21
+#define ENCODER3_PIN_A 21 // INT.0 on Pin 21
 #define ENCODER3_PIN_B 29
-#endif
 
+// Defining and setting up the motors and encoders
 Encoder enc0(ENCODER0_PIN_A, ENCODER0_PIN_B);
 Encoder enc1(ENCODER1_PIN_A, ENCODER1_PIN_B);
 Encoder enc2(ENCODER2_PIN_A, ENCODER2_PIN_B);
@@ -54,10 +53,4 @@ Motor m3(MOTOR3_PIN_EN, MOTOR3_PIN_IN1, MOTOR3_PIN_IN2, enc3);
 
 Motor motors[] = {m0,m1,m2,m3};
 
-// INT.0 on Pin 21
-// INT.1 on pin 20
-// INT.2 on pin 19
-// INT.3 on Pin 18
-// INT.4 on Pin 2
-// INT.5 on Pin 3
 #endif // CONFIG_H
