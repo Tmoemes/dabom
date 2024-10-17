@@ -44,13 +44,13 @@ slam_toolbox:
   mode: mapping  # Options: mapping, localization. Default: mapping
 
   # How often to update the map (in seconds)
-  map_update_interval: 5.0  # Default: 5.0
+  map_update_interval: 3.0  # Default: 5.0
 
   # Resolution of the map in meters
   resolution: 0.05  # Default: 0.05 (5 cm per grid cell)
 
   # Maximum range for the laser scanner
-  max_laser_range: 20.0  # Default: 20.0 meters
+  max_laser_range: 10.0  # Default: 20.0 meters
 
   # =======================
   # Transform and TF Settings
@@ -70,10 +70,10 @@ slam_toolbox:
   use_scan_matching: true  # Default: true
 
   # Minimum travel distance (in meters) before scan matching is performed
-  minimum_travel_distance: 0.5  # Default: 0.5 meters
+  minimum_travel_distance: 0.15  # Default: 0.5 meters
 
   # Minimum change in heading (in radians) before scan matching is performed
-  minimum_travel_heading: 0.5  # Default: 0.5 radians
+  minimum_travel_heading: 0.25  # Default: 0.5 radians
 
   # Number of scans to buffer for scan matching
   scan_buffer_size: 10  # Default: 10

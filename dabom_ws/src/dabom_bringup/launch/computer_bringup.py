@@ -20,7 +20,7 @@ def generate_launch_description():
         config = yaml.safe_load(f)
         use_joy = config['launch_config'].get('use_joy', False)
         use_rviz = config['launch_config'].get('use_rviz', True)
-        use_slam = config['launch_config'].get('use_slam', True)
+        use_slam = config['launch_config'].get('use_slam', False)
         use_nav2 = config['launch_config'].get('use_nav2', True)
         use_robot_state = config['launch_config'].get('use_robot_state', True)
         use_xbox = config['launch_config'].get('use_xbox', True)
@@ -37,6 +37,13 @@ def generate_launch_description():
     )
     rviz_config_path = os.path.join(
         get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz'
+    )
+
+    # Path to the custom Nav2 parameters
+    nav2_params_path = os.path.join(
+        get_package_share_directory('dabom_bringup'),
+        'config',
+        'nav2_params.yaml'  # Ensure this points to your customized parameters file
     )
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
@@ -91,19 +98,22 @@ def generate_launch_description():
     # Conditionally launch Nav2 (Navigation stack)
     if use_nav2:
         ld.add_action(LogInfo(msg="Launching Nav2..."))
-        ld.add_action(Node(
-            package='nav2_bringup',
-            executable='bringup_launch.py',
-            name='nav2',
-            output='screen',
-        ))
-    
+        ld.add_action(IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(
+                get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
+            launch_arguments={
+                'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
+                'use_sim_time': 'false'
+                #'map': '/dev/null'  # Override the map argument with an empty value
+        }.items()
+    ))
+
     # Conditionally launch Xbox Controller
     if use_xbox:
         ld.add_action(LogInfo(msg="Launching Xbox Controller..."))
         ld.add_action(IncludeLaunchDescription(
-    		PythonLaunchDescriptionSource(os.path.join(
-        		get_package_share_directory('xbox_controller'), 'launch', 'xbox_controller_launch.py')),
-))
+            PythonLaunchDescriptionSource(os.path.join(
+                get_package_share_directory('xbox_controller'), 'launch', 'xbox_controller_launch.py')),
+        ))
 
     return ld
