@@ -19,9 +19,9 @@ long lastReceivedTime = 0;
 void setup()
 {
   // Used to display information
-  Serial.begin(9600);
+  Serial2.begin(9600);
 
-  Serial2.begin(38400);
+  Serial.begin(115200);
 
   lastReceivedTime = millis();
   // Wait for Serial Monitor to be opened
@@ -65,7 +65,7 @@ void loop()
   }
 
   // processSerialInput(Serial);
-  processSerialInput(Serial2);
+  processSerialInput(Serial);
   // if(Serial2.available()){
   //   Serial.write(Serial2.read());
   // }
@@ -154,7 +154,7 @@ void sendEncoder(){
 
   char message[32] = {0};
   snprintf(message, sizeof(message), "%li,%li,%li,%li", count, count1, count2, count3);
-  Serial2.println(message);
+  Serial.println(message);
 }
 
 // /// @brief protocol 1 byte per pair of wheels first bit is which pair, second direction, last 6 is speed
