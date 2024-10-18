@@ -32,6 +32,9 @@ All the necessary components are listed in the BOM (Bill of Materials) Excel fil
 ### Electrical Schematics
 [Arduino Wiring Schematics](Arduino_Code/README.md)
 
+![image](https://github.com/user-attachments/assets/04fa2b5f-c790-43d9-9397-3a3dc7761b07)
+
+
 For the wiring of the power lines it is recommended to use the 0.5mm gauge wires with Farrell connectors on the end to make connections more safe and reliable. 
 
 Hadi insert schematics here as a picture <3
