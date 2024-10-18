@@ -7,15 +7,16 @@ The project was created by a team of students under the Adaptive Robotics minor 
 ### 3D printed parts:
 All the 3D models are located inside the &&&&& folder. For 3D printing use the .stl files. STL files, Standard Triangle Library, files are the most commonly used file format for 3D printing. These files has to be sliced by a slicing software before the 3D printer could interpret them. For slicing Cura slicer is recommended with the following print parameters:
 
-Print parameters:
--Material: Generic PLA
--Print temperature: 205 C
--Print speed: 50 mm/s or less (aim for good quality)
--Layer height: 0.1 or 0.12 mm
--Wall count: 3
--Bottom and top Wall count: 8
--Infill: 20% gyroid 
--Build plate adhesion: brim (recommended)
+| Print parameters:          | Value                                  |
+| -------------------------- | -------------------------------------- |
+| Material:                  | Generic PLA                            |
+| Print temperature:         | 205 C                                  |
+| Print speed:               | 50 mm/s or less (aim for good quality) |
+| Layer height:              | 0.1 or 0.12 mm                         |
+| Wall count:                | 3                                      |
+| Bottom and top Wall count: | 8                                      |
+| Infill:                    | 20% gyroid                             |
+| Build plate adhesion:      | brim (recommended)                     |
 
 For printing Ultimaker and Bambu Lab printers were used, these printers provide high quality however they are not mandatory for the project since the plastic parts are plenty strong by themselves.
 
