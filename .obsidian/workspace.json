@@ -175,6 +175,8 @@
   },
   "active": "34d40d0234bc2e4a",
   "lastOpenFiles": [
+    "dabom_ws/src/serial_comm/99-ttyS0.rules",
+    "dabom_ws/src/serial_comm/99-",
     "CAD/dabom.step",
     "CAD/WirePlate.3mf",
     "CAD/WheelHubAddapter2.6mmHole.3mf",
@@ -184,8 +186,6 @@
     "CAD/MotorMountA.3mf",
     "CAD/C_Karg_Brace.3mf",
     "CAD/Base_Plate.dxf",
-    "CAD/Base_Plate.dwg",
-    "CAD",
     "Arduino_Code/README.md",
     "dabom_ws/src/rplidar_ros/rplidar_A2.png",
     "dabom_ws/src/rplidar_ros/rplidar_A1.png",
