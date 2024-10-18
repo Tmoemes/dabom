@@ -40,6 +40,6 @@ Hadi insert schematics here as a picture <3
 
 ### Raspberry Pi Side
 
-[Ubuntu Installation Guide](https://raspberrytips.com/headless-ubuntu-server-installation/)
+[Ubuntu Installation Guide For Windows](https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/)
 
 ### Computer Side
