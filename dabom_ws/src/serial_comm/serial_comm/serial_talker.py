@@ -8,7 +8,8 @@ class Serial_Talker(Node):
 
     def __init__(self):
         super().__init__('Serial_Talker')
-        # Declare parameters
+
+        # Declare parameters with default values
         self.declare_parameter('timer_period', 0.2)
         self.declare_parameter('port', '/dev/ttyS0')
         self.declare_parameter('baudrate', 38400)
@@ -16,14 +17,17 @@ class Serial_Talker(Node):
         self.declare_parameter('pulses_per_rev', 1440)
         self.declare_parameter('wheel_radius', 0.08)
 
-        # self.subscription = self.create_subscription(TwistStamped, '/arduino_vel', self.motor_vel_callback, 10)
+        # Create a subscription to the /motor_vel topic
         self.subscription = self.create_subscription(TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
 
+        # Create a publisher to the /arduino_vel topic
         self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
         
+        # Get the timer period parameter and create a timer
         timer_period = self.get_parameter('timer_period').get_parameter_value().double_value
         self.timer = self.create_timer(timer_period, self.arduino_vel_callback)
 
+        # Get serial communication parameters
         self.port = self.get_parameter('port').get_parameter_value().string_value   
         self.baudrate = self.get_parameter('baudrate').get_parameter_value().integer_value
         self.timeout = self.get_parameter('timeout').get_parameter_value().double_value
@@ -37,7 +41,7 @@ class Serial_Talker(Node):
             write_timeout=self.timeout,
         )
 
-        #velocities calculation
+        # Initialize variables for velocity calculation
         self.last_time = self.get_clock().now()
         self.pulses_per_rev = self.get_parameter('pulses_per_rev').get_parameter_value().integer_value
         self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
@@ -50,7 +54,9 @@ class Serial_Talker(Node):
             # self.get_logger().info('receiving: "%s"' % serial_read)
             
         except serial.SerialException:
+            # Log an error if there is an issue reading from the serial port
             self.get_logger().error('Error reading from serial port')
+            # Reinitialize the serial port
             self.serial = serial.Serial(
                 port=self.port,
                 baudrate=self.baudrate,
@@ -59,6 +65,7 @@ class Serial_Talker(Node):
             )
         if serial_read:
             try:
+                # Parse the encoder values from the serial data
                 encoder_values = str(serial_read)[2:-1].split(',')
                 if len(encoder_values) != 4:
                     raise Exception('Incorrect number of encoder values')
