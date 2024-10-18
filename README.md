@@ -35,6 +35,7 @@ Hadi insert schematics here as a picture <3
 # Software Guide:
 
 ### Raspberry Pi side:
+[Ubuntu installation Guide](https://raspberrytips.com/headless-ubuntu-server-installation/)
 
 
 ### Computer side:
