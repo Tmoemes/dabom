@@ -1,51 +1,44 @@
 <?xml version="1.0" ?>
 <robot name="dabomb" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
-</gazebo>
+<transmission name="Wheel1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Wheel1">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Wheel1_actr">
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
 
-<gazebo reference="base_link">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-  <gravity>true</gravity>
-</gazebo>
+<transmission name="Wheel3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Wheel3">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Wheel3_actr">
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
 
-<gazebo reference="Wheel1_1">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+<transmission name="Wheel2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Wheel2">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Wheel2_actr">
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
 
-<gazebo reference="Wheel3_1">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
-
-<gazebo reference="Wheel2_1">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
-
-<gazebo reference="Wheel4_1">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
-
-<gazebo reference="laser">
-  <material>Gazebo/Silver</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
+<transmission name="Wheel4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Wheel4">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Wheel4_actr">
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
 
 </robot>

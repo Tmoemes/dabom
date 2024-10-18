@@ -1,0 +1,42 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/c/dabom/build/inverse_kinematics",
+        "/home/c/dabom/install/inverse_kinematics/lib/python3.10/site-packages",
+        "/home/c/dabom/build/xbox_controller",
+        "/home/c/dabom/install/xbox_controller/lib/python3.10/site-packages",
+        "/home/c/dabom/build/dabomb_description",
+        "/home/c/dabom/install/dabomb_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/c/dabom/build/inverse_kinematics",
+        "/home/c/dabom/install/inverse_kinematics/lib/python3.10/site-packages",
+        "/home/c/dabom/build/xbox_controller",
+        "/home/c/dabom/install/xbox_controller/lib/python3.10/site-packages",
+        "/home/c/dabom/build/dabomb_description",
+        "/home/c/dabom/install/dabomb_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#fa1b49",
+        "activityBar.background": "#fa1b49",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#155e02",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#fa1b49",
+        "statusBar.background": "#dd0531",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#fa1b49",
+        "statusBarItem.remoteBackground": "#dd0531",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#dd0531",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#dd053199",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#dd0531"
+}

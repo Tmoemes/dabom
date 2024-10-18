@@ -148,6 +148,9 @@
   <parent link="base_link"/>
   <child link="Wheel1_1"/>
   <axis xyz="-0.0 1.0 0.0"/>
+  <joint_properties damping="100" friction="1000"/>
+  <limit effort="1000.0" lower="-1e+16" upper="1e+16" velocity="10"/>
+  <joint_properties damping="1.0" friction="1"/>
 </joint>
 
 <joint name="Wheel3" type="continuous">
@@ -155,6 +158,9 @@
   <parent link="base_link"/>
   <child link="Wheel3_1"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <joint_properties damping="100" friction="1000"/>
+  <limit effort="1000.0" lower="-1e+16" upper="1e+16" velocity="10"/>
+  <joint_properties damping="1.0" friction="1"/>
 </joint>
 
 <joint name="Wheel2" type="continuous">
@@ -162,6 +168,9 @@
   <parent link="base_link"/>
   <child link="Wheel2_1"/>
   <axis xyz="-0.0 -1.0 0.0"/>
+  <joint_properties damping="100" friction="1000"/>
+  <limit effort="1000.0" lower="-1e+16" upper="1e+16" velocity="10"/>
+  <joint_properties damping="1.0" friction="1"/>
 </joint>
 
 <joint name="Wheel4" type="continuous">
@@ -169,12 +178,18 @@
   <parent link="base_link"/>
   <child link="Wheel4_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
+  <joint_properties damping="100" friction="1000"/>
+  <limit effort="1000.0" lower="-1e+16" upper="1e+16" velocity="10"/>
+  <joint_properties damping="1.0" friction="1"/>
 </joint>
 
 <joint name="laser_joint" type="fixed">
   <origin xyz="0.0 0.0 0.15" rpy="0 0 ${pi}"/>
   <parent link="base_link"/>
   <child link="laser"/>
+  <joint_properties damping="100" friction="1000"/>
+  <limit effort="1000.0" lower="-1e+16" upper="1e+16" velocity="10"/>
+  <joint_properties damping="1.0" friction="1"/>
 </joint>
 
 </robot>
