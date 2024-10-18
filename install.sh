@@ -13,5 +13,5 @@ sudo apt install ros-humble-robot-state-publisher
 pip3 install numpy
 pip3 install pyserial
 pip3 install pyyaml
-
+pip3 install pygame
 
