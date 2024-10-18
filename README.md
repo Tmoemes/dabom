@@ -27,6 +27,7 @@ All the necessary components are located in the BOM (bill of material) excel fil
 
 ### Electrical Schematics:
 [Arduino Wiring Schematics](Arduino_Code/README.md)
+
 Hadi insert schematics here as a picture <3 
 
 
