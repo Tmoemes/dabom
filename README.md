@@ -30,7 +30,14 @@ For the mechanical assembly, a full CAD assembly is provided, which can be used 
 All the necessary components are listed in the BOM (Bill of Materials) Excel file. A possible vendor is provided, but you are free to source the components from anywhere. It is important to mention that the Lidar used for this project, RPLidar model A2M8, is currently discontinued. The alternative A2M12 requires changes to the code. These changes are not implemented in the current working repository! The implementation of the A2M12 model is only recommended for experienced ROS users.
 
 ### Electrical Schematics
-![image](https://github.com/user-attachments/assets/04fa2b5f-c790-43d9-9397-3a3dc7761b07)
+![image](https://github.com/user-attachments/assets/bba2a38c-d27b-4825-a06e-7e4f59618a0a)
+
+
+[Arduino Wiring Schematics](Arduino_Code/README.md)
+
+
+
+
 For the wiring of the power lines it is recommended to use the 0.5mm gauge wires with Farrell connectors on the end to make connections more safe and reliable. 
 For details regarding the Arduino check [Arduino Wiring Schematics](Arduino_Code/README.md).
 ## Software Guide
