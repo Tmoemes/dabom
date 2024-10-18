@@ -4,13 +4,13 @@
 #include <Encoder.h>
 
 // PI COMM constants
-#define PI_COMM_FREQ 20 
+#define PI_COMM_FREQ 20
 #define PI_COMM_TIMEOUT 300
 #define PI_BAUD_RATE 38400
 
 // DEBUG constants
 #define DEBUG_FREQ 1000 // time in ms between debug prints, 0 to disable
-#define DEBUG_BAUD_RATE 9600
+#define DEBUG_BAUD_RATE 19200
 
 // Motor 0:Front left
 #define MOTOR0_PIN_EN 2 

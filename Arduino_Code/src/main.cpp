@@ -98,31 +98,17 @@ void processSerialInput(HardwareSerial &thisserial)
           return;
         }
 
-        // check if speed is a valid number TODO: check if nessesary
+        // convert speed string to double
         double speed = atof(speedStr);
-        if (speed < -16 || speed > 16)
-        {
-          Serial.println("Invalid speed");
-          return;
-        }
 
         // map input speed to 0-255
         int targetSpeed = map(abs(speed), 0, 10, 50, 255);
 
         // set motor speed and direction
         motors[motor].setSpeed(targetSpeed);
-        if (speed > 0)
-        {
-          motors[motor].forward();
-        }
-        else if (speed < 0)
-        {
-          motors[motor].backward();
-        }
-        else
-        {
-          motors[motor].stop();
-        }
+        if (speed > 0){motors[motor].forward();}
+        else if (speed < 0){motors[motor].backward();}
+        else{motors[motor].stop();}
 
         // update last received time
         lastReceivedTime = currentTime;
@@ -134,9 +120,9 @@ void processSerialInput(HardwareSerial &thisserial)
     }
     else
     {
-      Serial.print("Unknown command: ");
-      Serial.print(input);
-      Serial.println();
+      // Serial.print("Unknown command: ");
+      // Serial.print(input);
+      // Serial.println();
     }
   }
 }
@@ -149,7 +135,8 @@ void printMotorInfo()
   {
     long count = motors[i].readEncoder();
     double speed = motors[i].getSpeed();
-    x += snprintf(message + x, sizeof(message), "Motor %i: \n-Speed: %d \n-Encoder Value: %li\n", speed, count);
+    x += snprintf(message + x, sizeof(message), "Motor %i: \n-Speed: %d \n-Encoder Value: %li\n",i, speed, count);
+    Serial.print(message);
   }
 }
 
