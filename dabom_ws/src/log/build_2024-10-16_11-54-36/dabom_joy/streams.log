@@ -1,0 +1,18 @@
+[3.943s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabom_joy': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_joy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_joy/build --no-deps symlink_data
+[5.297s] running develop
+[5.298s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[5.299s]   warnings.warn(
+[6.157s] running egg_info
+[6.159s] writing dabom_joy.egg-info/PKG-INFO
+[6.160s] writing dependency_links to dabom_joy.egg-info/dependency_links.txt
+[6.160s] writing entry points to dabom_joy.egg-info/entry_points.txt
+[6.162s] writing requirements to dabom_joy.egg-info/requires.txt
+[6.162s] writing top-level names to dabom_joy.egg-info/top_level.txt
+[6.180s] reading manifest file 'dabom_joy.egg-info/SOURCES.txt'
+[6.181s] writing manifest file 'dabom_joy.egg-info/SOURCES.txt'
+[6.182s] running build_ext
+[6.196s] Creating /home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages/dabom-joy.egg-link (link to .)
+[6.197s] 
+[6.198s] Installed /home/pi/dabom/dabom_ws/src/build/dabom_joy
+[6.200s] running symlink_data
+[6.351s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabom_joy' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_joy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_joy/build --no-deps symlink_data

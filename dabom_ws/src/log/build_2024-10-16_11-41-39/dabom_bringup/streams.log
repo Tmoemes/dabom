@@ -1,0 +1,18 @@
+[3.488s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabom_bringup': AMENT_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/x_serial:/home/pi/dabom/dabom_ws/src/install/serial_comm:/home/pi/dabom/dabom_ws/src/install/rplidar_ros:/home/pi/dabom/dabom_ws/src/install/odom:/home/pi/dabom/dabom_ws/src/install/inv_kin:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/rplidar_ros:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/x_serial:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/serial_comm:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/odom:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/inv_kin:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_bringup/build --no-deps symlink_data
+[4.741s] running develop
+[4.742s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[4.743s]   warnings.warn(
+[5.368s] running egg_info
+[5.369s] writing dabom_bringup.egg-info/PKG-INFO
+[5.371s] writing dependency_links to dabom_bringup.egg-info/dependency_links.txt
+[5.371s] writing entry points to dabom_bringup.egg-info/entry_points.txt
+[5.372s] writing requirements to dabom_bringup.egg-info/requires.txt
+[5.373s] writing top-level names to dabom_bringup.egg-info/top_level.txt
+[5.376s] reading manifest file 'dabom_bringup.egg-info/SOURCES.txt'
+[5.380s] writing manifest file 'dabom_bringup.egg-info/SOURCES.txt'
+[5.388s] running build_ext
+[5.392s] Creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages/dabom-bringup.egg-link (link to .)
+[5.396s] 
+[5.397s] Installed /home/pi/dabom/dabom_ws/src/build/dabom_bringup
+[5.397s] running symlink_data
+[5.536s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabom_bringup' returned '0': AMENT_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/x_serial:/home/pi/dabom/dabom_ws/src/install/serial_comm:/home/pi/dabom/dabom_ws/src/install/rplidar_ros:/home/pi/dabom/dabom_ws/src/install/odom:/home/pi/dabom/dabom_ws/src/install/inv_kin:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/rplidar_ros:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/x_serial:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/serial_comm:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/odom:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/inv_kin:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_bringup/build --no-deps symlink_data

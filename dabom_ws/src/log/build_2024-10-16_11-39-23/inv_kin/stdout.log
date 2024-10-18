@@ -1,0 +1,25 @@
+running develop
+running egg_info
+creating inv_kin.egg-info
+writing inv_kin.egg-info/PKG-INFO
+writing dependency_links to inv_kin.egg-info/dependency_links.txt
+writing entry points to inv_kin.egg-info/entry_points.txt
+writing requirements to inv_kin.egg-info/requires.txt
+writing top-level names to inv_kin.egg-info/top_level.txt
+writing manifest file 'inv_kin.egg-info/SOURCES.txt'
+reading manifest file 'inv_kin.egg-info/SOURCES.txt'
+writing manifest file 'inv_kin.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages/inv-kin.egg-link (link to .)
+Installing inv_kin_node script to /home/pi/dabom/dabom_ws/src/install/inv_kin/lib/inv_kin
+
+Installed /home/pi/dabom/dabom_ws/src/build/inv_kin
+running symlink_data
+creating /home/pi/dabom/dabom_ws/src/install/inv_kin/share/ament_index
+creating /home/pi/dabom/dabom_ws/src/install/inv_kin/share/ament_index/resource_index
+creating /home/pi/dabom/dabom_ws/src/install/inv_kin/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/inv_kin/resource/inv_kin -> /home/pi/dabom/dabom_ws/src/install/inv_kin/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/inv_kin/package.xml -> /home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin
+creating /home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/launch
+creating /home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/inv_kin/config/inv_kin.yaml -> /home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/config

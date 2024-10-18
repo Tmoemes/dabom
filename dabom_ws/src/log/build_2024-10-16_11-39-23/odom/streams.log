@@ -1,0 +1,29 @@
+[8.160s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/odom': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/odom/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/odom/build --no-deps symlink_data
+[11.954s] running develop
+[11.956s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[11.956s]   warnings.warn(
+[14.095s] running egg_info
+[14.096s] creating odom.egg-info
+[14.097s] writing odom.egg-info/PKG-INFO
+[14.098s] writing dependency_links to odom.egg-info/dependency_links.txt
+[14.099s] writing entry points to odom.egg-info/entry_points.txt
+[14.100s] writing requirements to odom.egg-info/requires.txt
+[14.101s] writing top-level names to odom.egg-info/top_level.txt
+[14.101s] writing manifest file 'odom.egg-info/SOURCES.txt'
+[14.110s] reading manifest file 'odom.egg-info/SOURCES.txt'
+[14.113s] writing manifest file 'odom.egg-info/SOURCES.txt'
+[14.125s] running build_ext
+[14.126s] Creating /home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages/odom.egg-link (link to .)
+[14.130s] Installing odom_node script to /home/pi/dabom/dabom_ws/src/install/odom/lib/odom
+[14.138s] 
+[14.139s] Installed /home/pi/dabom/dabom_ws/src/build/odom
+[14.142s] running symlink_data
+[14.144s] creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index
+[14.145s] creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index
+[14.147s] creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index/packages
+[14.153s] symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/resource/odom -> /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index/packages
+[14.167s] symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/package.xml -> /home/pi/dabom/dabom_ws/src/install/odom/share/odom
+[14.169s] creating /home/pi/dabom/dabom_ws/src/install/odom/share/odom/launch
+[14.170s] creating /home/pi/dabom/dabom_ws/src/install/odom/share/odom/config
+[14.172s] symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/config/odom.yaml -> /home/pi/dabom/dabom_ws/src/install/odom/share/odom/config
+[17.614s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/odom' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/odom/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/odom/build --no-deps symlink_data

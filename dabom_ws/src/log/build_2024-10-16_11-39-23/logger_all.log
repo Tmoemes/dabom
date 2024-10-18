@@ -1,0 +1,585 @@
+[0.608s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.609s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff99101c90>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff991017e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff991017e0>>, mixin_verb=('build',))
+[1.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.708s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pi/dabom/dabom_ws/src'
+[1.708s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.708s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.724s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.726s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.726s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.726s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.727s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extensions ['ignore', 'ignore_ament_install']
+[1.727s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extension 'ignore'
+[1.727s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extension 'ignore_ament_install'
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extensions ['colcon_pkg']
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extension 'colcon_pkg'
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extensions ['colcon_meta']
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extension 'colcon_meta'
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extensions ['ros']
+[1.728s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_bringup) by extension 'ros'
+[1.745s] DEBUG:colcon.colcon_core.package_identification:Package 'dabom_bringup' with type 'ros.ament_python' and name 'dabom_bringup'
+[1.746s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extensions ['ignore', 'ignore_ament_install']
+[1.746s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extension 'ignore'
+[1.746s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extension 'ignore_ament_install'
+[1.746s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extensions ['colcon_pkg']
+[1.747s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extension 'colcon_pkg'
+[1.747s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extensions ['colcon_meta']
+[1.747s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extension 'colcon_meta'
+[1.747s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extensions ['ros']
+[1.747s] Level 1:colcon.colcon_core.package_identification:_identify(dabom_joy) by extension 'ros'
+[1.750s] DEBUG:colcon.colcon_core.package_identification:Package 'dabom_joy' with type 'ros.ament_python' and name 'dabom_joy'
+[1.751s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extensions ['ignore', 'ignore_ament_install']
+[1.751s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extension 'ignore'
+[1.751s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extension 'ignore_ament_install'
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extensions ['colcon_pkg']
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extension 'colcon_pkg'
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extensions ['colcon_meta']
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extension 'colcon_meta'
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extensions ['ros']
+[1.752s] Level 1:colcon.colcon_core.package_identification:_identify(dabomb_description) by extension 'ros'
+[1.757s] DEBUG:colcon.colcon_core.package_identification:Package 'dabomb_description' with type 'ros.ament_cmake' and name 'dabomb_description'
+[1.757s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.758s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.758s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.758s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extensions ['ignore', 'ignore_ament_install']
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extension 'ignore'
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extension 'ignore_ament_install'
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extensions ['colcon_pkg']
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extension 'colcon_pkg'
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extensions ['colcon_meta']
+[1.759s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extension 'colcon_meta'
+[1.760s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extensions ['ros']
+[1.760s] Level 1:colcon.colcon_core.package_identification:_identify(inv_kin) by extension 'ros'
+[1.763s] DEBUG:colcon.colcon_core.package_identification:Package 'inv_kin' with type 'ros.ament_python' and name 'inv_kin'
+[1.764s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.764s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.765s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.765s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extensions ['ignore', 'ignore_ament_install']
+[1.765s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extension 'ignore'
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extension 'ignore_ament_install'
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extensions ['colcon_pkg']
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extension 'colcon_pkg'
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extensions ['colcon_meta']
+[1.766s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extension 'colcon_meta'
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extensions ['ros']
+[1.767s] Level 1:colcon.colcon_core.package_identification:_identify(odom) by extension 'ros'
+[1.770s] DEBUG:colcon.colcon_core.package_identification:Package 'odom' with type 'ros.ament_python' and name 'odom'
+[1.771s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extensions ['ignore', 'ignore_ament_install']
+[1.771s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extension 'ignore'
+[1.772s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extension 'ignore_ament_install'
+[1.772s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extensions ['colcon_pkg']
+[1.772s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extension 'colcon_pkg'
+[1.772s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extensions ['colcon_meta']
+[1.773s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extension 'colcon_meta'
+[1.773s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extensions ['ros']
+[1.773s] Level 1:colcon.colcon_core.package_identification:_identify(rplidar_ros) by extension 'ros'
+[1.776s] DEBUG:colcon.colcon_core.package_identification:Package 'rplidar_ros' with type 'ros.ament_cmake' and name 'rplidar_ros'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extensions ['ignore', 'ignore_ament_install']
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extension 'ignore'
+[1.777s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extension 'ignore_ament_install'
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extensions ['colcon_pkg']
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extension 'colcon_pkg'
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extensions ['colcon_meta']
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extension 'colcon_meta'
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extensions ['ros']
+[1.778s] Level 1:colcon.colcon_core.package_identification:_identify(serial_comm) by extension 'ros'
+[1.782s] DEBUG:colcon.colcon_core.package_identification:Package 'serial_comm' with type 'ros.ament_python' and name 'serial_comm'
+[1.782s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extensions ['ignore', 'ignore_ament_install']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extension 'ignore'
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extension 'ignore_ament_install'
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extensions ['colcon_pkg']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extension 'colcon_pkg'
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extensions ['colcon_meta']
+[1.783s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extension 'colcon_meta'
+[1.784s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extensions ['ros']
+[1.784s] Level 1:colcon.colcon_core.package_identification:_identify(x_serial) by extension 'ros'
+[1.787s] DEBUG:colcon.colcon_core.package_identification:Package 'x_serial' with type 'ros.ament_python' and name 'x_serial'
+[1.788s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.788s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extension 'ignore'
+[1.788s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extension 'ignore_ament_install'
+[1.788s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extensions ['colcon_pkg']
+[1.789s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extension 'colcon_pkg'
+[1.789s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extensions ['colcon_meta']
+[1.789s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extension 'colcon_meta'
+[1.789s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extensions ['ros']
+[1.789s] Level 1:colcon.colcon_core.package_identification:_identify(xbox_controller) by extension 'ros'
+[1.793s] DEBUG:colcon.colcon_core.package_identification:Package 'xbox_controller' with type 'ros.ament_cmake' and name 'xbox_controller'
+[1.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.907s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.907s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.927s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 9 installed packages in /home/pi/dabom/dabom_ws/install
+[1.936s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 242 installed packages in /opt/ros/humble
+[1.942s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.155s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_args' from command line to 'None'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_target' from command line to 'None'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_clean_cache' from command line to 'False'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_clean_first' from command line to 'False'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'cmake_force_configure' from command line to 'False'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'ament_cmake_args' from command line to 'None'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'catkin_cmake_args' from command line to 'None'
+[2.156s] Level 5:colcon.colcon_core.verb:set package 'dabom_joy' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.157s] DEBUG:colcon.colcon_core.verb:Building package 'dabom_joy' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/dabom_joy', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/dabom_joy', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/dabom_joy', 'symlink_install': True, 'test_result_base': None}
+[2.158s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_args' from command line to 'None'
+[2.158s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_target' from command line to 'None'
+[2.158s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.158s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_clean_cache' from command line to 'False'
+[2.158s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_clean_first' from command line to 'False'
+[2.159s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'cmake_force_configure' from command line to 'False'
+[2.159s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'ament_cmake_args' from command line to 'None'
+[2.159s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'catkin_cmake_args' from command line to 'None'
+[2.159s] Level 5:colcon.colcon_core.verb:set package 'dabomb_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.159s] DEBUG:colcon.colcon_core.verb:Building package 'dabomb_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/dabomb_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/dabomb_description', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/dabomb_description', 'symlink_install': True, 'test_result_base': None}
+[2.160s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_args' from command line to 'None'
+[2.160s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_target' from command line to 'None'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_clean_cache' from command line to 'False'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_clean_first' from command line to 'False'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'cmake_force_configure' from command line to 'False'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'ament_cmake_args' from command line to 'None'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'catkin_cmake_args' from command line to 'None'
+[2.161s] Level 5:colcon.colcon_core.verb:set package 'inv_kin' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.161s] DEBUG:colcon.colcon_core.verb:Building package 'inv_kin' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/inv_kin', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/inv_kin', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/inv_kin', 'symlink_install': True, 'test_result_base': None}
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_args' from command line to 'None'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_target' from command line to 'None'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_clean_cache' from command line to 'False'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_clean_first' from command line to 'False'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'cmake_force_configure' from command line to 'False'
+[2.163s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'ament_cmake_args' from command line to 'None'
+[2.164s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'catkin_cmake_args' from command line to 'None'
+[2.164s] Level 5:colcon.colcon_core.verb:set package 'odom' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.164s] DEBUG:colcon.colcon_core.verb:Building package 'odom' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/odom', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/odom', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/odom', 'symlink_install': True, 'test_result_base': None}
+[2.165s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_args' from command line to 'None'
+[2.165s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_target' from command line to 'None'
+[2.165s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.165s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[2.166s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_clean_first' from command line to 'False'
+[2.166s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'cmake_force_configure' from command line to 'False'
+[2.166s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'ament_cmake_args' from command line to 'None'
+[2.166s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[2.166s] Level 5:colcon.colcon_core.verb:set package 'rplidar_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.166s] DEBUG:colcon.colcon_core.verb:Building package 'rplidar_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/rplidar_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/rplidar_ros', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/rplidar_ros', 'symlink_install': True, 'test_result_base': None}
+[2.167s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_args' from command line to 'None'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_target' from command line to 'None'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_clean_cache' from command line to 'False'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_clean_first' from command line to 'False'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'cmake_force_configure' from command line to 'False'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'ament_cmake_args' from command line to 'None'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'catkin_cmake_args' from command line to 'None'
+[2.168s] Level 5:colcon.colcon_core.verb:set package 'serial_comm' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.168s] DEBUG:colcon.colcon_core.verb:Building package 'serial_comm' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/serial_comm', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/serial_comm', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/serial_comm', 'symlink_install': True, 'test_result_base': None}
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_args' from command line to 'None'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_target' from command line to 'None'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_clean_cache' from command line to 'False'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_clean_first' from command line to 'False'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'cmake_force_configure' from command line to 'False'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'ament_cmake_args' from command line to 'None'
+[2.170s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'catkin_cmake_args' from command line to 'None'
+[2.171s] Level 5:colcon.colcon_core.verb:set package 'x_serial' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.171s] DEBUG:colcon.colcon_core.verb:Building package 'x_serial' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/x_serial', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/x_serial', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/x_serial', 'symlink_install': True, 'test_result_base': None}
+[2.172s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_args' from command line to 'None'
+[2.172s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_target' from command line to 'None'
+[2.172s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.172s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[2.172s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_clean_first' from command line to 'False'
+[2.173s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'cmake_force_configure' from command line to 'False'
+[2.173s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'ament_cmake_args' from command line to 'None'
+[2.173s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[2.173s] Level 5:colcon.colcon_core.verb:set package 'xbox_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.173s] DEBUG:colcon.colcon_core.verb:Building package 'xbox_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/xbox_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/xbox_controller', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/xbox_controller', 'symlink_install': True, 'test_result_base': None}
+[2.174s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_args' from command line to 'None'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_target' from command line to 'None'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[2.175s] Level 5:colcon.colcon_core.verb:set package 'dabom_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.175s] DEBUG:colcon.colcon_core.verb:Building package 'dabom_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pi/dabom/dabom_ws/src/build/dabom_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pi/dabom/dabom_ws/src/install/dabom_bringup', 'merge_install': False, 'path': '/home/pi/dabom/dabom_ws/src/dabom_bringup', 'symlink_install': True, 'test_result_base': None}
+[2.176s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.179s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.180s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/inv_kin' with build type 'ament_python'
+[2.181s] Level 1:colcon.colcon_core.shell:create_environment_hook('inv_kin', 'ament_prefix_path')
+[2.200s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.201s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/ament_prefix_path.ps1'
+[2.206s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/ament_prefix_path.dsv'
+[2.209s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/ament_prefix_path.sh'
+[2.214s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.214s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.236s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/odom' with build type 'ament_python'
+[2.236s] Level 1:colcon.colcon_core.shell:create_environment_hook('odom', 'ament_prefix_path')
+[2.238s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/ament_prefix_path.ps1'
+[2.241s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/ament_prefix_path.dsv'
+[2.243s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/ament_prefix_path.sh'
+[2.246s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.247s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.267s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/rplidar_ros' with build type 'ament_cmake'
+[2.267s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/dabom/dabom_ws/src/rplidar_ros'
+[2.268s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.269s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.290s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/serial_comm' with build type 'ament_python'
+[2.291s] Level 1:colcon.colcon_core.shell:create_environment_hook('serial_comm', 'ament_prefix_path')
+[2.292s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/ament_prefix_path.ps1'
+[2.295s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/ament_prefix_path.dsv'
+[2.297s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/ament_prefix_path.sh'
+[2.300s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.301s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.452s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/inv_kin'
+[3.453s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.453s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.600s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/odom'
+[4.601s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.602s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.632s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/rplidar_ros -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/rplidar_ros
+[5.933s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/serial_comm'
+[5.935s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.935s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.164s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/inv_kin': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/inv_kin/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/inv_kin/build --no-deps symlink_data
+[10.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/serial_comm': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/serial_comm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/serial_comm/build --no-deps symlink_data
+[10.397s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/odom': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/odom/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/odom/build --no-deps symlink_data
+[14.678s] Level 1:colcon.colcon_core.shell:create_environment_hook('serial_comm', 'pythonpath_develop')
+[14.680s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/serial_comm/share/serial_comm/hook/pythonpath_develop.ps1'
+[14.684s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/serial_comm' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/serial_comm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/serial_comm/build --no-deps symlink_data
+[14.701s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/serial_comm/share/serial_comm/hook/pythonpath_develop.dsv'
+[14.718s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/serial_comm/share/serial_comm/hook/pythonpath_develop.sh'
+[14.852s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm' for CMake module files
+[14.868s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm' for CMake config files
+[14.890s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm/lib'
+[14.892s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm/bin'
+[14.892s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/pkgconfig/serial_comm.pc'
+[14.920s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages'
+[14.925s] Level 1:colcon.colcon_core.shell:create_environment_hook('serial_comm', 'pythonpath')
+[14.927s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/pythonpath.ps1'
+[14.932s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/pythonpath.dsv'
+[14.940s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/hook/pythonpath.sh'
+[14.948s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/serial_comm/bin'
+[14.950s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(serial_comm)
+[14.952s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/package.ps1'
+[14.958s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/package.dsv'
+[14.970s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/package.sh'
+[14.984s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/package.bash'
+[14.991s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/package.zsh'
+[14.996s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/serial_comm/share/colcon-core/packages/serial_comm)
+[15.000s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/x_serial' with build type 'ament_python'
+[15.001s] Level 1:colcon.colcon_core.shell:create_environment_hook('x_serial', 'ament_prefix_path')
+[15.003s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/ament_prefix_path.ps1'
+[15.008s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/ament_prefix_path.dsv'
+[15.012s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/ament_prefix_path.sh'
+[15.016s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.017s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[15.071s] Level 1:colcon.colcon_core.shell:create_environment_hook('inv_kin', 'pythonpath_develop')
+[15.073s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/inv_kin/share/inv_kin/hook/pythonpath_develop.ps1'
+[15.075s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/inv_kin' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/inv_kin/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/inv_kin/build --no-deps symlink_data
+[15.083s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/inv_kin/share/inv_kin/hook/pythonpath_develop.dsv'
+[15.099s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/inv_kin/share/inv_kin/hook/pythonpath_develop.sh'
+[15.111s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin' for CMake module files
+[15.116s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin' for CMake config files
+[15.137s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin/lib'
+[15.139s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin/bin'
+[15.140s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/pkgconfig/inv_kin.pc'
+[15.142s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages'
+[15.143s] Level 1:colcon.colcon_core.shell:create_environment_hook('inv_kin', 'pythonpath')
+[15.146s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/pythonpath.ps1'
+[15.150s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/pythonpath.dsv'
+[15.160s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/hook/pythonpath.sh'
+[15.165s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/inv_kin/bin'
+[15.166s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(inv_kin)
+[15.169s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/package.ps1'
+[15.177s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/package.dsv'
+[15.182s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/package.sh'
+[15.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/package.bash'
+[15.190s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/inv_kin/share/inv_kin/package.zsh'
+[15.218s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/inv_kin/share/colcon-core/packages/inv_kin)
+[15.234s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/dabom_joy' with build type 'ament_python'
+[15.244s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_joy', 'ament_prefix_path')
+[15.246s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/ament_prefix_path.ps1'
+[15.287s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/ament_prefix_path.dsv'
+[15.306s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/ament_prefix_path.sh'
+[15.323s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.324s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.819s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/x_serial'
+[17.820s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.821s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.815s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/dabom_joy'
+[19.816s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.816s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.848s] Level 1:colcon.colcon_core.shell:create_environment_hook('odom', 'pythonpath_develop')
+[19.849s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/odom/share/odom/hook/pythonpath_develop.ps1'
+[19.850s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/odom' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/odom/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/odom/build --no-deps symlink_data
+[19.854s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/odom/share/odom/hook/pythonpath_develop.dsv'
+[19.856s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/odom/share/odom/hook/pythonpath_develop.sh'
+[19.859s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom' for CMake module files
+[19.862s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom' for CMake config files
+[19.866s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom/lib'
+[19.867s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom/bin'
+[19.868s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom/lib/pkgconfig/odom.pc'
+[19.869s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages'
+[19.870s] Level 1:colcon.colcon_core.shell:create_environment_hook('odom', 'pythonpath')
+[19.871s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/pythonpath.ps1'
+[19.875s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/pythonpath.dsv'
+[19.877s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/hook/pythonpath.sh'
+[19.880s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/odom/bin'
+[19.880s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(odom)
+[19.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/package.ps1'
+[19.900s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/package.dsv'
+[19.904s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/package.sh'
+[19.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/package.bash'
+[19.910s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/odom/share/odom/package.zsh'
+[19.912s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/odom/share/colcon-core/packages/odom)
+[19.934s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/dabomb_description' with build type 'ament_cmake'
+[19.938s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/dabom/dabom_ws/src/dabomb_description'
+[19.951s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.951s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[20.067s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/dabomb_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/dabomb_description
+[22.815s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/x_serial': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/x_serial/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/x_serial/build --no-deps symlink_data
+[23.509s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabom_joy': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_joy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_joy/build --no-deps symlink_data
+[26.968s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/rplidar_ros -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/rplidar_ros
+[26.970s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/rplidar_ros -- -j4 -l4
+[28.433s] Level 1:colcon.colcon_core.shell:create_environment_hook('x_serial', 'pythonpath_develop')
+[28.435s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/x_serial/share/x_serial/hook/pythonpath_develop.ps1'
+[28.439s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/x_serial' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/x_serial/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/x_serial/build --no-deps symlink_data
+[28.442s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/x_serial/share/x_serial/hook/pythonpath_develop.dsv'
+[28.444s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/x_serial/share/x_serial/hook/pythonpath_develop.sh'
+[28.449s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial' for CMake module files
+[28.452s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial' for CMake config files
+[28.472s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial/lib'
+[28.473s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial/bin'
+[28.473s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial/lib/pkgconfig/x_serial.pc'
+[28.475s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages'
+[28.475s] Level 1:colcon.colcon_core.shell:create_environment_hook('x_serial', 'pythonpath')
+[28.476s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/pythonpath.ps1'
+[28.491s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/pythonpath.dsv'
+[28.492s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/hook/pythonpath.sh'
+[28.496s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/x_serial/bin'
+[28.496s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(x_serial)
+[28.529s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/package.ps1'
+[28.533s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/package.dsv'
+[28.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/package.sh'
+[28.560s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/package.bash'
+[28.562s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/x_serial/share/x_serial/package.zsh'
+[28.565s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/x_serial/share/colcon-core/packages/x_serial)
+[28.599s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/xbox_controller' with build type 'ament_cmake'
+[28.601s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pi/dabom/dabom_ws/src/xbox_controller'
+[28.602s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[28.602s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[28.700s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/xbox_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/xbox_controller
+[30.382s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_joy', 'pythonpath_develop')
+[30.383s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.ps1'
+[30.388s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabom_joy' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_joy/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_joy/build --no-deps symlink_data
+[30.398s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.dsv'
+[30.412s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.sh'
+[30.473s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy' for CMake module files
+[30.480s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy' for CMake config files
+[30.497s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib'
+[30.497s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy/bin'
+[30.498s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/pkgconfig/dabom_joy.pc'
+[30.502s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy/lib/python3.10/site-packages'
+[30.502s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_joy', 'pythonpath')
+[30.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/pythonpath.ps1'
+[30.519s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/pythonpath.dsv'
+[30.523s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/hook/pythonpath.sh'
+[30.532s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_joy/bin'
+[30.533s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dabom_joy)
+[30.535s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/package.ps1'
+[30.555s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/package.dsv'
+[30.562s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/package.sh'
+[30.569s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/package.bash'
+[30.578s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/dabom_joy/package.zsh'
+[30.590s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/dabom_joy/share/colcon-core/packages/dabom_joy)
+[38.875s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/dabomb_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/dabomb_description
+[38.893s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/dabomb_description -- -j4 -l4
+[39.355s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/dabomb_description -- -j4 -l4
+[40.033s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/dabomb_description
+[43.306s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dabomb_description)
+[43.307s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description' for CMake module files
+[43.312s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description' for CMake config files
+[43.323s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabomb_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/dabomb_description
+[43.326s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabomb_description', 'cmake_prefix_path')
+[43.327s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.ps1'
+[43.350s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.dsv'
+[43.362s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.sh'
+[43.368s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/bin'
+[43.369s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/lib/pkgconfig/dabomb_description.pc'
+[43.370s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/lib/python3.10/site-packages'
+[43.372s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/bin'
+[43.390s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.ps1'
+[43.400s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.dsv'
+[43.419s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.sh'
+[43.429s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.bash'
+[43.438s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.zsh'
+[43.442s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/colcon-core/packages/dabomb_description)
+[43.750s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dabomb_description)
+[43.751s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description' for CMake module files
+[43.755s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description' for CMake config files
+[43.763s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabomb_description', 'cmake_prefix_path')
+[43.765s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.ps1'
+[44.051s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.dsv'
+[44.053s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/hook/cmake_prefix_path.sh'
+[44.059s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/bin'
+[44.059s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/lib/pkgconfig/dabomb_description.pc'
+[44.061s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/lib/python3.10/site-packages'
+[44.065s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabomb_description/bin'
+[44.067s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.ps1'
+[44.109s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.dsv'
+[44.115s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.sh'
+[44.119s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.bash'
+[44.132s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/dabomb_description/package.zsh'
+[44.136s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/dabomb_description/share/colcon-core/packages/dabomb_description)
+[46.252s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake /home/pi/dabom/dabom_ws/src/xbox_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/dabom/dabom_ws/src/install/xbox_controller
+[46.269s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/xbox_controller -- -j4 -l4
+[46.782s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/xbox_controller -- -j4 -l4
+[47.050s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/xbox_controller
+[48.514s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(xbox_controller)
+[48.516s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller' for CMake module files
+[48.519s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/xbox_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/xbox_controller
+[48.523s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller' for CMake config files
+[48.527s] Level 1:colcon.colcon_core.shell:create_environment_hook('xbox_controller', 'cmake_prefix_path')
+[48.529s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.ps1'
+[48.547s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.dsv'
+[48.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.sh'
+[48.568s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib'
+[48.569s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/bin'
+[48.569s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib/pkgconfig/xbox_controller.pc'
+[48.572s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib/python3.10/site-packages'
+[48.574s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/bin'
+[48.576s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.ps1'
+[48.590s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.dsv'
+[48.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.sh'
+[48.610s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.bash'
+[48.615s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.zsh'
+[48.619s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/colcon-core/packages/xbox_controller)
+[49.127s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(xbox_controller)
+[49.129s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller' for CMake module files
+[49.133s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller' for CMake config files
+[49.153s] Level 1:colcon.colcon_core.shell:create_environment_hook('xbox_controller', 'cmake_prefix_path')
+[49.163s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.ps1'
+[49.167s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.dsv'
+[49.170s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/hook/cmake_prefix_path.sh'
+[49.190s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib'
+[49.191s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/bin'
+[49.191s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib/pkgconfig/xbox_controller.pc'
+[49.193s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/lib/python3.10/site-packages'
+[49.195s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/xbox_controller/bin'
+[49.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.ps1'
+[49.230s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.dsv'
+[49.238s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.sh'
+[49.258s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.bash'
+[49.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/xbox_controller/package.zsh'
+[49.270s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/xbox_controller/share/colcon-core/packages/xbox_controller)
+[108.392s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/rplidar_ros -- -j4 -l4
+[108.881s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/rplidar_ros
+[110.435s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rplidar_ros)
+[110.436s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros' for CMake module files
+[110.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/rplidar_ros
+[110.482s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros' for CMake config files
+[110.489s] Level 1:colcon.colcon_core.shell:create_environment_hook('rplidar_ros', 'cmake_prefix_path')
+[110.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.ps1'
+[110.493s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.dsv'
+[110.496s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.sh'
+[110.499s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib'
+[110.499s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/bin'
+[110.499s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/pkgconfig/rplidar_ros.pc'
+[110.500s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/python3.10/site-packages'
+[110.501s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/bin'
+[110.503s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.ps1'
+[110.505s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.dsv'
+[110.507s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.sh'
+[110.508s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.bash'
+[110.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.zsh'
+[110.511s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/colcon-core/packages/rplidar_ros)
+[110.982s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rplidar_ros)
+[110.983s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros' for CMake module files
+[110.986s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros' for CMake config files
+[110.991s] Level 1:colcon.colcon_core.shell:create_environment_hook('rplidar_ros', 'cmake_prefix_path')
+[110.992s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.ps1'
+[110.994s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.dsv'
+[110.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/hook/cmake_prefix_path.sh'
+[110.998s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib'
+[110.999s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/bin'
+[110.999s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/pkgconfig/rplidar_ros.pc'
+[111.000s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/python3.10/site-packages'
+[111.000s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/bin'
+[111.002s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.ps1'
+[111.005s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.dsv'
+[111.007s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.sh'
+[111.010s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.bash'
+[111.012s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.zsh'
+[111.014s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/colcon-core/packages/rplidar_ros)
+[111.015s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pi/dabom/dabom_ws/src/dabom_bringup' with build type 'ament_python'
+[111.016s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_bringup', 'ament_prefix_path')
+[111.017s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/ament_prefix_path.ps1'
+[111.022s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/ament_prefix_path.dsv'
+[111.024s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/ament_prefix_path.sh'
+[111.028s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[111.028s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[112.515s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pi/dabom/dabom_ws/src/dabom_bringup'
+[112.516s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[112.516s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[114.180s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pi/dabom/dabom_ws/src/build/dabom_bringup': AMENT_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/x_serial:/home/pi/dabom/dabom_ws/src/install/serial_comm:/home/pi/dabom/dabom_ws/src/install/rplidar_ros:/home/pi/dabom/dabom_ws/src/install/odom:/home/pi/dabom/dabom_ws/src/install/inv_kin:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/rplidar_ros:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/x_serial:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/serial_comm:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/odom:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/inv_kin:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_bringup/build --no-deps symlink_data
+[117.145s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_bringup', 'pythonpath_develop')
+[117.146s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.ps1'
+[117.151s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pi/dabom/dabom_ws/src/build/dabom_bringup' returned '0': AMENT_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/x_serial:/home/pi/dabom/dabom_ws/src/install/serial_comm:/home/pi/dabom/dabom_ws/src/install/rplidar_ros:/home/pi/dabom/dabom_ws/src/install/odom:/home/pi/dabom/dabom_ws/src/install/inv_kin:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pi/dabom/dabom_ws/src/install/rplidar_ros:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/dabom_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/x_serial:/home/pi/dabom/dabom_ws/src/install/x_serial/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/serial_comm:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/odom:/home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages:/home/pi/dabom/dabom_ws/src/build/inv_kin:/home/pi/dabom/dabom_ws/src/install/inv_kin/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/dabom_bringup/build --no-deps symlink_data
+[117.156s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.dsv'
+[117.162s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.sh'
+[117.167s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup' for CMake module files
+[117.170s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup' for CMake config files
+[117.173s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib'
+[117.174s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/bin'
+[117.174s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/pkgconfig/dabom_bringup.pc'
+[117.176s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages'
+[117.176s] Level 1:colcon.colcon_core.shell:create_environment_hook('dabom_bringup', 'pythonpath')
+[117.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/pythonpath.ps1'
+[117.181s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/pythonpath.dsv'
+[117.184s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/hook/pythonpath.sh'
+[117.188s] Level 1:colcon.colcon_core.environment:checking '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/bin'
+[117.189s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dabom_bringup)
+[117.191s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/package.ps1'
+[117.194s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/package.dsv'
+[117.198s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/package.sh'
+[117.200s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/package.bash'
+[117.202s] INFO:colcon.colcon_core.shell:Creating package script '/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/package.zsh'
+[117.205s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/colcon-core/packages/dabom_bringup)
+[117.210s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[117.213s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[117.213s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[117.213s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[117.254s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[117.255s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[117.256s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[117.256s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[117.261s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[117.262s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[117.263s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/dabom/dabom_ws/src/install/local_setup.ps1'
+[117.271s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/dabom/dabom_ws/src/install/_local_setup_util_ps1.py'
+[117.282s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/dabom/dabom_ws/src/install/setup.ps1'
+[117.293s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/dabom/dabom_ws/src/install/local_setup.sh'
+[117.299s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pi/dabom/dabom_ws/src/install/_local_setup_util_sh.py'
+[117.303s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/dabom/dabom_ws/src/install/setup.sh'
+[117.313s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/dabom/dabom_ws/src/install/local_setup.bash'
+[117.316s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/dabom/dabom_ws/src/install/setup.bash'
+[117.324s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pi/dabom/dabom_ws/src/install/local_setup.zsh'
+[117.328s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pi/dabom/dabom_ws/src/install/setup.zsh'

@@ -1,0 +1,28 @@
+[8.071s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/serial_comm': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/serial_comm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/serial_comm/build --no-deps symlink_data
+[10.992s] running develop
+[10.993s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[10.994s]   warnings.warn(
+[12.105s] running egg_info
+[12.106s] creating serial_comm.egg-info
+[12.107s] writing serial_comm.egg-info/PKG-INFO
+[12.108s] writing dependency_links to serial_comm.egg-info/dependency_links.txt
+[12.109s] writing entry points to serial_comm.egg-info/entry_points.txt
+[12.111s] writing requirements to serial_comm.egg-info/requires.txt
+[12.112s] writing top-level names to serial_comm.egg-info/top_level.txt
+[12.112s] writing manifest file 'serial_comm.egg-info/SOURCES.txt'
+[12.121s] reading manifest file 'serial_comm.egg-info/SOURCES.txt'
+[12.126s] writing manifest file 'serial_comm.egg-info/SOURCES.txt'
+[12.136s] running build_ext
+[12.136s] Creating /home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages/serial-comm.egg-link (link to .)
+[12.141s] Installing serial_talker script to /home/pi/dabom/dabom_ws/src/install/serial_comm/lib/serial_comm
+[12.143s] 
+[12.144s] Installed /home/pi/dabom/dabom_ws/src/build/serial_comm
+[12.145s] running symlink_data
+[12.146s] creating /home/pi/dabom/dabom_ws/src/install/serial_comm/share/ament_index
+[12.149s] creating /home/pi/dabom/dabom_ws/src/install/serial_comm/share/ament_index/resource_index
+[12.151s] creating /home/pi/dabom/dabom_ws/src/install/serial_comm/share/ament_index/resource_index/packages
+[12.152s] symbolically linking /home/pi/dabom/dabom_ws/src/build/serial_comm/resource/serial_comm -> /home/pi/dabom/dabom_ws/src/install/serial_comm/share/ament_index/resource_index/packages
+[12.153s] symbolically linking /home/pi/dabom/dabom_ws/src/build/serial_comm/package.xml -> /home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm
+[12.155s] creating /home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/launch
+[12.156s] symbolically linking /home/pi/dabom/dabom_ws/src/build/serial_comm/launch/serial_talker_launch.py -> /home/pi/dabom/dabom_ws/src/install/serial_comm/share/serial_comm/launch
+[12.393s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/serial_comm' returned '0': PYTHONPATH=/home/pi/dabom/dabom_ws/src/build/serial_comm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pi/dabom/dabom_ws/src/install/serial_comm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/pi/dabom/dabom_ws/src/build/serial_comm/build --no-deps symlink_data

@@ -1,0 +1,56 @@
+[2.547s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/rplidar_ros -- -j4 -l4
+[3.359s] [  5%] Built target rplidar_client
+[3.372s] [ 52%] Built target rplidar_node
+[3.389s] [100%] Built target rplidar_composition
+[4.000s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --build /home/pi/dabom/dabom_ws/src/build/rplidar_ros -- -j4 -l4
+[4.620s] Invoking command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/rplidar_ros
+[4.662s] -- Install configuration: ""
+[4.670s] -- Execute custom install script
+[4.682s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a1_launch.py
+[4.684s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m12_launch.py
+[4.687s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m7_launch.py
+[4.690s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m8_launch.py
+[4.695s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a2m8_launch.py:Zone.Identifier
+[4.699s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a3_launch.py
+[4.703s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_c1_launch.py
+[4.707s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1_launch.py
+[4.711s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1_tcp_launch.py
+[4.715s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s2_launch.py
+[4.719s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s2e_launch.py
+[4.723s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s3_launch.py
+[4.727s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/rplidar_t1_launch.py
+[4.732s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a1_launch.py
+[4.736s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a2m12_launch.py
+[4.739s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a2m7_launch.py
+[4.743s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a2m8_launch.py
+[4.747s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a2m8_launch.py:Zone.Identifier
+[4.750s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a3_launch.py
+[4.754s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_c1_launch.py
+[4.760s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1_launch.py
+[4.765s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1_tcp_launch.py
+[4.769s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s2_launch.py
+[4.773s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s2e_launch.py
+[4.776s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s3_launch.py
+[4.780s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_t1_launch.py
+[4.785s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/rviz/rplidar_ros.rviz
+[4.790s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/rplidar_ros/rplidar_node
+[4.795s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/rplidar_ros/rplidar_composition
+[4.798s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/lib/rplidar_ros/rplidar_client
+[4.803s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/ament_index/resource_index/package_run_dependencies/rplidar_ros
+[4.807s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/ament_index/resource_index/parent_prefix_path/rplidar_ros
+[4.812s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.sh
+[4.816s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.dsv
+[4.819s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/environment/path.sh
+[4.823s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/environment/path.dsv
+[4.827s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/local_setup.bash
+[4.831s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/local_setup.sh
+[4.835s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/local_setup.zsh
+[4.838s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/local_setup.dsv
+[4.842s] -- Symlinking: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.dsv
+[4.891s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/ament_index/resource_index/packages/rplidar_ros
+[4.895s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.899s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.916s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig.cmake
+[4.920s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig-version.cmake
+[4.923s] -- Up-to-date symlink: /home/pi/dabom/dabom_ws/src/install/rplidar_ros/share/rplidar_ros/package.xml
+[4.945s] Invoked command in '/home/pi/dabom/dabom_ws/src/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pi/dabom/dabom_ws/install/dabom_bringup:/home/pi/dabom/dabom_ws/install/x_serial:/home/pi/dabom/dabom_ws/install/serial_comm:/home/pi/dabom/dabom_ws/install/odom:/home/pi/dabom/dabom_ws/install/inv_kin:/home/pi/dabom/dabom_ws/install/dabom_joy:/opt/ros/humble /usr/bin/cmake --install /home/pi/dabom/dabom_ws/src/build/rplidar_ros
