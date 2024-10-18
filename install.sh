@@ -10,7 +10,7 @@ sudo apt install python3-rclpy
 sudo apt install ros-humble-rviz2
 sudo apt install ros-humble-robot-state-publisher
 sudo apt install python3-colcon-common-extensions
-
+sudo apt-get install ros-humble-xacro
 
 pip3 install numpy
 pip3 install pyserial
