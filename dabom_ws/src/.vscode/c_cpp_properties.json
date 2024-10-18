@@ -7,7 +7,7 @@
       },
       "includePath": [
         "/opt/ros/humble/include/**",
-        "/home/c/dabom_ws/src/dabomb_description/include/**",
+        "/home/c/dabom/dabom_ws/src/dabomb_description/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

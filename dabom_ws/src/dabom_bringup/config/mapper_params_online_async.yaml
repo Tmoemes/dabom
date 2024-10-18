@@ -1,0 +1,105 @@
+# SLAM Toolbox Parameters for Online Async Mode
+# This YAML file defines various parameters for configuring SLAM Toolbox.
+# Each parameter is explained below with its options, purpose, and default values.
+
+slam_toolbox:
+  # =======================
+  # Solver Plugin Parameters
+  # =======================
+
+  # Solver plugin used for pose graph optimization (non-linear optimization)
+  solver_plugin: solver_plugins::CeresSolver  # Default: solver_plugins::CeresSolver
+
+  # Ceres Solver Settings
+  ceres_linear_solver: SPARSE_NORMAL_CHOLESKY  # Options: SPARSE_NORMAL_CHOLESKY, DENSE_SCHUR. Default: SPARSE_NORMAL_CHOLESKY
+  ceres_preconditioner: SCHUR_JACOBI           # Options: SCHUR_JACOBI, IDENTITY. Default: SCHUR_JACOBI
+  ceres_trust_strategy: LEVENBERG_MARQUARDT    # Options: LEVENBERG_MARQUARDT, DOGLEG. Default: LEVENBERG_MARQUARDT
+  ceres_dogleg_type: TRADITIONAL_DOGLEG        # Options: TRADITIONAL_DOGLEG, SUBSPACE_DOGLEG. Default: TRADITIONAL_DOGLEG
+  ceres_loss_function: None                    # Options: None, HuberLoss, CauchyLoss. Default: None
+
+  # =======================
+  # Frame and Topic Settings
+  # =======================
+
+  # Frame for the odometry data
+  odom_frame: odom  # Default: odom
+
+  # Frame for the map being generated
+  map_frame: map  # Default: map
+
+  # Robot's base frame where the LIDAR is attached
+  base_frame: base_footprint  # Default: base_footprint
+
+  # The topic where LIDAR scan data is published
+  scan_topic: /scan  # Default: /scan
+
+  # =======================
+  # SLAM Mode and Map Settings
+  # =======================
+
+  # Automatically save the map after SLAM finishes
+  use_map_saver: true  # Default: true
+
+  # Define the mode for SLAM: mapping (create new map) or localization (localize on an existing map)
+  mode: mapping  # Options: mapping, localization. Default: mapping
+
+  # How often to update the map (in seconds)
+  map_update_interval: 3.0  # Default: 5.0
+
+  # Resolution of the map in meters
+  resolution: 0.05  # Default: 0.05 (5 cm per grid cell)
+
+  # Maximum range for the laser scanner
+  max_laser_range: 10.0  # Default: 20.0 meters
+
+  # =======================
+  # Transform and TF Settings
+  # =======================
+
+  # How often to publish the transform data (in seconds)
+  transform_publish_period: 0.02  # Default: 0.05 (50 Hz)
+
+  # Duration of the TF buffer (in seconds)
+  tf_buffer_duration: 30.0  # Default: 30.0 seconds
+
+  # =======================
+  # Scan Matching Settings
+  # =======================
+
+  # Enable or disable scan matching (aligning consecutive scans)
+  use_scan_matching: true  # Default: true
+
+  # Minimum travel distance (in meters) before scan matching is performed
+  minimum_travel_distance: 0.15  # Default: 0.5 meters
+
+  # Minimum change in heading (in radians) before scan matching is performed
+  minimum_travel_heading: 0.25  # Default: 0.5 radians
+
+  # Number of scans to buffer for scan matching
+  scan_buffer_size: 10  # Default: 10
+
+  # =======================
+  # Loop Closure Settings
+  # =======================
+
+  # Enable or disable loop closure (corrects the map when revisiting known locations)
+  do_loop_closing: true  # Default: true
+
+  # Maximum distance for searching for loop closures (in meters)
+  loop_search_maximum_distance: 3.0  # Default: 3.0 meters
+
+  # Minimum response threshold for a successful fine-level loop closure
+  loop_match_minimum_response_fine: 0.45  # Default: 0.45
+
+  # =======================
+  # Miscellaneous Parameters
+  # =======================
+
+  # Enable 2D pose estimation via scan matching
+  use_scan_barycenter: true  # Default: true
+
+  # Allow reversing of laser scan for better coverage
+  reverse_scan: false  # Default: false
+
+  # Enable multi-threaded map update
+  multi_thread_map_update: true  # Default: true

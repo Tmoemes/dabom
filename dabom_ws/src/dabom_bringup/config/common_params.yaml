@@ -1,0 +1,5 @@
+global_parameter_server:
+  ros__parameters:
+    lx: 0.15   # Robot length in meters
+    ly: 0.15   # Robot width in meters
+    wheel_radius: 0.04  # Wheel radius in meters

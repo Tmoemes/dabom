@@ -1,0 +1,33 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running egg_info
+creating dabom_bringup.egg-info
+writing dabom_bringup.egg-info/PKG-INFO
+writing dependency_links to dabom_bringup.egg-info/dependency_links.txt
+writing entry points to dabom_bringup.egg-info/entry_points.txt
+writing requirements to dabom_bringup.egg-info/requires.txt
+writing top-level names to dabom_bringup.egg-info/top_level.txt
+writing manifest file 'dabom_bringup.egg-info/SOURCES.txt'
+reading manifest file 'dabom_bringup.egg-info/SOURCES.txt'
+writing manifest file 'dabom_bringup.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/lib/python3.10/site-packages/dabom-bringup.egg-link (link to .)
+
+Installed /home/pi/dabom/dabom_ws/src/build/dabom_bringup
+running symlink_data
+creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/ament_index
+creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/ament_index/resource_index
+creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/resource/dabom_bringup -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/package.xml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup
+creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/launch
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/launch/rpi_bringup.py -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/launch
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/launch/computer_bringup.py -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/launch
+creating /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/master.yaml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/mapper_params_online_async.yaml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/launch_config.yaml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/nav2_params.yaml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/common_params.yaml -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/dabom_bringup/config/dabom.rviz -> /home/pi/dabom/dabom_ws/src/install/dabom_bringup/share/dabom_bringup/config

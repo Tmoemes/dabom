@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="dabomb" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<material name="gray">
+  <color rgba="0.75 0.75 0.75 1.0"/>  <!-- This is gray with full opacity -->
+</material>
+
+
 <xacro:include filename="$(find dabomb_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find dabomb_description)/urdf/dabomb.trans" />
 <xacro:include filename="$(find dabomb_description)/urdf/dabomb.gazebo" />
@@ -17,7 +22,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="0 0 -0.04" rpy="0 0 0"/>
@@ -38,7 +43,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/Wheel1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="-0.15 -0.15 -0.04" rpy="0 0 0"/>
@@ -59,7 +64,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/Wheel3_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="0.15 -0.15 -0.04" rpy="0 0 0"/>
@@ -80,7 +85,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/Wheel2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="-0.15 0.15 -0.04" rpy="0 0 0"/>
@@ -101,7 +106,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/Wheel4_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="0.15 0.15 -0.04" rpy="0 0 0"/>
@@ -122,7 +127,7 @@
     <geometry>
       <mesh filename="file://$(find dabomb_description)/meshes/LIDAR_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="gray"/>
   </visual>
   <collision>
     <origin xyz="0.0 -0.0 -0.19" rpy="0 0 0"/>
@@ -167,7 +172,7 @@
 </joint>
 
 <joint name="laser_joint" type="fixed">
-  <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
+  <origin xyz="0.0 0.0 0.15" rpy="0 0 ${pi}"/>
   <parent link="base_link"/>
   <child link="laser"/>
 </joint>

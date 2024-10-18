@@ -1,0 +1,25 @@
+running develop
+running egg_info
+creating odom.egg-info
+writing odom.egg-info/PKG-INFO
+writing dependency_links to odom.egg-info/dependency_links.txt
+writing entry points to odom.egg-info/entry_points.txt
+writing requirements to odom.egg-info/requires.txt
+writing top-level names to odom.egg-info/top_level.txt
+writing manifest file 'odom.egg-info/SOURCES.txt'
+reading manifest file 'odom.egg-info/SOURCES.txt'
+writing manifest file 'odom.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pi/dabom/dabom_ws/src/install/odom/lib/python3.10/site-packages/odom.egg-link (link to .)
+Installing odom_node script to /home/pi/dabom/dabom_ws/src/install/odom/lib/odom
+
+Installed /home/pi/dabom/dabom_ws/src/build/odom
+running symlink_data
+creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index
+creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index
+creating /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/resource/odom -> /home/pi/dabom/dabom_ws/src/install/odom/share/ament_index/resource_index/packages
+symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/package.xml -> /home/pi/dabom/dabom_ws/src/install/odom/share/odom
+creating /home/pi/dabom/dabom_ws/src/install/odom/share/odom/launch
+creating /home/pi/dabom/dabom_ws/src/install/odom/share/odom/config
+symbolically linking /home/pi/dabom/dabom_ws/src/build/odom/config/odom.yaml -> /home/pi/dabom/dabom_ws/src/install/odom/share/odom/config
