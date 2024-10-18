@@ -17,7 +17,6 @@ def generate_launch_description():
     with open(launch_config_path, 'r') as f:
         config = yaml.safe_load(f)['launch_config']
         use_serial_talker = config.get('use_serial_talker', True)
-        use_x_serial = config.get('use_x_serial', False)
         use_inv_kin = config.get('use_inv_kin', True)
         use_odom = config.get('use_odom', True)
         use_rplidar = config.get('use_rplidar', True)
@@ -27,7 +26,6 @@ def generate_launch_description():
     launch_files = {
         'rplidar': os.path.join(get_package_share_directory('rplidar_ros'), 'launch', 'rplidar_a2m8_launch.py'),
         'serial_talker': os.path.join(get_package_share_directory('serial_comm'), 'launch', 'serial_talker_launch.py'),
-        'x_serial': os.path.join(get_package_share_directory('x_serial'), 'launch', 'x_serial_launch.py')
     }
     
     slam_params_path = os.path.join(config_dir, 'config', 'mapper_params_online_async.yaml')
@@ -68,12 +66,6 @@ def generate_launch_description():
         ld.add_action(LogInfo(msg="Launching serial talker..."))
         ld.add_action(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(launch_files['serial_talker'])
-        ))
-
-    if use_x_serial:
-        ld.add_action(LogInfo(msg="Launching x_serial..."))
-        ld.add_action(IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(launch_files['x_serial'])
         ))
 
     # Conditionally include RPLIDAR
