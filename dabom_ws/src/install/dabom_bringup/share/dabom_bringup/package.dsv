@@ -1,0 +1,9 @@
+source;share/dabom_bringup/hook/pythonpath.ps1
+source;share/dabom_bringup/hook/pythonpath.dsv
+source;share/dabom_bringup/hook/pythonpath.sh
+source;share/dabom_bringup/hook/ament_prefix_path.ps1
+source;share/dabom_bringup/hook/ament_prefix_path.dsv
+source;share/dabom_bringup/hook/ament_prefix_path.sh
+source;../../build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.ps1
+source;../../build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.dsv
+source;../../build/dabom_bringup/share/dabom_bringup/hook/pythonpath_develop.sh

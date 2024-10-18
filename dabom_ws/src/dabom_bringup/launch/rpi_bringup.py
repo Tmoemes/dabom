@@ -22,7 +22,6 @@ def generate_launch_description():
         use_odom = config.get('use_odom', True)
         use_rplidar = config.get('use_rplidar', True)
         use_slam = config.get('use_slam_pi', False)
-        use_nav2 = config['launch_config'].get('use_nav2_pi', False)
 
     # Paths to individual launch files
     launch_files = {
@@ -96,17 +95,5 @@ def generate_launch_description():
             }.items()
         ))
     
-    # Conditionally launch Nav2 (Navigation stack)
-    if use_nav2:
-        ld.add_action(LogInfo(msg="Launching Nav2..."))
-        ld.add_action(IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
-            launch_arguments={
-                'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
-                'use_sim_time': 'false'
-                #'map': '/dev/null'  # Override the map argument with an empty value
-        }.items()
-    ))
 
     return ld
