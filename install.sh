@@ -10,8 +10,8 @@ sudo apt install python3-rclpy
 sudo apt install ros-humble-rviz2
 sudo apt install ros-humble-robot-state-publisher
 
-
 pip3 install numpy
 pip3 install pyserial
 pip3 install pyyaml
+pip3 install pygame
 

@@ -2,6 +2,24 @@
 
 ## Wiring for Power and Signals
 
+### Arduino <-> Raspberry Pi Communication
+The Pi and Arduino communicate using the hardware serial of the Pi to the Serial2 of the Arduino Mega.
+In this case we are also powering the Arduino from the Pi 5V pins.
+Make sure the Pi and Arduino are grounded together for serial communication to funcion properly 
+1. **Raspberry Pi GPIO Connections:**
+    - `GPIO 14 (TXD)` to `Arduino Pin 16 (TX2)`
+    - `GPIO 15 (RXD)` to `Arduino Pin 17 (RX2)`
+
+### Example Wiring Diagram for Arduino <-> Raspberry Pi Communication
+```
++------------------+       +------------------+
+| Raspberry Pi     |       | Arduino Mega     |
+|                  |       |                  |
+|   GPIO 14 (TXD)  +------>+ 17 (RX2)         |
+|   GPIO 15 (RXD)  +------>+ 16 (TX2)         |
++------------------+       +------------------+
+```
+
 ### Motor and Encoder Connections
 For the motors, it is necessary to connect the `EN` connection to PWM-capable pins to modulate speed. On the Arduino Mega, the PWM-capable pins are `D2-D13` and `D44-D46`.
 
@@ -12,6 +30,8 @@ For the encoders, it is important to connect at least one of the channels to an 
 - `INT.3` on Pin `18`
 - `INT.4` on Pin `2`
 - `INT.5` on Pin `3`
+
+Make sure the Arduino is grounded together with the motor drivers and the encoders to ensure proper signaling.
 
 1. **Motor Connections:**  
     - **Motor 0 (Front Left):**
