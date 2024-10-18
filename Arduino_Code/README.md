@@ -13,7 +13,8 @@ For the encoders, it is important to connect at least one of the channels to an 
 - `INT.4` on Pin `2`
 - `INT.5` on Pin `3`
 
-1. **Motor Connections:**  - **Motor 0 (Front Left):**
+1. **Motor Connections:**  
+    - **Motor 0 (Front Left):**
         - `EN` pin to `D2`
         - `IN1` pin to `D35`
         - `IN2` pin to `D37`
