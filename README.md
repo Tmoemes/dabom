@@ -26,6 +26,8 @@ For the mechanical assembly there is also a full CAD assembly provided which cou
 All the necessary components are located in the BOM (bill of material) excel file. There is also a possible vendor provided, however you are free to choose wherever to source the components from. Additionally it is important to mention that the Lidar used for this project, RPLidar, model: A2M8, is currently discontinued. The alternative A2M12 requires changes to the code. These changes are not implemented in the current working repository! The implementation of the A2M12 model is only recommended for experienced ROS users.
 
 ### Electrical Schematics:
+[Arduino Wiring Schematics](Arduino_Code/README.md)
+
 Hadi insert schematics here as a picture <3 
 
 
