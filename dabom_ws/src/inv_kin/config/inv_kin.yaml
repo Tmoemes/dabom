@@ -1,0 +1,9 @@
+inv_kin_node:
+  ros__parameters:
+    lx: 0.15  # Override node default
+    ly: 0.15  # Override node default
+    wheel_radius: 0.04  # Override node default
+    cmd_vel_topic: '/cmd_vel'
+    motor_vel_topic: '/motor_vel'
+    frame_id: 'base_link'
+

@@ -1,0 +1,24 @@
+<package format="3">
+  <name>dabom_bringup</name>
+  <version>0.0.1</version>
+  <description>Master launch package for dabom system</description>
+  <maintainer email="christopher@karg.ca">Christopher</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>inv_kin</depend>
+  <depend>odom</depend>
+  <depend>rplidar_ros</depend>
+  <depend>serial_comm</depend>
+  <depend>x_serial</depend>
+  <depend>nav2_bringup</depend>
+  <depend>slam_toolbox</depend>
+  <depend>rviz2</depend>
+  <depend>joy</depend>
+
+  <export>
+  <build_type>ament_python</build_type>
+  </export>
+</package>

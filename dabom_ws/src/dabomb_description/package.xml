@@ -4,10 +4,17 @@
   <name>dabomb_description</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="c@todo.todo">c</maintainer>
-  <license>TODO: License declaration</license>
+  <maintainer email="christopher@karg.ca">c</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>xacro</depend>
+  <depend>urdf</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend> 
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
