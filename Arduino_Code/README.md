@@ -1,4 +1,44 @@
 # Hardware Installation Instructions
+## Software install
+### Step-by-Step Guide to Install and Upload the Project using PlatformIO
+
+1. **Install PlatformIO:**
+    - Download and install [Visual Studio Code](https://code.visualstudio.com/).
+    - Open Visual Studio Code and go to the Extensions view by clicking on the square icon in the sidebar or pressing `Ctrl+Shift+X`.
+    - Search for "PlatformIO IDE" and click "Install".
+
+2. **Open the Project in Visual Studio Code:**
+    - Open Visual Studio Code.
+    - Click on `File` > `Open Folder...` and select the `Arduino_Code` directory from the cloned repository.
+
+3. **Install Dependencies:**
+    - Open the PlatformIO Home by clicking on the house icon in the sidebar.
+    - Click on "Open Project" and select the `Arduino_Code` directory.
+    - PlatformIO will automatically detect the `platformio.ini` file and install the necessary dependencies.
+
+4. **Configure the Project:**
+    - Open the `platformio.ini` file in the `Arduino_Code` directory.
+    - Ensure the configuration matches your setup. For example:
+      ```ini
+      [env:megaatmega2560]
+        platform = atmelavr
+        board = megaatmega2560
+        framework = arduino
+        monitor_speed = 19200
+        lib_deps = 
+	        paulstoffregen/Encoder@^1.4.4
+      ```
+
+5. **Upload the Code to Arduino Mega:**
+    - Connect your Arduino Mega to your computer using a USB cable.
+    - In Visual Studio Code, open the PlatformIO sidebar by clicking on the alien icon.
+    - Click on the "Upload" button (arrow pointing right) to compile and upload the code to the Arduino Mega.
+
+6. **Monitor Serial Output (Optional):**
+    - To monitor the serial output from the Arduino, click on the "Serial Monitor" button (plug icon) in the PlatformIO sidebar.
+    - Ensure the baud rate matches the one set in your code (e.g., `19200`).
+
+Your project should now be uploaded to the Arduino Mega and running as expected.
 
 ## Wiring for Power and Signals
 
