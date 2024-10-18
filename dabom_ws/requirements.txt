@@ -1,0 +1,17 @@
+ament_copyright==0.12.11
+ament_index_python==1.4.0
+general_utils==0.1.16
+geometry_msgs==4.2.4
+launch_ros==0.19.7
+nav_msgs==4.2.4
+numpy==1.21.5
+pygame==2.6.1
+pyserial==3.5
+pytest==6.2.5
+PyYAML==5.4.1
+PyYAML==6.0.2
+rclpy==3.3.14
+sensor_msgs==4.2.4
+setuptools==59.6.0
+tf2_ros_py==0.25.8
+xacro==2.0.8
