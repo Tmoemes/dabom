@@ -8,7 +8,7 @@ def generate_launch_description():
     # Declare arguments
     robot_id_arg = DeclareLaunchArgument('robot_id', default_value='dabom')
     domain_id_arg = DeclareLaunchArgument('domain_id', default_value='0')
-    use_sim_time_arg = DeclareLaunchArgument('use_sim_time', default_value='False')
+    use_sim_time_arg = DeclareLaunchArgument('use_sim_time', default_value='true')
 
     # Launch configurations
     robot_id = LaunchConfiguration('robot_id')

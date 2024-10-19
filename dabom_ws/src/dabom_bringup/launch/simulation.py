@@ -20,9 +20,9 @@ def generate_launch_description():
         config = yaml.safe_load(f)
         use_joy = config['launch_config'].get('use_joy', False)
         use_rviz = config['launch_config'].get('use_rviz', True)
-        use_slam = config['launch_config'].get('use_slam', False)
+        use_slam = config['launch_config'].get('use_slam', True)
         use_nav2 = config['launch_config'].get('use_nav2', True)
-        use_robot_state = config['launch_config'].get('use_robot_state', True)
+        use_gazebo = config['launch_config'].get('use_gazebo', True)
         use_xbox = config['launch_config'].get('use_xbox', True)
 
     # Paths to individual launch files
@@ -32,8 +32,8 @@ def generate_launch_description():
     slam_params_path = os.path.join(
         get_package_share_directory('dabom_bringup'), 'config', 'mapper_params_online_async.yaml'
     )
-    robot_state_launch = os.path.join(
-        get_package_share_directory('dabomb_description'), 'launch', 'robot_state_launch.py'
+    gazebo_launch = os.path.join(
+        get_package_share_directory('dabomb_description'), 'launch', 'gazebo.launch.py'
     )
     rviz_config_path = os.path.join(
         get_package_share_directory('dabom_bringup'), 'config', 'dabom.rviz'
@@ -46,7 +46,7 @@ def generate_launch_description():
         'nav2_params.yaml'  # Ensure this points to your customized parameters file
     )
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
     # Create the launch description
     ld = LaunchDescription()
@@ -58,11 +58,11 @@ def generate_launch_description():
         description='Use simulation time (for playback)'
     ))
 
-    # Conditionally launch the robot state publisher
-    if use_robot_state:
-        ld.add_action(LogInfo(msg="Launching robot state publisher..."))
+    # Conditionally launch the gazebo simulation
+    if use_gazebo:
+        ld.add_action(LogInfo(msg="Launching gazebo simulation..."))
         ld.add_action(IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(robot_state_launch)
+            PythonLaunchDescriptionSource(gazebo_launch)
         ))
 
     # Conditionally launch the joystick control
@@ -90,8 +90,8 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(os.path.join(
                 get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')),
             launch_arguments={
-                'slam_param_file': slam_params_path,
-                'use_sim_time': 'false'
+                'slam_params_file': slam_params_path,
+                'use_sim_time': 'true'
             }.items()
         ))
 
@@ -103,7 +103,7 @@ def generate_launch_description():
                 get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
             launch_arguments={
                 'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
-                'use_sim_time': 'false'
+                'use_sim_time': 'true'
                 #'map': '/dev/null'  # Override the map argument with an empty value
         }.items()
     ))

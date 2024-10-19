@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/c/neobotix_workspace/install/neo_srvs2/include/**",
+        "/home/c/neobotix_workspace/install/neo_msgs2/include/**",
+        "/home/c/neobotix_workspace/install/neo_localization2/include/**",
+        "/home/c/neobotix_workspace/install/neo_local_planner2/include/**",
+        "/home/c/neobotix_workspace/install/neo_common2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_srvs2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_sick_s300-2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_msgs2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_localization2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_local_planner2/include/**",
+        "/home/c/mpo_500_workspace/install/neo_common2/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/c/dabom/dabom_ws/src/rplidar_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
