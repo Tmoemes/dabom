@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, LogInfo, DeclareLaunchArgument
 from launch_ros.actions import Node
@@ -18,12 +20,14 @@ def generate_launch_description():
     # Load the launch config YAML file
     with open(launch_config_path, 'r') as f:
         config = yaml.safe_load(f)
-        use_joy = config['launch_config'].get('use_joy', False)
-        use_rviz = config['launch_config'].get('use_rviz', True)
-        use_slam = config['launch_config'].get('use_slam', False)
-        use_nav2 = config['launch_config'].get('use_nav2', True)
-        use_robot_state = config['launch_config'].get('use_robot_state', True)
-        use_xbox = config['launch_config'].get('use_xbox', True)
+        if 'launch_config' not in config:
+            raise KeyError("'launch_config' key is missing in the configuration file")
+    use_joy = config['launch_config'].get('use_joy', False)
+    use_rviz = config['launch_config'].get('use_rviz', False)
+    use_slam = config['launch_config'].get('use_slam', False)
+    use_nav2 = config['launch_config'].get('use_nav2', True)
+    use_robot_state = config['launch_config'].get('use_robot_state', False)
+    use_xbox = config['launch_config'].get('use_xbox', False)
 
     # Paths to individual launch files
     joy_teleop_launch = os.path.join(

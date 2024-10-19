@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
+
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, LogInfo, DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription, LogInfo
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 import yaml
@@ -14,15 +15,22 @@ def generate_launch_description():
     launch_config_path = os.path.join(config_dir, 'config', 'launch_config.yaml')
 
     # Load launch configuration
-    with open(launch_config_path, 'r') as f:
-        config = yaml.safe_load(f)['launch_config']
-        use_serial_talker = config.get('use_serial_talker', True)
-        use_x_serial = config.get('use_x_serial', False)
-        use_inv_kin = config.get('use_inv_kin', True)
-        use_odom = config.get('use_odom', True)
-        use_rplidar = config.get('use_rplidar', True)
-        use_slam = config.get('use_slam_pi', False)
-        use_nav2 = config['launch_config'].get('use_nav2_pi', False)
+    try:
+        with open(launch_config_path, 'r') as f:
+            config = yaml.safe_load(f)['launch_config']
+    except KeyError:
+        raise KeyError("The key 'launch_config' is not found in the launch_config.yaml file.")
+    except FileNotFoundError:
+        raise FileNotFoundError(f"File not found: {launch_config_path}")
+    
+    # Read individual settings from launch configuration
+    use_serial_talker = config.get('use_serial_talker', True)
+    use_x_serial = config.get('use_x_serial', False)
+    use_inv_kin = config.get('use_inv_kin', True)
+    use_odom = config.get('use_odom', True)
+    use_rplidar = config.get('use_rplidar', True)
+    use_slam_pi = config.get('use_slam_pi', False)
+    use_nav2_pi = config.get('use_nav2_pi', False)
 
     # Paths to individual launch files
     launch_files = {
@@ -85,7 +93,7 @@ def generate_launch_description():
         ))
 
     # Conditionally launch SLAM Toolbox with custom parameters
-    if use_slam:
+    if use_slam_pi:
         ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
         ld.add_action(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(
@@ -97,7 +105,7 @@ def generate_launch_description():
         ))
     
     # Conditionally launch Nav2 (Navigation stack)
-    if use_nav2:
+    if use_nav2_pi:
         ld.add_action(LogInfo(msg="Launching Nav2..."))
         ld.add_action(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(
@@ -105,8 +113,7 @@ def generate_launch_description():
             launch_arguments={
                 'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
                 'use_sim_time': 'false'
-                #'map': '/dev/null'  # Override the map argument with an empty value
-        }.items()
-    ))
+            }.items()
+        ))
 
     return ld

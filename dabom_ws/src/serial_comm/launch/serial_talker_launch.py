@@ -9,11 +9,11 @@ def generate_launch_description():
             name='serial_talker',
             output='screen',
             parameters=[{
-                'port': '/dev/ttyS0', # /dev/ttyUSB0 ch340 seral usb port # '/dev/serial0',  # Raspberry Pi 4 built-in serial port
-                'baudrate': 38400,
-                'timeout': 0.01,
+                'port': '/dev/ttyArduinoMega', # /dev/ttyUSB0 ch340 seral usb port # '/dev/serial0',  # Raspberry Pi 4 built-in serial port
+                'baudrate': 115200,
+                'timeout': 0.008,
                 'pulses_per_rev': 1440,
-                'wheel_radius': 0.08,
+                'wheel_radius': 0.04,
                 'timer_period': 0.02
             }]
         )
