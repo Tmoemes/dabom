@@ -5,30 +5,34 @@ void processBinarySerialInput();
 void sendEncoderData();
 void controlMotors(float motorVelocities[4]);
 int mapFloat(float x, float in_min, float in_max, int out_min, int out_max);
+void sendDebugMessage(const char* message);
 
 long currentTime = 0;
 long lastUpdateTime = 0;
 long lastReceivedTime = 0;
 
-const long updateInterval = 8; // 8 ms for 120 Hz
+const long updateInterval = 8; // 8 ms for 125 Hz
+
+// Communication markers
+const byte START_MARKER = 0x02;  // For binary data
+const byte END_MARKER = 0x03;
+const byte DEBUG_MARKER = 0x04;  // For debug messages
 
 void setup()
 {
-  // Initialize serial communication
+  // Initialize serial communication with the ROS2 node
   Serial.begin(115200);
   while (!Serial) {
-    // Wait for Serial Monitor to open
+    // Wait for Serial port to be ready
   }
 
   // Initialize motors
   for (size_t i = 0; i < 4; i++) {
     motors[i].begin();
-    Serial.print("Motor ");
-    Serial.print(i);
-    Serial.println(" initialized");
+    delay(10); // Small delay for safety
   }
 
-  Serial.println("Setup Complete");
+  sendDebugMessage("Setup Complete");
   lastReceivedTime = millis();
   lastUpdateTime = millis();
 }
@@ -40,7 +44,7 @@ void loop()
   // Read serial data as soon as it's available
   processBinarySerialInput();
 
-  // Update at 120 Hz
+  // Update at 125 Hz
   if (currentTime - lastUpdateTime >= updateInterval) {
     lastUpdateTime = currentTime;
     sendEncoderData();
@@ -55,9 +59,6 @@ void loop()
 }
 
 void processBinarySerialInput() {
-  const byte START_MARKER = 0x02; // STX (Start of Text)
-  const byte END_MARKER = 0x03;   // ETX (End of Text)
-
   static boolean recvInProgress = false;
   static byte receivedBytes[17]; // 16 data bytes + 1 checksum
   static byte index = 0;
@@ -80,10 +81,10 @@ void processBinarySerialInput() {
             controlMotors(motorVelocities);
             lastReceivedTime = currentTime; // Update last received time
           } else {
-            Serial.println("Error: Checksum mismatch");
+            sendDebugMessage("Error: Checksum mismatch");
           }
         } else {
-          Serial.println("Error: Incorrect message length");
+          sendDebugMessage("Error: Incorrect message length");
         }
         index = 0; // Reset index for next message
       } else {
@@ -94,17 +95,34 @@ void processBinarySerialInput() {
           // Buffer overflow, discard data and reset
           recvInProgress = false;
           index = 0;
-          Serial.println("Error: Buffer overflow");
+          sendDebugMessage("Error: Buffer overflow");
         }
       }
     } else if (rb == START_MARKER) {
       recvInProgress = true;
       index = 0; // Reset index when a new message starts
+    } else if (rb == DEBUG_MARKER) {
+      // Ignore debug markers received from ROS2 node (if any)
     }
   }
 }
 
 void controlMotors(float motorVelocities[4]) {
+  char debugMsg[100];
+  char temp[20];  // Temporary buffer for converted float values
+
+  strcpy(debugMsg, "Received velocities: ");
+
+  for (int i = 0; i < 4; i++) {
+    dtostrf(motorVelocities[i], 6, 2, temp);  // Convert float to string
+    strcat(debugMsg, temp);
+    if (i < 3) {
+      strcat(debugMsg, ", ");
+    }
+  }
+
+  sendDebugMessage(debugMsg);
+
   for (int i = 0; i < 4; i++) {
     float speed = motorVelocities[i];
 
@@ -125,16 +143,36 @@ void controlMotors(float motorVelocities[4]) {
   }
 }
 
-// Helper function to map float values
-int mapFloat(float x, float in_min, float in_max, int out_min, int out_max) {
-  return (int)((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
-}
-
 void sendEncoderData() {
   long encoderCounts[4];
   for (int i = 0; i < 4; i++) {
     encoderCounts[i] = motors[i].readEncoder();
   }
-  // Send the encoder counts as binary data (4 long integers)
-  Serial.write((uint8_t*)encoderCounts, sizeof(encoderCounts));
+  // Send the encoder counts as binary data (4 long integers) with markers and checksum
+  byte dataBytes[16];
+  memcpy(dataBytes, encoderCounts, 16);
+
+  // Calculate checksum
+  byte checksum = 0;
+  for (int i = 0; i < 16; i++) {
+    checksum ^= dataBytes[i];
+  }
+
+  // Construct packet
+  Serial.write(START_MARKER);
+  Serial.write(dataBytes, 16);
+  Serial.write(checksum);
+  Serial.write(END_MARKER);
+}
+
+int mapFloat(float x, float in_min, float in_max, int out_min, int out_max) {
+  return (int)((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
+}
+
+void sendDebugMessage(const char* message) {
+  byte length = strlen(message);  // Length of the debug message
+  Serial.write(DEBUG_MARKER);
+  Serial.write(length);
+  Serial.write((const uint8_t*)message, length);
+  Serial.write(END_MARKER);
 }

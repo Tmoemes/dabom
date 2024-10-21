@@ -3,15 +3,15 @@ launch_config:
   use_joy: false          # Set to true to launch joystick control
   use_slam: false         # Set to true to launch SLAM Toolbox on the control computer
   use_nav2: false         # Set to true to launch Nav2 (Navigation Stack) on the control computer
-  use_rviz: false         # Set to true to launch RViz for visualization
+  use_rviz: true         # Set to true to launch RViz for visualization
   use_gazebo: false       # Set to true to launch robot state publisher
-  use_xbox: false         # Set to true to launch Xbox controller
+  use_xbox: true         # Set to true to launch Xbox controller
 
   # Control RPi nodes
-  use_inv_kin: false       # Set to true to launch inv_kin_node
-  use_odom: false          # Set to true to launch odom_node
-  use_rplidar: false       # Set to true to launch RPLIDAR node
+  use_inv_kin: true       # Set to true to launch inv_kin_node
+  use_odom: true          # Set to true to launch odom_node
+  use_rplidar: true       # Set to true to launch RPLIDAR node
   use_serial_talker: true # Set to true to launch serial talker
   use_x_serial: false     # Set to true to launch x_serial
-  use_slam_pi: false      # Set to true to launch SLAM Toolbox on the RPi
+  use_slam_pi: true      # Set to true to launch SLAM Toolbox on the RPi
   use_nav2_pi: false      # Set to true to launch Nav2 (Navigation Stack) on the RPi

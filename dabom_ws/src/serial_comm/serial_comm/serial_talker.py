@@ -52,25 +52,76 @@ class SerialTalker(Node):
 
     def read_serial_data(self):
         try:
-            # Calculate the total number of bytes to read (4 longs x 4 bytes each)
-            bytes_to_read = 4 * 4  # 4 encoders * 4 bytes per long
-
-            # Check if enough bytes are available
-            if self.serial_port.in_waiting >= bytes_to_read:
-                # Read the bytes
-                encoder_bytes = self.serial_port.read(bytes_to_read)
-
-                # Unpack the bytes into 4 long integers (little-endian)
-                encoder_counts = struct.unpack('<llll', encoder_bytes)
-
-                # Calculate angular velocities
-                angular_velocities = self.calculate_angular_velocities(encoder_counts)
-
-                # Publish the velocities
-                self.publish_velocities(angular_velocities)
+            while self.serial_port.in_waiting > 0:
+                start_marker = self.serial_port.read(1)
+                if start_marker == b'\x02':  # START_MARKER
+                    self.read_binary_data()
+                elif start_marker == b'\x04':  # DEBUG_MARKER
+                    self.read_debug_message()
+                else:
+                    # Unknown marker, discard or handle as needed
+                    pass
         except serial.SerialException:
             self.get_logger().error('Serial communication error. Attempting to reconnect.')
             self.reconnect_serial()
+
+    def read_binary_data(self):
+        data_length = 16 + 1 + 1  # 16 bytes data + 1 byte checksum + 1 byte END_MARKER
+        packet = self.serial_port.read(data_length)
+
+        if len(packet) != data_length:
+            self.get_logger().error('Incomplete binary data packet received.')
+            return
+
+        # Verify END_MARKER
+        if packet[-1] != 0x03:
+            self.get_logger().error('Invalid END_MARKER in binary data packet.')
+            return
+
+        # Extract data and checksum
+        data_bytes = packet[:16]
+        received_checksum = packet[16]
+
+        # Calculate checksum
+        calculated_checksum = 0
+        for b in data_bytes:
+            calculated_checksum ^= b
+
+        if calculated_checksum != received_checksum:
+            self.get_logger().error('Checksum mismatch in binary data packet.')
+            return
+
+        # Unpack the data
+        encoder_counts = struct.unpack('<llll', data_bytes)
+
+        # Calculate angular velocities
+        angular_velocities = self.calculate_angular_velocities(encoder_counts)
+
+        # Publish the velocities
+        self.publish_velocities(angular_velocities)
+
+    def read_debug_message(self):
+        length_byte = self.serial_port.read(1)
+        if not length_byte:
+            self.get_logger().error('Failed to read debug message length.')
+            return
+
+        length = length_byte[0]
+
+        # Read the debug message and END_MARKER
+        message_bytes = self.serial_port.read(length + 1)
+        if len(message_bytes) != length + 1:
+            self.get_logger().error('Incomplete debug message received.')
+            return
+
+        # Verify END_MARKER
+        if message_bytes[-1] != 0x03:
+            self.get_logger().error('Invalid END_MARKER in debug message.')
+            return
+
+        # Extract the debug message
+        debug_message = message_bytes[:-1].decode('utf-8', errors='replace')
+        self.get_logger().info(f'Arduino Debug: {debug_message}')
 
     def calculate_angular_velocities(self, encoder_counts):
         current_time = self.get_clock().now()
@@ -126,6 +177,9 @@ class SerialTalker(Node):
 
                 # Send the packet
                 self.serial_port.write(packet)
+
+                # Debug output
+                self.get_logger().info(f'Sent motor velocities: {motor_velocities}')
             except serial.SerialException:
                 self.get_logger().error('Failed to send binary data over serial.')
                 self.reconnect_serial()
@@ -134,9 +188,9 @@ class SerialTalker(Node):
         try:
             self.serial_port.close()
             self.serial_port.open()
+            self.get_logger().info('Serial port reconnected.')
         except serial.SerialException:
             self.get_logger().error('Reconnection failed. Please check the connection.')
-
 
 def main(args=None):
     rclpy.init(args=args)

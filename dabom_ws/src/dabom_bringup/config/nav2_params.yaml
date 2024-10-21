@@ -1,42 +1,42 @@
-amcl:
-  ros__parameters:
-    alpha1: 0.2
-    alpha2: 0.2
-    alpha3: 0.2
-    alpha4: 0.2
-    alpha5: 0.2
-    base_frame_id: "base_footprint"
-    beam_skip_distance: 0.5
-    beam_skip_error_threshold: 0.9
-    beam_skip_threshold: 0.3
-    do_beamskip: false
-    global_frame_id: "map"
-    lambda_short: 0.1
-    laser_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
-    laser_min_range: -1.0
-    laser_model_type: "likelihood_field"
-    max_beams: 60
-    max_particles: 2000
-    min_particles: 500
-    odom_frame_id: "odom"
-    pf_err: 0.05
-    pf_z: 0.99
-    recovery_alpha_fast: 0.0
-    recovery_alpha_slow: 0.0
-    resample_interval: 1
-    robot_model_type: "nav2_amcl::DifferentialMotionModel"
-    save_pose_rate: 0.5
-    sigma_hit: 0.2
-    tf_broadcast: true
-    transform_tolerance: 1.0
-    update_min_a: 0.2
-    update_min_d: 0.25
-    z_hit: 0.5
-    z_max: 0.05
-    z_rand: 0.5
-    z_short: 0.05
-    scan_topic: scan
+# amcl:
+#   ros__parameters:
+#     alpha1: 0.2
+#     alpha2: 0.2
+#     alpha3: 0.2
+#     alpha4: 0.2
+#     alpha5: 0.2
+#     base_frame_id: "base_footprint"
+#     beam_skip_distance: 0.5
+#     beam_skip_error_threshold: 0.9
+#     beam_skip_threshold: 0.3
+#     do_beamskip: false
+#     global_frame_id: "map"
+#     lambda_short: 0.1
+#     laser_likelihood_max_dist: 2.0
+#     laser_max_range: 100.0
+#     laser_min_range: -1.0
+#     laser_model_type: "likelihood_field"
+#     max_beams: 60
+#     max_particles: 2000
+#     min_particles: 500
+#     odom_frame_id: "odom"
+#     pf_err: 0.05
+#     pf_z: 0.99
+#     recovery_alpha_fast: 0.0
+#     recovery_alpha_slow: 0.0
+#     resample_interval: 1
+#     robot_model_type: "nav2_amcl::DifferentialMotionModel"
+#     save_pose_rate: 0.5
+#     sigma_hit: 0.2
+#     tf_broadcast: true
+#     transform_tolerance: 1.0
+#     update_min_a: 0.2
+#     update_min_d: 0.25
+#     z_hit: 0.5
+#     z_max: 0.05
+#     z_rand: 0.5
+#     z_short: 0.05
+#     scan_topic: scan
 
 bt_navigator:
   ros__parameters:
@@ -68,6 +68,7 @@ bt_navigator:
 controller_server:
   ros__parameters:
     controller_frequency: 20.0
+    costmap_update_timeout: 0.30
     min_x_velocity_threshold: 0.01
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.01
@@ -106,9 +107,9 @@ controller_server:
       vy_std: 0.2
       wz_std: 0.4
       vx_max: 0.4
-      vx_min: -0.35
+      vx_min: -0.4
       vy_max: 0.4
-      wz_max: 1.9
+      wz_max: 1.5
       iteration_count: 1
       prune_distance: 1.7
       transform_tolerance: 0.1
@@ -120,6 +121,8 @@ controller_server:
       TrajectoryVisualizer:
         trajectory_step: 5
         time_step: 3
+      AckermannConstraints:
+        min_turning_r: 0.2
       critics: [
         "ConstraintCritic", "CostCritic", "GoalCritic",
         "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic",
@@ -187,16 +190,18 @@ local_costmap:
       publish_frequency: 2.0
       global_frame: odom
       robot_base_frame: base_link
+      footprint_padding: 0.
+      footprint:  "[ [0.175,0.175],[-0.175,0.175],[-0.175,-0.175],[0.175,-0.175] ]"
       rolling_window: true
       width: 3
       height: 3
       resolution: 0.05
-      robot_radius: 0.22
+      #robot_radius: 0.22
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.70
+        cost_scaling_factor: 4.0
+        inflation_radius: 0.50
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -209,7 +214,7 @@ local_costmap:
         observation_sources: scan
         scan:
           topic: /scan
-          max_obstacle_height: 2.0
+          max_obstacle_height: 0.25
           clearing: True
           marking: True
           data_type: "LaserScan"
@@ -229,7 +234,9 @@ global_costmap:
       publish_frequency: 1.0
       global_frame: map
       robot_base_frame: base_link
-      robot_radius: 0.22
+      footprint_padding: 0.
+      footprint:  "[ [0.175,0.175],[-0.175,0.175],[-0.175,-0.175],[0.175,-0.175] ]"
+      #robot_radius: 0.22
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
@@ -272,12 +279,14 @@ map_saver:
 
 planner_server:
   ros__parameters:
-    planner_plugin_types: ["nav2_theta_star_planner::ThetaStarPlanner"]
-    planner_plugin_ids: ["GridBased"]
+    expected_planner_frequency: 20.0
+    planner_plugins: ["GridBased"]
+    costmap_update_timeout: 1.0
     GridBased:
-      how_many_corners: 8
-      w_euc_cost: 1.0
-      w_traversal_cost: 2.0
+      plugin: "nav2_navfn_planner::NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+      allow_unknown: true
 
 smoother_server:
   ros__parameters:
@@ -331,13 +340,13 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [0.4, 0.4, 1.0]
-    min_velocity: [-0.4, -0.4, -1.0]
-    max_accel: [2.5, 2.5, 3.0]
-    max_decel: [-2.5, -2.5, -3.0]
+    max_velocity: [0.5, 0.0, 2.0]
+    min_velocity: [-0.5, 0.0, -2.0]
+    max_accel: [2.5, 0.0, 3.2]
+    max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odom"
     odom_duration: 0.1
-    deadband_velocity: [0.05, 0.05, 0.05]
+    deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
 
 collision_monitor:
@@ -358,7 +367,7 @@ collision_monitor:
       type: "polygon"
       action_type: "approach"
       footprint_topic: "/local_costmap/published_footprint"
-      time_before_collision: 2.0
+      time_before_collision: 1.2
       simulation_time_step: 0.1
       min_points: 6
       visualize: False
@@ -424,3 +433,14 @@ loopback_simulator:
     map_frame_id: "map"
     scan_frame_id: "base_scan"  # tb4_loopback_simulator.launch.py remaps to 'rplidar_link'
     update_duration: 0.02
+
+lifecycle_manager:
+  ros__parameters:
+    use_sim_time: false
+    autostart: true
+    node_names:
+      - controller_server
+      - planner_server
+      - behavior_server
+      - bt_navigator
+      - waypoint_follower
