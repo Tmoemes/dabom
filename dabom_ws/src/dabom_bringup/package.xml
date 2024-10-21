@@ -6,31 +6,29 @@
   <license>Apache-2.0</license>
 
   <!-- Build tool dependencies -->
-  <buildtool_depend>ament_python</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend> <!-- Change to ament_python -->
 
-  <!-- Build dependencies -->
-  <build_depend>launch</build_depend>
-  <build_depend>launch_ros</build_depend>
+  <!-- Runtime dependencies -->
+  <depend>rclcpp</depend>
+  <depend>inv_kin</depend>
+  <depend>odom</depend>
+  <depend>rplidar_ros</depend>
+  <depend>serial_comm</depend>
+  <depend>x_serial</depend>
+  <depend>nav2_bringup</depend>
+  <depend>slam_toolbox</depend>
+  <depend>rviz2</depend>
+  <depend>joy</depend>
+  <depend>xbox_controller</depend>
 
-  <!-- Execution dependencies -->
-  <exec_depend>launch</exec_depend>
-  <exec_depend>launch_ros</exec_depend>
-  <exec_depend>rclpy</exec_depend>
-  <exec_depend>nav2_bringup</exec_depend>
-  <exec_depend>slam_toolbox</exec_depend>
-  <exec_depend>rviz2</exec_depend>
-  <exec_depend>joy</exec_depend>
-  <exec_depend>xbox_controller</exec_depend>
-  <exec_depend>inv_kin</exec_depend>
-  <exec_depend>odom</exec_depend>
-  <exec_depend>rplidar_ros</exec_depend>
-  <exec_depend>serial_comm</exec_depend>
-  <exec_depend>x_serial</exec_depend>
+  <!-- Dependencies for launch functionality -->
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
 
   <!-- Optional dependencies -->
   <exec_depend>python3-yaml</exec_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_python</build_type> <!-- Change to ament_python -->
   </export>
 </package>
