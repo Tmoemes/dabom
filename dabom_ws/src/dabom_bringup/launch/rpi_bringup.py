@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, LogInfo
+from launch.actions import IncludeLaunchDescription, LogInfo, DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 import yaml
@@ -15,28 +14,18 @@ def generate_launch_description():
     launch_config_path = os.path.join(config_dir, 'config', 'launch_config.yaml')
 
     # Load launch configuration
-    try:
-        with open(launch_config_path, 'r') as f:
-            config = yaml.safe_load(f)['launch_config']
-    except KeyError:
-        raise KeyError("The key 'launch_config' is not found in the launch_config.yaml file.")
-    except FileNotFoundError:
-        raise FileNotFoundError(f"File not found: {launch_config_path}")
-    
-    # Read individual settings from launch configuration
-    use_serial_talker = config.get('use_serial_talker', True)
-    use_x_serial = config.get('use_x_serial', False)
-    use_inv_kin = config.get('use_inv_kin', True)
-    use_odom = config.get('use_odom', True)
-    use_rplidar = config.get('use_rplidar', True)
-    use_slam_pi = config.get('use_slam_pi', False)
-    use_nav2_pi = config.get('use_nav2_pi', False)
+    with open(launch_config_path, 'r') as f:
+        config = yaml.safe_load(f)['launch_config']
+        use_serial_talker = config.get('use_serial_talker', True)
+        use_inv_kin = config.get('use_inv_kin', True)
+        use_odom = config.get('use_odom', True)
+        use_rplidar = config.get('use_rplidar', True)
+        use_slam = config.get('use_slam_pi', False)
 
     # Paths to individual launch files
     launch_files = {
         'rplidar': os.path.join(get_package_share_directory('rplidar_ros'), 'launch', 'rplidar_a2m8_launch.py'),
         'serial_talker': os.path.join(get_package_share_directory('serial_comm'), 'launch', 'serial_talker_launch.py'),
-        'x_serial': os.path.join(get_package_share_directory('x_serial'), 'launch', 'x_serial_launch.py')
     }
     
     slam_params_path = os.path.join(config_dir, 'config', 'mapper_params_online_async.yaml')
@@ -79,12 +68,6 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(launch_files['serial_talker'])
         ))
 
-    if use_x_serial:
-        ld.add_action(LogInfo(msg="Launching x_serial..."))
-        ld.add_action(IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(launch_files['x_serial'])
-        ))
-
     # Conditionally include RPLIDAR
     if use_rplidar:
         ld.add_action(LogInfo(msg="Launching RPLIDAR..."))
@@ -93,7 +76,7 @@ def generate_launch_description():
         ))
 
     # Conditionally launch SLAM Toolbox with custom parameters
-    if use_slam_pi:
+    if use_slam:
         ld.add_action(LogInfo(msg="Launching SLAM Toolbox..."))
         ld.add_action(IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(
@@ -104,14 +87,5 @@ def generate_launch_description():
             }.items()
         ))
     
-    # Conditionally launch Nav2 (Navigation stack)
-    if use_nav2_pi:
-        ld.add_action(LogInfo(msg="Launching Nav2..."))
-        ld.add_action(IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('nav2_bringup'), 'launch', 'navigation_launch.py')),
-            launch_arguments={
-                'params_file': nav2_params_path,  # Use the custom nav2_params.yaml
-                'use_sim_time': 'false'
-            }.items()
-        ))
+
+    return ld
