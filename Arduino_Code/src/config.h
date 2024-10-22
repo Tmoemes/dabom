@@ -6,7 +6,7 @@
 
 // Configurable mapping values
 const float minInputSpeed = 0.0;   // Minimum expected input speed
-const float maxInputSpeed = 16.0;  // Maximum expected input speed
+const float maxInputSpeed = 10.4;  // Maximum expected input speed
 const int minPWM = 50;             // Minimum PWM value to prevent stalling
 const int maxPWM = 255;            // Maximum PWM value (full speed)
 

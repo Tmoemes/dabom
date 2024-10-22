@@ -1,6 +1,9 @@
 #include <Arduino.h>
 #include "config.h"
 
+// Uncomment the following line to enable debugging
+// #define DEBUG_ENABLED
+
 void processBinarySerialInput();
 void sendEncoderData();
 void controlMotors(float motorVelocities[4]);
@@ -32,7 +35,10 @@ void setup()
     delay(10); // Small delay for safety
   }
 
+#ifdef DEBUG_ENABLED
   sendDebugMessage("Setup Complete");
+#endif
+
   lastReceivedTime = millis();
   lastUpdateTime = millis();
 }
@@ -81,10 +87,14 @@ void processBinarySerialInput() {
             controlMotors(motorVelocities);
             lastReceivedTime = currentTime; // Update last received time
           } else {
+#ifdef DEBUG_ENABLED
             sendDebugMessage("Error: Checksum mismatch");
+#endif
           }
         } else {
+#ifdef DEBUG_ENABLED
           sendDebugMessage("Error: Incorrect message length");
+#endif
         }
         index = 0; // Reset index for next message
       } else {
@@ -95,7 +105,9 @@ void processBinarySerialInput() {
           // Buffer overflow, discard data and reset
           recvInProgress = false;
           index = 0;
+#ifdef DEBUG_ENABLED
           sendDebugMessage("Error: Buffer overflow");
+#endif
         }
       }
     } else if (rb == START_MARKER) {
@@ -108,21 +120,6 @@ void processBinarySerialInput() {
 }
 
 void controlMotors(float motorVelocities[4]) {
-  char debugMsg[100];
-  char temp[20];  // Temporary buffer for converted float values
-
-  strcpy(debugMsg, "Received velocities: ");
-
-  for (int i = 0; i < 4; i++) {
-    dtostrf(motorVelocities[i], 6, 2, temp);  // Convert float to string
-    strcat(debugMsg, temp);
-    if (i < 3) {
-      strcat(debugMsg, ", ");
-    }
-  }
-
-  sendDebugMessage(debugMsg);
-
   for (int i = 0; i < 4; i++) {
     float speed = motorVelocities[i];
 
@@ -163,6 +160,14 @@ void sendEncoderData() {
   Serial.write(dataBytes, 16);
   Serial.write(checksum);
   Serial.write(END_MARKER);
+
+#ifdef DEBUG_ENABLED
+  // Send encoder values as a debug message
+  char debugMsg[100];
+  snprintf(debugMsg, sizeof(debugMsg), "Encoder values: %ld, %ld, %ld, %ld", 
+           encoderCounts[0], encoderCounts[1], encoderCounts[2], encoderCounts[3]);
+  sendDebugMessage(debugMsg);
+#endif
 }
 
 int mapFloat(float x, float in_min, float in_max, int out_min, int out_max) {
