@@ -5,6 +5,8 @@ import rclpy
 from rclpy.node import Node
 import serial
 
+# Set to True to enable debug messages, False to disable
+DEBUG_ENABLED = False
 
 class SerialTalker(Node):
     def __init__(self):
@@ -121,7 +123,8 @@ class SerialTalker(Node):
 
         # Extract the debug message
         debug_message = message_bytes[:-1].decode('utf-8', errors='replace')
-        self.get_logger().info(f'Arduino Debug: {debug_message}')
+        if DEBUG_ENABLED:
+            self.get_logger().info(f'Arduino Debug: {debug_message}')
 
     def calculate_angular_velocities(self, encoder_counts):
         current_time = self.get_clock().now()
@@ -178,8 +181,8 @@ class SerialTalker(Node):
                 # Send the packet
                 self.serial_port.write(packet)
 
-                # Debug output
-                self.get_logger().info(f'Sent motor velocities: {motor_velocities}')
+                if DEBUG_ENABLED:
+                    self.get_logger().info(f'Sent motor velocities: {motor_velocities}')
             except serial.SerialException:
                 self.get_logger().error('Failed to send binary data over serial.')
                 self.reconnect_serial()
