@@ -1,6 +1,7 @@
 import numpy as np
 import struct
 from geometry_msgs.msg import TwistStamped
+from std_msgs.msg import Int32MultiArray
 import rclpy
 from rclpy.node import Node
 import serial
@@ -22,6 +23,7 @@ class SerialTalker(Node):
 
         # Setup publisher and subscriber
         self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
+        self.encoder_publisher_ = self.create_publisher(Int32MultiArray, '/enc_cont', 1)
         self.subscription = self.create_subscription(
             TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
 
@@ -96,10 +98,13 @@ class SerialTalker(Node):
         # Unpack the data
         encoder_counts = struct.unpack('<llll', data_bytes)
 
+        # Store the encoder counts for publishing
+        self.last_encoder_counts = list(encoder_counts)
+
         # Calculate angular velocities
         angular_velocities = self.calculate_angular_velocities(encoder_counts)
 
-        # Publish the velocities
+        # Publish the velocities and encoder counts
         self.publish_velocities(angular_velocities)
 
     def read_debug_message(self):
@@ -143,12 +148,18 @@ class SerialTalker(Node):
         return angular_velocities
 
     def publish_velocities(self, angular_velocities):
+        # Publish angular velocities
         msg = TwistStamped()
         msg.twist.linear.x = angular_velocities[0]
         msg.twist.linear.y = angular_velocities[1]
         msg.twist.linear.z = angular_velocities[2]
         msg.twist.angular.x = angular_velocities[3]
         self.publisher_.publish(msg)
+
+        # Publish encoder counts
+        encoder_msg = Int32MultiArray()
+        encoder_msg.data = self.last_encoder_counts
+        self.encoder_publisher_.publish(encoder_msg)
 
     def motor_vel_callback(self, msg):
         motor_velocities = [msg.twist.linear.x, msg.twist.linear.y, msg.twist.linear.z, msg.twist.angular.x]

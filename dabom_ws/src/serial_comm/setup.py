@@ -1,6 +1,7 @@
 from setuptools import find_packages, setup
 
 package_name = 'serial_comm'
+
 setup(
     name=package_name,
     version='0.0.0',
@@ -11,7 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/serial_talker_launch.py']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'pyserial'],  # Added pyserial here
     zip_safe=True,
     maintainer='mees',
     maintainer_email='38130223+Tmoemes@users.noreply.github.com',

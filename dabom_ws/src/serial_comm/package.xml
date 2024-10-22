@@ -7,10 +7,13 @@
   <maintainer email="38130223+Tmoemes@users.noreply.github.com">mees</maintainer>
   <license>Apache-2.0</license>
 
+  <!-- Runtime dependencies -->
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>serial</exec_depend>
 
+  <!-- Testing dependencies -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
