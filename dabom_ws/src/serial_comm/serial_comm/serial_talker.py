@@ -14,7 +14,7 @@ class SerialTalker(Node):
         super().__init__('serial_talker')
         
         # Declare parameters
-        self.declare_parameter('timer_period', 0.008)  # 125 Hz
+        self.declare_parameter('timer_period', 0.02)  # 50 Hz
         self.declare_parameter('port', '/dev/ttyArduinoMega')
         self.declare_parameter('baudrate', 115200)
         self.declare_parameter('timeout', 0.02)
@@ -22,8 +22,6 @@ class SerialTalker(Node):
         self.declare_parameter('wheel_radius', 0.04)
 
         # Setup publishers
-        self.velocity_publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
-        self.encoder_publisher_ = self.create_publisher(JointState, '/enc_cont', 1)
         self.motor_state_publisher_ = self.create_publisher(JointState, '/joint_states', 1)
         self.subscription = self.create_subscription(
             TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
@@ -50,11 +48,8 @@ class SerialTalker(Node):
 
         # Velocities and encoder calculations
         self.pulses_per_rev = self.get_parameter('pulses_per_rev').get_parameter_value().integer_value
-        self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
         self.PI = np.pi  # Use numpy's pi
-        self.last_encoder_counts = [0, 0, 0, 0]
         self.position = [0.0, 0.0, 0.0, 0.0]  # Initialize positions for the motors
-        self.last_time = self.get_clock().now()
 
     def read_serial_data(self):
         try:
@@ -100,18 +95,8 @@ class SerialTalker(Node):
         # Unpack the data
         encoder_counts = struct.unpack('<llll', data_bytes)
 
-        # Store the encoder counts for publishing
-        self.last_encoder_counts = list(encoder_counts)
-
-        # Calculate angular velocities and positions
-        angular_velocities = self.calculate_angular_velocities(encoder_counts)
-        self.calculate_positions(encoder_counts)
-
-        # Publish the velocities and encoder counts
-        self.publish_velocities(angular_velocities)
-
-        # Publish the motor state (position only)
-        self.publish_motor_state()
+        # Calculate positions and velocities
+        self.calculate_positions_and_velocities(encoder_counts)
 
     def read_debug_message(self):
         length_byte = self.serial_port.read(1)
@@ -137,57 +122,32 @@ class SerialTalker(Node):
         if DEBUG_ENABLED:
             self.get_logger().info(f'Arduino Debug: {debug_message}')
 
-    def calculate_angular_velocities(self, encoder_counts):
-        current_time = self.get_clock().now()
-        delta_time = (current_time - self.last_time).nanoseconds / 1e9  # Convert to seconds
-        self.last_time = current_time
-
-        # Ensure delta_time is non-zero to avoid division by zero
-        if delta_time == 0:
-            self.get_logger().warn('Delta time is zero, skipping velocity calculation.')
-            return [0.0, 0.0, 0.0, 0.0]
-
-        angular_velocities = []
-        for i in range(4):
-            delta_counts = encoder_counts[i] - self.last_encoder_counts[i]
-            self.last_encoder_counts[i] = encoder_counts[i]
-
-            # Calculate angular velocity (rad/s)
-            angular_velocity = (delta_counts / self.pulses_per_rev) * 2 * self.PI / delta_time
-            angular_velocities.append(angular_velocity)
-
-        return angular_velocities
-
-    def calculate_positions(self, encoder_counts):
+    def calculate_positions_and_velocities(self, encoder_counts):
         # Calculate position for each motor (in radians)
-        for i in range(4):
-            self.position[i] = (encoder_counts[i] / self.pulses_per_rev) * 2 * self.PI
+        current_positions = [(count / self.pulses_per_rev) * 2 * self.PI for count in encoder_counts]
 
-    def publish_velocities(self, angular_velocities):
-        # Publish angular velocities
-        msg = TwistStamped()
-        msg.twist.linear.x = angular_velocities[0]
-        msg.twist.linear.y = angular_velocities[1]
-        msg.twist.linear.z = angular_velocities[2]
-        msg.twist.angular.x = angular_velocities[3]
-        self.velocity_publisher_.publish(msg)
+        # Calculate velocities as change in position over 0.02 seconds (50 Hz)
+        velocities = [(current_positions[i] - self.position[i]) / 0.02 for i in range(4)]
 
-        # Publish encoder counts with timestamp
-        encoder_msg = JointState()
-        encoder_msg.header.stamp = self.get_clock().now().to_msg()  # Add timestamp
-        encoder_msg.header.frame_id = "encoders"
-        encoder_msg.name = ['encoder_1', 'encoder_2', 'encoder_3', 'encoder_4']  # Optional: Add names for each encoder
-        encoder_msg.position = [float(count) for count in self.last_encoder_counts]  # Store encoder counts as positions
-        self.encoder_publisher_.publish(encoder_msg)
+        # Update the stored positions
+        self.position = current_positions
 
-    def publish_motor_state(self):
-        # Publish motor state (position only) using JointState
-        motor_state_msg = JointState()
-        motor_state_msg.header.stamp = self.get_clock().now().to_msg()
-        motor_state_msg.header.frame_id = "base_link"  # Set the frame of reference
-        motor_state_msg.name = ['Wheel1_1', 'Wheel2_1', 'Wheel3_1', 'Wheel4_1']
-        motor_state_msg.position = self.position
-        self.motor_state_publisher_.publish(motor_state_msg)
+        # Publish both positions and velocities together in a JointState message
+        self.publish_joint_state(velocities)
+
+    def publish_joint_state(self, velocities):
+        # Create a JointState message to publish both position and velocity
+        joint_state_msg = JointState()
+        joint_state_msg.header.stamp = self.get_clock().now().to_msg()  # Add current timestamp
+        joint_state_msg.header.frame_id = "base_link"  # Set appropriate frame
+        joint_state_msg.name = ['Wheel1_1', 'Wheel2_1', 'Wheel3_1', 'Wheel4_1']
+
+        # Set the positions (in radians) and velocities (in rad/s)
+        joint_state_msg.position = self.position
+        joint_state_msg.velocity = velocities
+
+        # Publish the joint state
+        self.motor_state_publisher_.publish(joint_state_msg)
 
     def motor_vel_callback(self, msg):
         motor_velocities = [msg.twist.linear.x, msg.twist.linear.y, msg.twist.linear.z, msg.twist.angular.x]
