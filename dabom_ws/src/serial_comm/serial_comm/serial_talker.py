@@ -21,9 +21,10 @@ class SerialTalker(Node):
         self.declare_parameter('pulses_per_rev', 1440)
         self.declare_parameter('wheel_radius', 0.04)
 
-        # Setup publisher and subscriber
-        self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
+        # Setup publishers
+        self.velocity_publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
         self.encoder_publisher_ = self.create_publisher(JointState, '/enc_cont', 1)
+        self.motor_state_publisher_ = self.create_publisher(JointState, '/motor_states', 1)
         self.subscription = self.create_subscription(
             TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
 
@@ -52,6 +53,7 @@ class SerialTalker(Node):
         self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
         self.PI = np.pi  # Use numpy's pi
         self.last_encoder_counts = [0, 0, 0, 0]
+        self.position = [0.0, 0.0, 0.0, 0.0]  # Initialize positions for the motors
         self.last_time = self.get_clock().now()
 
     def read_serial_data(self):
@@ -101,11 +103,15 @@ class SerialTalker(Node):
         # Store the encoder counts for publishing
         self.last_encoder_counts = list(encoder_counts)
 
-        # Calculate angular velocities
+        # Calculate angular velocities and positions
         angular_velocities = self.calculate_angular_velocities(encoder_counts)
+        self.calculate_positions(encoder_counts)
 
         # Publish the velocities and encoder counts
         self.publish_velocities(angular_velocities)
+
+        # Publish the motor state (position only)
+        self.publish_motor_state()
 
     def read_debug_message(self):
         length_byte = self.serial_port.read(1)
@@ -136,6 +142,11 @@ class SerialTalker(Node):
         delta_time = (current_time - self.last_time).nanoseconds / 1e9  # Convert to seconds
         self.last_time = current_time
 
+        # Ensure delta_time is non-zero to avoid division by zero
+        if delta_time == 0:
+            self.get_logger().warn('Delta time is zero, skipping velocity calculation.')
+            return [0.0, 0.0, 0.0, 0.0]
+
         angular_velocities = []
         for i in range(4):
             delta_counts = encoder_counts[i] - self.last_encoder_counts[i]
@@ -147,6 +158,11 @@ class SerialTalker(Node):
 
         return angular_velocities
 
+    def calculate_positions(self, encoder_counts):
+        # Calculate position for each motor (in radians)
+        for i in range(4):
+            self.position[i] = (encoder_counts[i] / self.pulses_per_rev) * 2 * self.PI
+
     def publish_velocities(self, angular_velocities):
         # Publish angular velocities
         msg = TwistStamped()
@@ -154,7 +170,7 @@ class SerialTalker(Node):
         msg.twist.linear.y = angular_velocities[1]
         msg.twist.linear.z = angular_velocities[2]
         msg.twist.angular.x = angular_velocities[3]
-        self.publisher_.publish(msg)
+        self.velocity_publisher_.publish(msg)
 
         # Publish encoder counts with timestamp
         encoder_msg = JointState()
@@ -162,6 +178,14 @@ class SerialTalker(Node):
         encoder_msg.name = ['encoder_1', 'encoder_2', 'encoder_3', 'encoder_4']  # Optional: Add names for each encoder
         encoder_msg.position = [float(count) for count in self.last_encoder_counts]  # Store encoder counts as positions
         self.encoder_publisher_.publish(encoder_msg)
+
+    def publish_motor_state(self):
+        # Publish motor state (position only) using JointState
+        motor_state_msg = JointState()
+        motor_state_msg.header.stamp = self.get_clock().now().to_msg()
+        motor_state_msg.name = ['motor_1', 'motor_2', 'motor_3', 'motor_4']
+        motor_state_msg.position = self.position
+        self.motor_state_publisher_.publish(motor_state_msg)
 
     def motor_vel_callback(self, msg):
         motor_velocities = [msg.twist.linear.x, msg.twist.linear.y, msg.twist.linear.z, msg.twist.angular.x]
