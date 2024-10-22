@@ -25,7 +25,7 @@ def generate_launch_description():
     use_joy = config['launch_config'].get('use_joy', False)
     use_rviz = config['launch_config'].get('use_rviz', False)
     use_slam = config['launch_config'].get('use_slam', False)
-    use_nav2 = config['launch_config'].get('use_nav2', True)
+    use_nav2 = config['launch_config'].get('use_nav2', False)
     use_robot_state = config['launch_config'].get('use_robot_state', False)
     use_xbox = config['launch_config'].get('use_xbox', False)
 

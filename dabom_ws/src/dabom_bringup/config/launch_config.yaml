@@ -5,6 +5,7 @@ launch_config:
   use_nav2: false         # Set to true to launch Nav2 (Navigation Stack) on the control computer
   use_rviz: false         # Set to true to launch RViz for visualization
   use_gazebo: false       # Set to true to launch robot state publisher
+  use_robot_state: true 
   use_xbox: false         # Set to true to launch Xbox controller
 
   # Control RPi nodes
