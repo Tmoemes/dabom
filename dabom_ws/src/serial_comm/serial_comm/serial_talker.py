@@ -24,7 +24,7 @@ class SerialTalker(Node):
         # Setup publishers
         self.velocity_publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
         self.encoder_publisher_ = self.create_publisher(JointState, '/enc_cont', 1)
-        self.motor_state_publisher_ = self.create_publisher(JointState, '/motor_states', 1)
+        self.motor_state_publisher_ = self.create_publisher(JointState, '/joint_states', 1)
         self.subscription = self.create_subscription(
             TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
 
@@ -175,6 +175,7 @@ class SerialTalker(Node):
         # Publish encoder counts with timestamp
         encoder_msg = JointState()
         encoder_msg.header.stamp = self.get_clock().now().to_msg()  # Add timestamp
+        encoder_msg.header.frame_id = "encoders"
         encoder_msg.name = ['encoder_1', 'encoder_2', 'encoder_3', 'encoder_4']  # Optional: Add names for each encoder
         encoder_msg.position = [float(count) for count in self.last_encoder_counts]  # Store encoder counts as positions
         self.encoder_publisher_.publish(encoder_msg)
@@ -183,7 +184,8 @@ class SerialTalker(Node):
         # Publish motor state (position only) using JointState
         motor_state_msg = JointState()
         motor_state_msg.header.stamp = self.get_clock().now().to_msg()
-        motor_state_msg.name = ['motor_1', 'motor_2', 'motor_3', 'motor_4']
+        motor_state_msg.header.frame_id = "base_link"  # Set the frame of reference
+        motor_state_msg.name = ['Wheel1_1', 'Wheel2_1', 'Wheel3_1', 'Wheel4_1']
         motor_state_msg.position = self.position
         self.motor_state_publisher_.publish(motor_state_msg)
 
