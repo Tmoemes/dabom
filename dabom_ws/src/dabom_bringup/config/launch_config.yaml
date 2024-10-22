@@ -2,10 +2,10 @@
 launch_config:
   # Control Computer nodes
   use_slam: false # Set to true to launch SLAM Toolbox
-  use_nav2: true          # Set to true to launch Nav2 (Navigation Stack)
+  use_nav2: false          # Set to true to launch Nav2 (Navigation Stack)
   use_rviz: true          # Set to true to launch RViz for visualization
   use_robot_state: true  # Set to true to launch robot state publisher
-  use_xbox: false          # Set to true to launch Xbox controller
+  use_xbox: true          # Set to true to launch Xbox controller
 
 
   # Control RPi nodes
