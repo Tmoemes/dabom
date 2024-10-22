@@ -12,11 +12,11 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/serial_talker_launch.py']),
     ],
-    install_requires=['setuptools', 'pyserial'],  # Added pyserial here
+    install_requires=['setuptools', 'pyserial'],
     zip_safe=True,
     maintainer='mees',
     maintainer_email='38130223+Tmoemes@users.noreply.github.com',
-    description='TODO: Package description',
+    description='Package for serial communication with Arduino, including publishing encoder values and velocities.',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={

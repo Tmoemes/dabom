@@ -1,7 +1,7 @@
 import numpy as np
 import struct
 from geometry_msgs.msg import TwistStamped
-from std_msgs.msg import Int32MultiArray
+from sensor_msgs.msg import JointState
 import rclpy
 from rclpy.node import Node
 import serial
@@ -23,7 +23,7 @@ class SerialTalker(Node):
 
         # Setup publisher and subscriber
         self.publisher_ = self.create_publisher(TwistStamped, '/arduino_vel', 1)
-        self.encoder_publisher_ = self.create_publisher(Int32MultiArray, '/enc_cont', 1)
+        self.encoder_publisher_ = self.create_publisher(JointState, '/enc_cont', 1)
         self.subscription = self.create_subscription(
             TwistStamped, '/motor_vel', self.motor_vel_callback, 1)
 
@@ -156,9 +156,11 @@ class SerialTalker(Node):
         msg.twist.angular.x = angular_velocities[3]
         self.publisher_.publish(msg)
 
-        # Publish encoder counts
-        encoder_msg = Int32MultiArray()
-        encoder_msg.data = self.last_encoder_counts
+        # Publish encoder counts with timestamp
+        encoder_msg = JointState()
+        encoder_msg.header.stamp = self.get_clock().now().to_msg()  # Add timestamp
+        encoder_msg.name = ['encoder_1', 'encoder_2', 'encoder_3', 'encoder_4']  # Optional: Add names for each encoder
+        encoder_msg.position = [float(count) for count in self.last_encoder_counts]  # Store encoder counts as positions
         self.encoder_publisher_.publish(encoder_msg)
 
     def motor_vel_callback(self, msg):
