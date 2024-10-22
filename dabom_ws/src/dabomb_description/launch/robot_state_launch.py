@@ -20,11 +20,11 @@ def generate_launch_description():
             parameters=[{'robot_description': Command(['xacro ', urdf_file])}]
         ),
         
-        # Launch joint_state_publisher
-        #Node(
-        #    package='joint_state_publisher',
-        #    executable='joint_state_publisher',
-        #    name='joint_state_publisher',
-        #    output='screen'
-        #)
+        #Launch joint_state_publisher
+        Node(
+           package='joint_state_publisher',
+           executable='joint_state_publisher',
+           name='joint_state_publisher',
+           output='screen'
+        )
     ])
