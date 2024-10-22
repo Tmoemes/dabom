@@ -1,153 +1,178 @@
 #include <Arduino.h>
 #include "config.h"
 
-void processSerialInput(HardwareSerial &thisserial);
-void getSerialInput();
-void printMotorInfo();
-void sendEncoder();
+void processBinarySerialInput();
+void sendEncoderData();
+void controlMotors(float motorVelocities[4]);
+int mapFloat(float x, float in_min, float in_max, int out_min, int out_max);
+void sendDebugMessage(const char* message);
 
 long currentTime = 0;
-
-// debug output timing
-long d_previousTime = 0;
-
-// pi comm timing
-long p_previousTime = 0;
-
+long lastUpdateTime = 0;
 long lastReceivedTime = 0;
+
+const long updateInterval = 8; // 8 ms for 125 Hz
+
+// Communication markers
+const byte START_MARKER = 0x02;  // For binary data
+const byte END_MARKER = 0x03;
+const byte DEBUG_MARKER = 0x04;  // For debug messages
 
 void setup()
 {
-  // Used to display debug information
-  Serial.begin(DEBUG_BAUD_RATE);
-
-  // Serial for communication with Raspberry Pi
-  Serial2.begin(PI_BAUD_RATE);
-
-  lastReceivedTime = millis();
-  // Wait for Serial Monitor to be opened
-  while (!Serial || !Serial2)
-  {
-    // do nothing
+  // Initialize serial communication with the ROS2 node
+  Serial.begin(115200);
+  while (!Serial) {
+    // Wait for Serial port to be ready
   }
-  Serial.println("Serial Ready");
 
-  for (size_t i = 0; i < 4; i++)
-  {
+  // Initialize motors
+  for (size_t i = 0; i < 4; i++) {
     motors[i].begin();
-    Serial.println("Motor ");
-    Serial.print(i);
-    Serial.println(" started");
+    delay(10); // Small delay for safety
   }
 
-  Serial.println("Setup Complete");
+  sendDebugMessage("Setup Complete");
+  lastReceivedTime = millis();
+  lastUpdateTime = millis();
 }
 
 void loop()
 {
   currentTime = millis();
 
-  if (currentTime - d_previousTime >= DEBUG_FREQ && DEBUG_FREQ != 0)
-  {
-    printMotorInfo();
-    d_previousTime = currentTime;
+  // Read serial data as soon as it's available
+  processBinarySerialInput();
+
+  // Update at 125 Hz
+  if (currentTime - lastUpdateTime >= updateInterval) {
+    lastUpdateTime = currentTime;
+    sendEncoderData();
+
+    // Stop motors if no command is received within 300 ms
+    if (currentTime - lastReceivedTime >= 300) {
+      for (int i = 0; i < 4; i++) {
+        motors[i].stop();
+      }
+    }
+  }
+}
+
+void processBinarySerialInput() {
+  static boolean recvInProgress = false;
+  static byte receivedBytes[17]; // 16 data bytes + 1 checksum
+  static byte index = 0;
+
+  while (Serial.available() > 0) {
+    byte rb = Serial.read();
+
+    if (recvInProgress) {
+      if (rb == END_MARKER) {
+        recvInProgress = false;
+        if (index == 17) {
+          // Verify checksum
+          byte calculatedChecksum = 0;
+          for (int i = 0; i < 16; i++) {
+            calculatedChecksum ^= receivedBytes[i];
+          }
+          if (calculatedChecksum == receivedBytes[16]) {
+            float motorVelocities[4];
+            memcpy(motorVelocities, receivedBytes, 16);
+            controlMotors(motorVelocities);
+            lastReceivedTime = currentTime; // Update last received time
+          } else {
+            sendDebugMessage("Error: Checksum mismatch");
+          }
+        } else {
+          sendDebugMessage("Error: Incorrect message length");
+        }
+        index = 0; // Reset index for next message
+      } else {
+        // Collect data bytes
+        if (index < sizeof(receivedBytes)) {
+          receivedBytes[index++] = rb;
+        } else {
+          // Buffer overflow, discard data and reset
+          recvInProgress = false;
+          index = 0;
+          sendDebugMessage("Error: Buffer overflow");
+        }
+      }
+    } else if (rb == START_MARKER) {
+      recvInProgress = true;
+      index = 0; // Reset index when a new message starts
+    } else if (rb == DEBUG_MARKER) {
+      // Ignore debug markers received from ROS2 node (if any)
+    }
+  }
+}
+
+void controlMotors(float motorVelocities[4]) {
+  char debugMsg[100];
+  char temp[20];  // Temporary buffer for converted float values
+
+  strcpy(debugMsg, "Received velocities: ");
+
+  for (int i = 0; i < 4; i++) {
+    dtostrf(motorVelocities[i], 6, 2, temp);  // Convert float to string
+    strcat(debugMsg, temp);
+    if (i < 3) {
+      strcat(debugMsg, ", ");
+    }
   }
 
-  if (currentTime - lastReceivedTime >= PI_COMM_TIMEOUT)
-  {
-    Serial.println("No command received, stopping motors");
-    lastReceivedTime = currentTime;
-    for (int i = 0; i < 4; i++)
-    {
+  sendDebugMessage(debugMsg);
+
+  for (int i = 0; i < 4; i++) {
+    float speed = motorVelocities[i];
+
+    // Limit the input speed to the expected range
+    float limitedSpeed = constrain(abs(speed), minInputSpeed, maxInputSpeed);
+
+    // Map the speed to a PWM range (minPWM - maxPWM)
+    int targetSpeed = mapFloat(limitedSpeed, minInputSpeed, maxInputSpeed, minPWM, maxPWM);
+
+    motors[i].setSpeed(targetSpeed);
+    if (speed > 0) {
+      motors[i].forward();
+    } else if (speed < 0) {
+      motors[i].backward();
+    } else {
       motors[i].stop();
     }
   }
-
-  if (currentTime - p_previousTime >= PI_COMM_FREQ)
-  {
-
-    p_previousTime = currentTime;
-    sendEncoder();
-  }
-
-  // processSerialInput(Serial);
-  processSerialInput(Serial2);
 }
 
-void processSerialInput(HardwareSerial &thisserial)
-{
-  if (thisserial.available())
-  {
-    char input[32] = {0};
-    thisserial.readBytesUntil('\n', input, 31);
-    input[31] = '\0';                   // Ensure null-terminated string
-    char *command = strtok(input, " "); // tokenise input on spaces
-    if (command != nullptr && strcmp(command, "m") == 0)
-    {
-      char *motorStr = strtok(NULL, " ");
-      char *speedStr = strtok(NULL, " ");
-      if (motorStr != nullptr && speedStr != nullptr)
-      {
-
-        unsigned int motor = atoi(motorStr);
-
-        // check if motor number is valid
-        if (motor < 0 || motor >= sizeof(motors) / sizeof(Motor))
-        {
-          Serial.println("Invalid motor number");
-          return;
-        }
-
-        // convert speed string to double
-        double speed = atof(speedStr);
-
-        // map input speed to 0-255
-        int targetSpeed = map(abs(speed), 0, 10, 50, 255);
-
-        // set motor speed and direction
-        motors[motor].setSpeed(targetSpeed);
-        if (speed > 0){motors[motor].forward();}
-        else if (speed < 0){motors[motor].backward();}
-        else{motors[motor].stop();}
-
-        // update last received time
-        lastReceivedTime = currentTime;
-      }
-      else
-      {
-        Serial.println("Invalid input format");
-      }
-    }
-    else
-    {
-      // Serial.print("Unknown command: ");
-      // Serial.print(input);
-      // Serial.println();
-    }
+void sendEncoderData() {
+  long encoderCounts[4];
+  for (int i = 0; i < 4; i++) {
+    encoderCounts[i] = motors[i].readEncoder();
   }
+  // Send the encoder counts as binary data (4 long integers) with markers and checksum
+  byte dataBytes[16];
+  memcpy(dataBytes, encoderCounts, 16);
+
+  // Calculate checksum
+  byte checksum = 0;
+  for (int i = 0; i < 16; i++) {
+    checksum ^= dataBytes[i];
+  }
+
+  // Construct packet
+  Serial.write(START_MARKER);
+  Serial.write(dataBytes, 16);
+  Serial.write(checksum);
+  Serial.write(END_MARKER);
 }
 
-void printMotorInfo()
-{
-  char message[320] = {0};
-  int x = snprintf(message, sizeof(message), "\nCurrent motor Values---------------\n");
-  for (size_t i = 0; i < 4; i++)
-  {
-    long count = motors[i].readEncoder();
-    double speed = motors[i].getSpeed();
-    x += snprintf(message + x, sizeof(message), "Motor %i: \n-Speed: %d \n-Encoder Value: %li\n",i, speed, count);
-    Serial.print(message);
-  }
+int mapFloat(float x, float in_min, float in_max, int out_min, int out_max) {
+  return (int)((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
 }
 
-void sendEncoder()
-{
-  long count = motors[0].readEncoder();
-  long count1 = motors[1].readEncoder();
-  long count2 = motors[2].readEncoder();
-  long count3 = motors[3].readEncoder();
-
-  char message[64] = {0};
-  snprintf(message, sizeof(message), "%li,%li,%li,%li", count, count1, count2, count3);
-  Serial2.println(message);
+void sendDebugMessage(const char* message) {
+  byte length = strlen(message);  // Length of the debug message
+  Serial.write(DEBUG_MARKER);
+  Serial.write(length);
+  Serial.write((const uint8_t*)message, length);
+  Serial.write(END_MARKER);
 }
