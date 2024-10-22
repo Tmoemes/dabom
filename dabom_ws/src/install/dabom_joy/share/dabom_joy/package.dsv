@@ -1,9 +1,0 @@
-source;share/dabom_joy/hook/pythonpath.ps1
-source;share/dabom_joy/hook/pythonpath.dsv
-source;share/dabom_joy/hook/pythonpath.sh
-source;share/dabom_joy/hook/ament_prefix_path.ps1
-source;share/dabom_joy/hook/ament_prefix_path.dsv
-source;share/dabom_joy/hook/ament_prefix_path.sh
-source;../../build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.ps1
-source;../../build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.dsv
-source;../../build/dabom_joy/share/dabom_joy/hook/pythonpath_develop.sh

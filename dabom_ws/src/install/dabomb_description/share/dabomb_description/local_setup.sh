@@ -1,1 +1,0 @@
-/home/pi/dabom/dabom_ws/src/build/dabomb_description/ament_cmake_environment_hooks/local_setup.sh

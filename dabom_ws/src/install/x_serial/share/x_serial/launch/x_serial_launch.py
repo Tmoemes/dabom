@@ -1,1 +1,0 @@
-/home/pi/dabom/dabom_ws/src/build/x_serial/launch/x_serial_launch.py

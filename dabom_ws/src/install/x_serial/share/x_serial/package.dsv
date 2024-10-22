@@ -1,9 +1,0 @@
-source;share/x_serial/hook/pythonpath.ps1
-source;share/x_serial/hook/pythonpath.dsv
-source;share/x_serial/hook/pythonpath.sh
-source;share/x_serial/hook/ament_prefix_path.ps1
-source;share/x_serial/hook/ament_prefix_path.dsv
-source;share/x_serial/hook/ament_prefix_path.sh
-source;../../build/x_serial/share/x_serial/hook/pythonpath_develop.ps1
-source;../../build/x_serial/share/x_serial/hook/pythonpath_develop.dsv
-source;../../build/x_serial/share/x_serial/hook/pythonpath_develop.sh
