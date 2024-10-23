@@ -63,8 +63,8 @@ public:
         ¦   ##################             ¦
         v   ##################       x     ¦
         --|##1##|        |##3##|     <-----¦-
-      |       l2     |
-      |<------------>|
+             |       l2     |
+             |<------------>|
   */
   void setAxis1Length(double dLength);
   void setAxis2Length(double dLength);

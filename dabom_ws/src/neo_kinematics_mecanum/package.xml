@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>neo_kinematics_mecanum2</name>
+  <name>neo_kinematics_mecanum</name>
   <version>1.0.0</version>
   <description>transformation Node for neobotix robots with mecanum drive</description>
   <author>Jan-Niklas Nieland</author>

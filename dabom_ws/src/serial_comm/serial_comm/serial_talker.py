@@ -14,7 +14,7 @@ class SerialTalker(Node):
         super().__init__('serial_talker')
         
         # Declare parameters
-        self.declare_parameter('timer_period', 0.02)  # 50 Hz
+        self.declare_parameter('timer_period', 0.008)  # 50 Hz
         self.declare_parameter('port', '/dev/ttyArduinoMega')
         self.declare_parameter('baudrate', 115200)
         self.declare_parameter('timeout', 0.02)
@@ -127,7 +127,7 @@ class SerialTalker(Node):
         current_positions = [(count / self.pulses_per_rev) * 2 * self.PI for count in encoder_counts]
 
         # Calculate velocities as change in position over 0.02 seconds (50 Hz)
-        velocities = [(current_positions[i] - self.position[i]) / 0.02 for i in range(4)]
+        velocities = [(current_positions[i] - self.position[i]) / 0.008 for i in range(4)]
 
         # Update the stored positions
         self.position = current_positions

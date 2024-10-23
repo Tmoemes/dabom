@@ -41,9 +41,9 @@
 
 Mecanum4WKinematics::Mecanum4WKinematics()
 {
-  m_dAxis1Length = 0.5;
-  m_dAxis2Length = 0.7;
-  m_dDiam = 0.3;
+  m_dAxis1Length = 0.3;
+  m_dAxis2Length = 0.3;
+  m_dDiam = 0.08;
   m_dStdDevX = 0.1;
   m_dStdDevY = 0.1;
   m_dStdDevZ = 0.1;
@@ -153,19 +153,19 @@ void Mecanum4WKinematics::execInvKin(
   trajectory_msgs::msg::JointTrajectoryPoint point;
   point.velocities.resize(4);
   // w1:
-  traj.joint_names.push_back("wheel_front_left_joint");
+  traj.joint_names.push_back("wheel1");
   point.velocities[0] = 2 / m_dDiam *
     ( twist->linear.x - twist->linear.y - (m_dAxis1Length + m_dAxis2Length) / 2 * twist->angular.z);
   // w2:
-  traj.joint_names.push_back("wheel_front_right_joint");
+  traj.joint_names.push_back("wheel2");
   point.velocities[1] = 2 / m_dDiam *
     ( twist->linear.x + twist->linear.y + (m_dAxis1Length + m_dAxis2Length) / 2 * twist->angular.z);
   // w3:
-  traj.joint_names.push_back("wheel_back_left_joint");
+  traj.joint_names.push_back("wheel3");
   point.velocities[2] = 2 / m_dDiam *
     ( twist->linear.x + twist->linear.y - (m_dAxis1Length + m_dAxis2Length) / 2 * twist->angular.z);
   // w4:
-  traj.joint_names.push_back("wheel_back_right_joint");
+  traj.joint_names.push_back("wheel4");
   point.velocities[3] = 2 / m_dDiam *
     ( twist->linear.x - twist->linear.y + (m_dAxis1Length + m_dAxis2Length) / 2 * twist->angular.z);
   traj.points.push_back(point);

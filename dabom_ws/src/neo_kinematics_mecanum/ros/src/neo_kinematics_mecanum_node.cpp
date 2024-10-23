@@ -68,9 +68,9 @@ public:
     odom_broadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(this);
 
     // Declaring parameters
-    this->declare_parameter<double>("wheelDiameter", 0.3);
-    this->declare_parameter<double>("robotWidth", 0.5);
-    this->declare_parameter<double>("robotLength", 0.5);
+    this->declare_parameter<double>("wheelDiameter", 0.08);
+    this->declare_parameter<double>("robotWidth", 0.3);
+    this->declare_parameter<double>("robotLength", 0.3);
     this->declare_parameter<double>("devX", 0.1);
     this->declare_parameter<double>("devY", 0.1);
     this->declare_parameter<double>("devZ", 0.1);
@@ -130,7 +130,7 @@ private:
     nav_msgs::msg::Odometry odom;
     odom.header.stamp = js->header.stamp;
     odom.header.frame_id = "odom";
-    odom.child_frame_id = "base_link";
+    odom.child_frame_id = "base_footprint";
     kin->execForwKin(js, odom, pose);
     topicPub_Odometry->publish(odom);
 
@@ -141,10 +141,10 @@ private:
       odom_trans.header.stamp = js->header.stamp;
       if (robot_namespace != "/") {
         odom_trans.header.frame_id = robot_namespace + "odom";
-        odom_trans.child_frame_id = robot_namespace + "base_link";
+        odom_trans.child_frame_id = robot_namespace + "base_footprint";
       } else {
         odom_trans.header.frame_id = "odom";
-        odom_trans.child_frame_id = "base_link";
+        odom_trans.child_frame_id = "base_footprint";
       }
       odom_trans.transform.translation.x = odom.pose.pose.position.x;
       odom_trans.transform.translation.y = odom.pose.pose.position.y;

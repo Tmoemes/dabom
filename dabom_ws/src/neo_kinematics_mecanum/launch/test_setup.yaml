@@ -20,3 +20,4 @@ neo_mecanum_node:
     devPitch: 0.2
     #stddev vel x yaw
     devYaw: 0.2
+    sendTransform: true
