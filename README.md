@@ -127,16 +127,8 @@ source scripts/create_udev_rules.sh
 ```
 For the serial communication:
 ```bash
-sudo nano /etc/udev/rules.d/99-ttyS0.rules
-```
-paste the following text into the file:
-```
-KERNEL=="ttyS0", MODE="0666"
-```
-Then reload the udev rule set.
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+cd dabom/dabom_ws/src/serial_comm
+bash create_udev_rules.sh
 ```
 
 If this would not work for some reason you may also run the following commands as a backup:
@@ -145,8 +137,10 @@ sudo chmod 777 /dev/ttyUSB0
 sudo chmod 777 /dev/ttyS0
 ```
 
-Now that the permissions are settled we can proceed with the launching of the robot software! Furthermore for some reason TAB auto complete is not working on the following command.
-```
+Now that the permissions are settled we can proceed with the launching of the robot software! Furthermore for some reason TAB auto complete is not working on the following command. Do this from inside the `dabom_ws` folder.
+```bash
+source /opt/ros/humble/setup.bash
+source install/setup.bash
 ros2 launch dabom_bringup rpi_bringup.py
 ```
 If no error is returned the robot code should be up and running, you may exit the code any time by pressing `Ctrl + C` . 
