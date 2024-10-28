@@ -144,3 +144,7 @@ source install/setup.bash
 ros2 launch dabom_bringup rpi_bringup.py
 ```
 If no error is returned the robot code should be up and running, you may exit the code any time by pressing `Ctrl + C` . 
+
+
+# Operation of the robot:
+Depending on which modes you enable in the startup file the robot can be controlled by an Xbox controller. As well as by RVIZ2, which is a GUI automatically turned on when you launch the computer side bring up. In RVIZ2 you may set Nav2 Goals, if you do so the robot navigates there autonomously.
